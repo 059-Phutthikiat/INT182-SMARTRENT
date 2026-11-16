@@ -2055,11 +2055,51 @@
           });
         });
 
+        const UNIT_DEFAULT_BEDS = {
+          'Studio': 0,
+          '1 Bedroom': 1,
+          '2 Bedroom': 2,
+          '3 Bedroom': 3,
+          '4 Bedroom': 4,
+          'Duplex 1 Bedroom': 1,
+          'Duplex 2 Bedroom': 2,
+          'Duplex 3 Bedroom': 3,
+          'Duplex 4 Bedroom': 4,
+          'Moff': 1,
+          'Penthouse': 4,
+        };
+
         ['inSize', 'inUnitType', 'inFloor', 'inBedrooms', 'inDuplex', 'inDistrict', 'inProjUnits', 'inProjAge', 'inProjFloors', 'inProjBuildings', 'inProjAmenities'].forEach(id => {
           document.getElementById(id).addEventListener('input', () => {
+            const bedsEl = document.getElementById('inBedrooms');
+            const dupEl = document.getElementById('inDuplex');
             if (id === 'inUnitType') {
-              const ut = inUnitType.value.toLowerCase();
-              if (ut.includes('duplex')) document.getElementById('inDuplex').checked = true;
+              const val = inUnitType.value;
+              if (Object.prototype.hasOwnProperty.call(UNIT_DEFAULT_BEDS, val)) {
+                bedsEl.value = UNIT_DEFAULT_BEDS[val];
+              }
+              dupEl.checked = val.toLowerCase().includes('duplex');
+            } else if (id === 'inBedrooms') {
+              const n = parseInt(bedsEl.value, 10);
+              const cur = inUnitType.value;
+              if (n === 0) {
+                inUnitType.value = 'Studio';
+                dupEl.checked = false;
+              } else if (n >= 1 && n <= 4 && (cur === 'Studio' || cur.includes('Bedroom'))) {
+                const candidate = (dupEl.checked ? 'Duplex ' : '') + n + ' Bedroom';
+                if ([...inUnitType.options].some(o => o.value === candidate)) {
+                  inUnitType.value = candidate;
+                }
+              }
+            } else if (id === 'inDuplex') {
+              const cur = inUnitType.value;
+              const m = cur.match(/^(?:Duplex\s+)?([1-4]\s+Bedroom)$/);
+              if (m) {
+                const candidate = (dupEl.checked ? 'Duplex ' : '') + m[1];
+                if ([...inUnitType.options].some(o => o.value === candidate)) {
+                  inUnitType.value = candidate;
+                }
+              }
             }
             if (demoMode === 'CUSTOM') runCustomPrediction();
           });
