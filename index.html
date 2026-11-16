@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMARTRENT — ทำนายค่าเช่าคอนโดกรุงเทพฯ (Phase 3)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-fallback: #e9eef5;
+      --surface: rgba(255, 255, 255, 0.90);
+      --surface-solid: #ffffff;
+      --surface-soft: rgba(248, 250, 252, 0.88);
+      --border: rgba(203, 213, 225, 0.72);
+      --border-strong: rgba(148, 163, 184, 0.75);
+
+      --ink: #0f172a;
+      --ink-2: #334155;
+      --muted: #64748b;
+      --muted-light: #94a3b8;
+
+      --emerald: #059669;
+      --emerald-dark: #047857;
+      --emerald-soft: rgba(236, 253, 245, 0.92);
+      --emerald-border: #a7f3d0;
+
+      --amber-dark: #92400e;
+      --amber-soft: rgba(255, 251, 235, 0.95);
+      --amber-border: #fde68a;
+
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 9px;
+      --shadow: 0 8px 30px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", "Noto Sans Thai", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-fallback);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      font-variant-numeric: tabular-nums;
+      min-height: 100vh;
+    }
+
+    /* Soft Blurred Condominium Background (real photo + offline SVG skyline fallback) */
+    .bg-condo {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80'),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23cbd5e1'/%3E%3Cstop offset='55%25' stop-color='%23e2e8f0'/%3E%3Cstop offset='100%25' stop-color='%23cbd5e1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='900' fill='url(%23sky)'/%3E%3Crect x='90' y='210' width='190' height='690' rx='6' fill='%2394a3b8' opacity='0.55'/%3E%3Crect x='320' y='130' width='240' height='770' rx='8' fill='%2364748b' opacity='0.45'/%3E%3Crect x='620' y='260' width='210' height='640' rx='6' fill='%2394a3b8' opacity='0.5'/%3E%3Crect x='890' y='95' width='270' height='805' rx='8' fill='%23475569' opacity='0.42'/%3E%3Crect x='1220' y='190' width='220' height='710' rx='6' fill='%2364748b' opacity='0.48'/%3E%3Ccircle cx='380' cy='180' r='110' fill='%23fde68a' opacity='0.38'/%3E%3Ccircle cx='1280' cy='250' r='140' fill='%23a7f3d0' opacity='0.32'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      filter: blur(15px) saturate(1.06);
+      transform: scale(1.07);
+    }
+
+    .bg-veil {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(241, 245, 249, 0.72) 0%, rgba(248, 250, 252, 0.80) 100%);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes contentPulse {
+      from { opacity: 0.5; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .stagger-1 { animation: fadeUp 0.45s var(--ease) 0ms both; }
+    .stagger-2 { animation: fadeUp 0.45s var(--ease) 60ms both; }
+    .stagger-3 { animation: fadeUp 0.45s var(--ease) 120ms both; }
+    .stagger-4 { animation: fadeUp 0.45s var(--ease) 180ms both; }
+    .pulse-swap { animation: contentPulse 0.24s var(--ease) both; }
+
+    /* Clean Sticky Navigation Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .brand-tag {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--emerald-dark);
+      background: var(--emerald-soft);
+      border: 1px solid var(--emerald-border);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .brand-sub {
+      margin: 1px 0 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+      background: rgba(241, 245, 249, 0.85);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    .nav-tab {
+      text-decoration: none;
+      color: var(--ink-2);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: 999px;
+      transition: background 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .nav-tab:hover {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .nav-tab.active {
+      background: #ffffff;
+      color: var(--ink);
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+    }
+
+    /* Main Layout */
+    main.wrap {
+      max-width: 1140px;
+      margin: 22px auto 60px;
+      padding: 0 20px;
+    }
+
+    section[id] {
+      scroll-margin-top: 78px;
+    }
+
+    /* Frosted Minimal Cards */
+    .card {
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    /* 1. KPI Strip */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .kpi-card {
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s var(--ease), border-color 0.18s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+    }
+
+    .kpi-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .kpi-delta {
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--emerald-dark);
+      background: var(--emerald-soft);
+      border: 1px solid var(--emerald-border);
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .kpi-values {
+      margin-top: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .kpi-new {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+
+    .kpi-old {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted-light);
+      text-decoration: line-through;
+    }
+
+    /* 2. Spotlight Toolbar */
+    .spotlight-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .preset-pill {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.79rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .preset-pill:hover {
+      border-color: var(--border-strong);
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    .preset-pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #ffffff;
+    }
+
+    .action-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      font-family: inherit;
+      font-size: 0.81rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #ffffff;
+    }
+    .btn-primary:hover { background: #1e293b; }
+
+    .btn-emerald {
+      background: var(--emerald-soft);
+      color: var(--emerald-dark);
+      border-color: var(--emerald-border);
+    }
+    .btn-emerald:hover { background: #dcfce7; }
+
+    /* Spotlight Grid */
+    .spotlight-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .room-header { margin-bottom: 14px; }
+
+    .room-title {
+      margin: 0;
+      font-size: 1.32rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .room-meta {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .code-tag {
+      display: inline-block;
+      background: rgba(241, 245, 249, 0.9);
+      color: var(--ink);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.77rem;
+      font-weight: 700;
+      border: 1px solid var(--border);
+    }
+
+    .preset-caption {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--ink-2);
+    }
+
+    /* Feature Boxes */
+    .spec-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 13px 15px;
+      margin-bottom: 11px;
+    }
+
+    .spec-box:last-child { margin-bottom: 0; }
+
+    .spec-box.project {
+      background: var(--emerald-soft);
+      border-color: var(--emerald-border);
+    }
+
+    .spec-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+
+    .spec-heading {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--ink-2);
+    }
+
+    .spec-box.project .spec-heading { color: var(--emerald-dark); }
+
+    .spec-count-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--ink-2);
+      border: 1px solid var(--border);
+    }
+
+    .spec-box.project .spec-count-pill {
+      color: var(--emerald-dark);
+      border-color: var(--emerald-border);
+    }
+
+    .spec-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 14px;
+    }
+
+    .spec-item { display: flex; flex-direction: column; gap: 1px; }
+    .spec-k { font-size: 0.73rem; color: var(--muted); font-weight: 500; }
+    .spec-v { font-size: 0.86rem; color: var(--ink); font-weight: 700; }
+
+    .amen-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+      padding-top: 9px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .amen-tag {
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+    }
+
+    .amen-empty { font-size: 0.77rem; color: var(--muted); }
+
+    /* Right Side: Comparison Cards */
+    .pred-col { display: flex; flex-direction: column; gap: 11px; }
+
+    .pred-banner {
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.86rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid transparent;
+    }
+
+    .pred-banner.good {
+      background: var(--emerald-soft);
+      color: var(--emerald-dark);
+      border-color: var(--emerald-border);
+    }
+
+    .pred-banner.neutral {
+      background: var(--amber-soft);
+      color: var(--amber-dark);
+      border-color: var(--amber-border);
+    }
+
+    .pred-banner-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid currentColor;
+      white-space: nowrap;
+    }
+
+    .cmp-stack { display: flex; flex-direction: column; gap: 10px; }
+
+    .cmp-card {
+      border-radius: var(--radius-md);
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    .cmp-card.actual {
+      background: var(--surface-soft);
+      border-color: var(--border-strong);
+    }
+
+    .cmp-card.phase3 {
+      background: linear-gradient(135deg, rgba(240, 253, 244, 0.95) 0%, rgba(255, 255, 255, 0.96) 80%);
+      border: 1.5px solid var(--emerald);
+    }
+
+    .cmp-card.phase2 {
+      background: var(--surface-soft);
+    }
+
+    .cmp-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .cmp-title { font-size: 0.79rem; font-weight: 700; color: var(--muted); }
+    .cmp-card.actual .cmp-title { color: var(--ink-2); }
+    .cmp-card.phase3 .cmp-title { color: var(--emerald-dark); }
+
+    .cmp-err { font-size: 0.77rem; font-weight: 600; color: var(--muted); }
+    .cmp-card.phase3 .cmp-err { color: var(--emerald-dark); }
+
+    .cmp-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+
+    .cmp-price {
+      font-size: 1.48rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .cmp-card.phase2 .cmp-price { color: var(--ink-2); }
+    .cmp-unit { font-size: 0.78rem; font-weight: 600; color: var(--muted-light); }
+
+    .cmp-track {
+      height: 7px;
+      width: 100%;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .cmp-card.phase3 .cmp-track { background: #dcfce7; }
+
+    .cmp-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      transition: width 0.5s var(--ease);
+    }
+    .cmp-fill.actual { background: var(--ink); }
+    .cmp-fill.phase3 { background: var(--emerald); }
+    .cmp-fill.phase2 { background: var(--muted-light); }
+
+    /* 3. Charts Section */
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .section-sub {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .chart-panel {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 15px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .chart-panel-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .chart-sub-title { font-size: 0.84rem; font-weight: 700; color: var(--ink); }
+    .chart-hint { font-size: 0.74rem; color: var(--muted); }
+
+    .scatter-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .scatter-dot { cursor: pointer; transition: opacity 0.14s ease; }
+    .scatter-dot:hover { opacity: 1 !important; }
+
+    .scatter-legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    .legend-items { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .legend-item { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; color: var(--ink-2); }
+    .legend-swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+
+    .metric-bars { display: flex; flex-direction: column; gap: 10px; }
+
+    .mbar-group {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+
+    .mbar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+    }
+
+    .mbar-name { font-weight: 700; color: var(--ink); }
+    .mbar-diff {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--emerald-dark);
+      background: var(--emerald-soft);
+      border: 1px solid var(--emerald-border);
+      padding: 1px 7px;
+      border-radius: 999px;
+    }
+
+    .mbar-row {
+      display: grid;
+      grid-template-columns: 54px 1fr 78px;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.74rem;
+      margin-bottom: 4px;
+    }
+    .mbar-row:last-child { margin-bottom: 0; }
+    .mbar-tag { font-weight: 600; color: var(--muted); }
+    .mbar-tag.p3 { color: var(--emerald-dark); font-weight: 700; }
+    .mbar-track { height: 7px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+    .mbar-fill { height: 100%; border-radius: 999px; }
+    .mbar-fill.p2 { background: var(--muted-light); }
+    .mbar-fill.p3 { background: var(--emerald); }
+    .mbar-val { text-align: right; font-weight: 700; color: var(--ink-2); }
+    .mbar-val.p3 { color: var(--emerald-dark); }
+
+    .png-drawer {
+      display: none;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .png-drawer.open { display: grid; animation: contentPulse 0.22s var(--ease) both; }
+
+    .png-fig-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+    }
+    .png-fig-box img { width: 100%; height: auto; display: block; border-radius: 6px; }
+    .png-fig-cap { margin-top: 6px; font-size: 0.73rem; color: var(--muted); font-weight: 600; text-align: center; }
+
+    /* 4. Test Table Explorer */
+    .explorer-title-wrap { display: flex; align-items: center; gap: 10px; }
+
+    .count-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .explorer-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .search-input {
+      width: 100%;
+      max-width: 280px;
+      padding: 7px 12px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.83rem;
+      color: var(--ink);
+      background: #ffffff;
+    }
+    .search-input::placeholder { color: var(--muted-light); }
+    .search-input:focus { outline: none; border-color: var(--emerald); }
+
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .filter-pill {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--ink-2);
+      font-family: inherit;
+      font-size: 0.77rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-pill:hover { border-color: var(--border-strong); color: var(--ink); background: #ffffff; }
+    .filter-pill.active {
+      background: var(--emerald-soft);
+      border-color: var(--emerald-border);
+      color: var(--emerald-dark);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      max-height: 380px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #ffffff;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+
+    th {
+      background: #f8fafc;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    td.num, th.num { text-align: right; }
+    tbody tr.row-pick { cursor: pointer; transition: background 0.1s ease; }
+    tbody tr.row-pick:hover { background: #f8fafc; }
+    tbody tr.row-pick.active { background: var(--emerald-soft); }
+    tbody tr.row-pick.active td:first-child { box-shadow: inset 3px 0 0 var(--emerald); }
+
+    .tag-win, .tag-lose {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .tag-win { background: var(--emerald-soft); color: var(--emerald-dark); border: 1px solid var(--emerald-border); }
+    .tag-lose { background: var(--amber-soft); color: var(--amber-dark); border: 1px solid var(--amber-border); }
+
+    .muted-p2 { color: var(--muted); }
+
+    .explorer-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 0.77rem;
+      color: var(--muted);
+    }
+
+    .csv-drawer {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: var(--surface-soft);
+      border: 1px dashed var(--border-strong);
+    }
+    .csv-drawer.open { display: block; animation: contentPulse 0.2s var(--ease) both; }
+    .csv-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
+    .csv-file-input { font-family: inherit; font-size: 0.8rem; color: var(--ink-2); }
+
+    /* Mode Switch & Custom Input Form */
+    .mode-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .mode-tabs {
+      display: inline-flex;
+      background: rgba(241, 245, 249, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .mode-tab {
+      border: none;
+      background: transparent;
+      color: var(--ink-2);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 7px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .mode-tab:hover { color: var(--ink); }
+    .mode-tab.active {
+      background: var(--ink);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 12px;
+    }
+
+    .f-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .f-label {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .f-input, .f-select {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: border-color 0.15s ease;
+    }
+
+    .f-input:focus, .f-select:focus {
+      outline: none;
+      border-color: var(--emerald);
+    }
+
+    .f-check-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 9px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .f-check-row input {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--emerald);
+      cursor: pointer;
+    }
+
+    .chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .chip-toggle {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+
+    .chip-toggle:hover { border-color: var(--ink-2); color: var(--ink); }
+    .chip-toggle.on {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: var(--emerald-dark);
+    }
+
+    @media (max-width: 960px) {
+      .kpi-grid, .spotlight-grid, .charts-grid, .png-drawer { grid-template-columns: 1fr; }
+      .explorer-controls { justify-content: flex-start; }
+      .search-input { max-width: none; }
+      .mode-tabs { width: 100%; justify-content: space-between; }
+      .mode-tab { flex: 1; text-align: center; padding: 7px 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-condo" aria-hidden="true"></div>
+  <div class="bg-veil" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-row">
+          <h1 class="brand-title">SMARTRENT</h1>
+          <span class="brand-tag">Phase 3 Final</span>
+        </div>
+        <p class="brand-sub">เปรียบเทียบโมเดลทำนายค่าเช่าคอนโดกรุงเทพฯ (Phase 2 กับ Phase 3 • ชุดทดสอบ 800 ห้อง)</p>
+      </div>
+
+      <nav class="nav-tabs" aria-label="เมนูหลัก">
+        <a class="nav-tab active" href="#sec-kpi">สรุปผลวัดค่า</a>
+        <a class="nav-tab" href="#sec-demo">ทดลองเปรียบเทียบ</a>
+        <a class="nav-tab" href="#sec-chart">กราฟความแม่นยำ</a>
+        <a class="nav-tab" href="#sec-table">ตาราง 800 ห้อง</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- 1. KPI Summary Strip -->
+    <section id="sec-kpi" class="kpi-grid stagger-1" aria-label="สรุปผลเปรียบเทียบ Phase 2 กับ Phase 3">
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">ความคลาดเคลื่อนมาตรฐาน (RMSE)</span>
+          <span class="kpi-delta">ลดลง 17.5%</span>
+        </div>
+        <div class="kpi-values">
+          <span class="kpi-new">24,660 บ.</span>
+          <span class="kpi-old">เดิม 29,880 บ.</span>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">ผิดพลาดเฉลี่ยต่อห้อง (MAE)</span>
+          <span class="kpi-delta">ลดลง 27.8%</span>
+        </div>
+        <div class="kpi-values">
+          <span class="kpi-new">10,014 บ.</span>
+          <span class="kpi-old">เดิม 13,866 บ.</span>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <span class="kpi-label">ทายใกล้เคียงราคาจริง (±20%)</span>
+          <span class="kpi-delta">R² = 0.80</span>
+        </div>
+        <div class="kpi-values">
+          <span class="kpi-new">69.5%</span>
+          <span class="kpi-old">เดิม 31.4%</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Spotlight Room Comparison -->
+    <section id="sec-demo" class="card stagger-2" aria-label="ทดลองทำนายรายห้อง">
+      <div class="mode-head">
+        <div class="mode-tabs" role="tablist" aria-label="เลือกโหมดทดลองทำนาย">
+          <button type="button" class="mode-tab active" id="tabModeTest" role="tab" aria-selected="true">เลือกห้องจากชุด Test (800 ห้อง)</button>
+          <button type="button" class="mode-tab" id="tabModeCustom" role="tab" aria-selected="false">ทดลองกรอกข้อมูลห้องเอง</button>
+        </div>
+        <button type="button" class="filter-pill" id="btnResetCustom" style="display:none;">รีเซ็ตเป็นห้องตัวอย่าง (35 ตร.ม. สาทร)</button>
+      </div>
+
+      <div class="spotlight-toolbar" id="testToolbar">
+        <div class="preset-row" id="presetsBar"></div>
+        <div class="action-group">
+          <button class="btn btn-primary" id="btnRandomAny" type="button">สุ่มห้องจากชุด Test</button>
+          <button class="btn btn-emerald" id="btnRandomBetter" type="button">สุ่มเคสที่แม่นขึ้น</button>
+        </div>
+      </div>
+
+      <div class="spotlight-grid" id="spotlightBody">
+        <!-- Left Column: Read-Only Test Room OR Custom Input Form -->
+        <div>
+          <div class="room-header">
+            <h2 class="room-title" id="spotTitle">—</h2>
+            <div class="room-meta">
+              <span class="code-tag" id="spotRoomId">room_id: —</span>
+              <span id="spotDistrict">—</span>
+            </div>
+            <div class="preset-caption" id="presetNote">—</div>
+          </div>
+
+          <div id="spotReadOnlyView">
+            <div class="spec-box">
+              <div class="spec-header">
+                <span class="spec-heading">ข้อมูลภายในห้อง (18 ตัวแปรเดิมใน Phase 2)</span>
+                <span class="spec-count-pill" id="spotAmenCount">ระบุ 0/12 รายการ</span>
+              </div>
+              <div class="spec-grid-2" id="spotRoomSpecs"></div>
+              <div class="amen-tags" id="spotAmenities"></div>
+            </div>
+
+            <div class="spec-box project">
+              <div class="spec-header">
+                <span class="spec-heading">ข้อมูลระดับโครงการ (+6 ตัวแปรใหม่ใน Phase 3)</span>
+                <span class="spec-count-pill">ตาราง Project</span>
+              </div>
+              <div class="spec-grid-2" id="spotProjSpecs"></div>
+            </div>
+          </div>
+
+          <div id="spotCustomView" style="display:none;">
+            <div class="spec-box">
+              <div class="spec-header">
+                <span class="spec-heading">กรอกข้อมูลภายในห้อง (18 ตัวแปร • Phase 2)</span>
+                <span class="spec-count-pill" id="customAmenCount">มีของใช้ 0/12 รายการ</span>
+              </div>
+              <div class="form-grid-2">
+                <div class="f-field">
+                  <label class="f-label" for="inSize">ขนาดห้อง (ตร.ม.)</label>
+                  <input type="number" class="f-input" id="inSize" min="15" max="400" step="0.5" value="35" />
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inUnitType">ประเภทห้อง</label>
+                  <select class="f-select" id="inUnitType"></select>
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inFloor">ชั้นที่ตั้ง (เว้นว่างได้)</label>
+                  <input type="number" class="f-input" id="inFloor" min="1" max="100" step="1" placeholder="ค่ากลางตลาด" />
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inBedrooms">จำนวนห้องนอน</label>
+                  <input type="number" class="f-input" id="inBedrooms" min="0" max="6" step="1" value="1" />
+                </div>
+              </div>
+              <label class="f-check-row" for="inDuplex">
+                <input type="checkbox" id="inDuplex" />
+                <span>เป็นห้อง 2 ชั้น (Duplex)</span>
+              </label>
+              <div class="chip-grid" id="inAmenities"></div>
+            </div>
+
+            <div class="spec-box project">
+              <div class="spec-header">
+                <span class="spec-heading">กรอกข้อมูลระดับโครงการ (+6 ตัวแปร • Phase 3)</span>
+                <span class="spec-count-pill">มีผลเฉพาะ Phase 3</span>
+              </div>
+              <div class="form-grid-2">
+                <div class="f-field">
+                  <label class="f-label" for="inDistrict">1. เขตที่ตั้ง (ทำเล)</label>
+                  <select class="f-select" id="inDistrict"></select>
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inProjUnits">2. จำนวนยูนิตทั้งโครงการ</label>
+                  <input type="number" class="f-input" id="inProjUnits" min="10" max="5000" step="10" placeholder="ค่ากลางตลาด" />
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inProjAge">3. อายุโครงการ ณ ปี 2023 (ปี)</label>
+                  <input type="number" class="f-input" id="inProjAge" min="0" max="60" step="1" placeholder="ค่ากลางตลาด" />
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inProjFloors">4. ความสูงอาคาร (ชั้น)</label>
+                  <input type="number" class="f-input" id="inProjFloors" min="1" max="100" step="1" placeholder="ค่ากลางตลาด" />
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inProjBuildings">5. จำนวนอาคาร (ตึก)</label>
+                  <input type="number" class="f-input" id="inProjBuildings" min="1" max="30" step="1" placeholder="ค่ากลางตลาด" />
+                </div>
+                <div class="f-field">
+                  <label class="f-label" for="inProjAmenities">6. ส่วนกลางโครงการ (0–20)</label>
+                  <input type="number" class="f-input" id="inProjAmenities" min="0" max="20" step="1" value="10" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Actual vs Phase 3 vs Phase 2 -->
+        <div class="pred-col">
+          <div class="pred-banner good" id="spotBanner">
+            <span id="spotBannerText">—</span>
+            <span class="pred-banner-pill" id="spotBannerPct">—</span>
+          </div>
+
+          <div class="cmp-stack">
+            <div class="cmp-card actual" id="actualCmpCard">
+              <div class="cmp-head">
+                <span class="cmp-title" id="actualCmpTitle">ค่าเช่าจริงตามประกาศ (มิ.ย. 2023)</span>
+                <span class="cmp-err" id="spotPerSqm">—</span>
+              </div>
+              <div class="cmp-price-row">
+                <span class="cmp-price" id="spotActual">—</span>
+                <span class="cmp-unit">บาท / เดือน</span>
+              </div>
+              <div class="cmp-track">
+                <div class="cmp-fill actual" id="barActual"></div>
+              </div>
+            </div>
+
+            <div class="cmp-card phase3">
+              <div class="cmp-head">
+                <span class="cmp-title">โมเดล Phase 3 (24 ตัวแปร: 18 ห้อง + 6 โครงการ)</span>
+                <span class="cmp-err" id="spotP3Err">—</span>
+              </div>
+              <div class="cmp-price-row">
+                <span class="cmp-price" id="spotP3">—</span>
+                <span class="cmp-unit">บาท / เดือน</span>
+              </div>
+              <div class="cmp-track">
+                <div class="cmp-fill phase3" id="barP3"></div>
+              </div>
+            </div>
+
+            <div class="cmp-card phase2">
+              <div class="cmp-head">
+                <span class="cmp-title">โมเดล Phase 2 (18 ตัวแปรห้อง)</span>
+                <span class="cmp-err" id="spotP2Err">—</span>
+              </div>
+              <div class="cmp-price-row">
+                <span class="cmp-price" id="spotP2">—</span>
+                <span class="cmp-unit">บาท / เดือน</span>
+              </div>
+              <div class="cmp-track">
+                <div class="cmp-fill phase2" id="barP2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Visual Performance Charts -->
+    <section id="sec-chart" class="card stagger-3" aria-label="กราฟแสดงประสิทธิภาพของโมเดล">
+      <div class="section-head">
+        <div>
+          <h3 class="section-title">กราฟแสดงความแม่นยำ (Test Set 800 ห้อง)</h3>
+          <div class="section-sub">คลิกที่จุดบนกราฟเพื่อดูข้อมูลห้องนั้น หรือสังเกตการขยับจากจุด Phase 2 ไป Phase 3 เข้าใกล้เส้นทายตรง</div>
+        </div>
+        <button type="button" class="filter-pill" id="btnTogglePngFigs">ดูรูปกราฟรายงาน (PNG)</button>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-panel">
+          <div class="chart-panel-top">
+            <span class="chart-sub-title">ค่าเช่าจริง เทียบ ค่าที่โมเดลทาย (Log Scale)</span>
+            <div class="filter-pills" id="scatterModePills" role="group" aria-label="เลือกมุมมองกราฟ">
+              <button type="button" class="filter-pill active" data-smode="COMPARE">เทียบจุดที่เลือก (P2 → P3)</button>
+              <button type="button" class="filter-pill" data-smode="P3">จุดทั้งหมด Phase 3</button>
+              <button type="button" class="filter-pill" data-smode="P2">จุดทั้งหมด Phase 2</button>
+            </div>
+          </div>
+
+          <svg id="scatterSvg" class="scatter-svg" viewBox="0 0 520 340" role="img" aria-label="กราฟค่าเช่าจริงเทียบค่าทำนาย 800 ห้อง"></svg>
+
+          <div class="scatter-legend">
+            <div class="legend-items">
+              <span class="legend-item"><span class="legend-swatch" style="background:#059669;"></span>Phase 3 (18 ห้อง + 6 โครงการ)</span>
+              <span class="legend-item"><span class="legend-swatch" style="background:#64748b;"></span>Phase 2 (18 ห้อง)</span>
+              <span class="legend-item"><span class="legend-swatch" style="background:#dc2626; border-radius:2px; width:12px; height:3px;"></span>ทายตรง 100%</span>
+            </div>
+            <span id="scatterActiveLabel">—</span>
+          </div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-panel-top">
+            <span class="chart-sub-title">เทียบค่าชี้วัดสำคัญ (Phase 2 vs Phase 3)</span>
+            <span class="chart-hint">ชุดทดสอบเดียวกัน 800 ห้อง</span>
+          </div>
+
+          <div class="metric-bars">
+            <div class="mbar-group">
+              <div class="mbar-top">
+                <span class="mbar-name">RMSE (ยิ่งต่ำยิ่งดี)</span>
+                <span class="mbar-diff">ลดลง 17.5%</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag p3">Phase 3</span>
+                <div class="mbar-track"><div class="mbar-fill p3" style="width:82.5%"></div></div>
+                <span class="mbar-val p3">24,660 บ.</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag">Phase 2</span>
+                <div class="mbar-track"><div class="mbar-fill p2" style="width:100%"></div></div>
+                <span class="mbar-val">29,880 บ.</span>
+              </div>
+            </div>
+
+            <div class="mbar-group">
+              <div class="mbar-top">
+                <span class="mbar-name">MAE (ยิ่งต่ำยิ่งดี)</span>
+                <span class="mbar-diff">ลดลง 27.8%</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag p3">Phase 3</span>
+                <div class="mbar-track"><div class="mbar-fill p3" style="width:72.2%"></div></div>
+                <span class="mbar-val p3">10,014 บ.</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag">Phase 2</span>
+                <div class="mbar-track"><div class="mbar-fill p2" style="width:100%"></div></div>
+                <span class="mbar-val">13,866 บ.</span>
+              </div>
+            </div>
+
+            <div class="mbar-group">
+              <div class="mbar-top">
+                <span class="mbar-name">ทายใกล้เคียง ±20% (ยิ่งสูงยิ่งดี)</span>
+                <span class="mbar-diff">556 จาก 800 ห้อง</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag p3">Phase 3</span>
+                <div class="mbar-track"><div class="mbar-fill p3" style="width:69.5%"></div></div>
+                <span class="mbar-val p3">69.5%</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag">Phase 2</span>
+                <div class="mbar-track"><div class="mbar-fill p2" style="width:31.4%"></div></div>
+                <span class="mbar-val">31.4%</span>
+              </div>
+            </div>
+
+            <div class="mbar-group">
+              <div class="mbar-top">
+                <span class="mbar-name">R² อธิบายราคาตลาดได้</span>
+                <span class="mbar-diff">เพิ่มเป็น 0.80</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag p3">Phase 3</span>
+                <div class="mbar-track"><div class="mbar-fill p3" style="width:80.2%"></div></div>
+                <span class="mbar-val p3">0.80 (80.2%)</span>
+              </div>
+              <div class="mbar-row">
+                <span class="mbar-tag">Phase 2</span>
+                <div class="mbar-track"><div class="mbar-fill p2" style="width:70.9%"></div></div>
+                <span class="mbar-val">0.71 (70.9%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="png-drawer" id="pngDrawer">
+        <div class="png-fig-box">
+          <img src="results/figures/phase3_rmse_comparison.png" alt="กราฟแท่งเปรียบเทียบ RMSE และ MAE ระหว่าง Phase 2 กับ Phase 3" loading="lazy" />
+          <div class="png-fig-cap">results/figures/phase3_rmse_comparison.png</div>
+        </div>
+        <div class="png-fig-box">
+          <img src="results/figures/phase3_actual_vs_predicted.png" alt="กราฟจุด Actual vs Predicted ของ Phase 2 เทียบ Phase 3" loading="lazy" />
+          <div class="png-fig-cap">results/figures/phase3_actual_vs_predicted.png</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Dataset Explorer -->
+    <section id="sec-table" class="card stagger-4" aria-label="ชุดข้อมูลทดสอบ 800 ห้อง">
+      <div class="section-head">
+        <div class="explorer-title-wrap">
+          <h3 class="section-title">ชุดข้อมูลทดสอบ (Unseen Test Set)</h3>
+          <span class="count-pill" id="tableCount">—</span>
+        </div>
+
+        <div class="explorer-controls">
+          <input type="text" class="search-input" id="searchInput" placeholder="ค้นหา room_id, ชื่อคอนโด หรือเขต..." />
+          <div class="filter-pills" id="filterPills" role="group" aria-label="ตัวกรองข้อมูล">
+            <button type="button" class="filter-pill active" data-mode="ALL">ทั้งหมด 800 ห้อง</button>
+            <button type="button" class="filter-pill" data-mode="IMPROVED">Phase 3 แม่นขึ้น</button>
+            <button type="button" class="filter-pill" data-mode="ERR_ASC">คลาดเคลื่อนน้อยสุด</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>room_id</th>
+              <th>โครงการคอนโด</th>
+              <th>เขต</th>
+              <th class="num">ตร.ม.</th>
+              <th class="num">ค่าเช่าจริง</th>
+              <th class="num">Phase 2 (เดิม)</th>
+              <th class="num">Phase 3 (ใหม่)</th>
+              <th class="num">ผลต่าง Error</th>
+            </tr>
+          </thead>
+          <tbody id="testTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="explorer-footer">
+        <span>คลิกเลือกแถวใดก็ได้เพื่อดูผลเปรียบเทียบด้านบน</span>
+        <button type="button" class="filter-pill" id="btnToggleCsv">+ ทดสอบไฟล์ .csv เพิ่มเติม</button>
+      </div>
+
+      <div class="csv-drawer" id="csvDrawer">
+        <div class="csv-bar">
+          <div>
+            <strong style="color:var(--ink); font-size:0.83rem;">อัปโหลดไฟล์ .csv เพื่อทดสอบโมเดลสด (เช่น train.csv, validation.csv, test.csv)</strong>
+            <div style="font-size:0.75rem; color:var(--muted);">คำนวณด้วยสมการ Ridge Regression ของ Phase 2 และ Phase 3 โดยตรง</div>
+          </div>
+          <input type="file" id="csvFileInput" accept=".csv" class="csv-file-input" />
+        </div>
+        <div class="table-wrap" id="csvOutputWrap" style="display:none; margin-top:12px; max-height:260px;">
+          <table>
+            <thead>
+              <tr>
+                <th>room_id</th>
+                <th>โครงการคอนโด</th>
+                <th>เขต</th>
+                <th class="num">ตร.ม.</th>
+                <th class="num">ค่าเช่าจริง</th>
+                <th class="num">Phase 2 (เดิม)</th>
+                <th class="num">Phase 3 (ใหม่)</th>
+                <th class="num">คลาดเคลื่อน (P3)</th>
+              </tr>
+            </thead>
+            <tbody id="csvOutputBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="demo_data.js"></script>
+  <script>
+    (function () {
+      const D = window.SMARTRENT_DATA;
+      if (!D) {
+        document.body.innerHTML = '<div style="padding:36px;font-family:sans-serif;color:#0f172a;"><h2>ไม่พบไฟล์ demo_data.js</h2><p>กรุณาวาง demo_data.js ไว้ในโฟลเดอร์เดียวกับ index.html</p></div>';
+        return;
+      }
+
+      const AMEN_TH = {
+        air_conditioner: 'แอร์',
+        digital_door_lock: 'Digital Lock',
+        furnished: 'มีเฟอร์นิเจอร์ (เตียง/โซฟา)',
+        hot_tub: 'อ่างอาบน้ำ',
+        in_room_wifi: 'Wi-Fi',
+        kitchen_hood: 'เครื่องดูดควัน',
+        kitchen_stove: 'เตาทำอาหาร',
+        phone: 'โทรศัพท์',
+        refrigerator: 'ตู้เย็น',
+        tv: 'ทีวี',
+        washer: 'เครื่องซักผ้า',
+        water_heater: 'เครื่องทำน้ำอุ่น',
+      };
+
+      const fmtTHB = (n) => (n === null || n === undefined || Number.isNaN(n))
+        ? '—'
+        : Math.round(Number(n)).toLocaleString('th-TH');
+      const fmtDec = (n, d = 1) => (n === null || n === undefined || Number.isNaN(n))
+        ? '—'
+        : Number(n).toLocaleString('th-TH', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+      // Smooth number animation
+      const counterState = new WeakMap();
+      function animateNumber(el, targetValue, formatter, duration = 360) {
+        const prev = counterState.get(el);
+        if (prev && prev.raf) cancelAnimationFrame(prev.raf);
+
+        const from = prev ? prev.current : 0;
+        const to = Number(targetValue);
+        const start = performance.now();
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || from === to) {
+          counterState.set(el, { current: to, raf: null });
+          el.textContent = formatter(to);
+          return;
+        }
+
+        function tick(now) {
+          const t = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - t, 4);
+          const current = from + (to - from) * eased;
+          counterState.set(el, { current, raf: t < 1 ? rafId : null });
+          el.textContent = formatter(current);
+          if (t < 1) {
+            rafId = requestAnimationFrame(tick);
+            counterState.get(el).raf = rafId;
+          }
+        }
+        let rafId = requestAnimationFrame(tick);
+        counterState.set(el, { current: from, raf: rafId });
+      }
+
+      // Highlight top nav tab on click & scroll
+      const navTabs = Array.from(document.querySelectorAll('.nav-tab'));
+      navTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          navTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          for (const ent of entries) {
+            if (ent.isIntersecting) {
+              const id = ent.target.id;
+              navTabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === `#${id}`));
+            }
+          }
+        }, { rootMargin: '-25% 0px -60% 0px' });
+        document.querySelectorAll('main section[id]').forEach(sec => obs.observe(sec));
+      }
+
+      const DISTRICT_TH = {
+        'Bang Kho Laem Bangkok': 'บางคอแหลม (Bang Kho Laem)',
+        'Bang Rak Bangkok': 'บางรัก (Bang Rak)',
+        'Chom Thong Bangkok': 'จอมทอง (Chom Thong)',
+        'Khlong San Bangkok': 'คลองสาน (Khlong San)',
+        'Khlong Toei Bangkok': 'คลองเตย (Khlong Toei)',
+        'Pathum Wan Bangkok': 'ปทุมวัน (Pathum Wan)',
+        'Phasi Charoen Bangkok': 'ภาษีเจริญ (Phasi Charoen)',
+        'Ratchathewi Bangkok': 'ราชเทวี (Ratchathewi)',
+        'Sathon Bangkok': 'สาทร (Sathon)',
+        'Thon Buri Bangkok': 'ธนบุรี (Thon Buri)',
+      };
+
+      const testMap = new Map(D.test_rows.map(r => [r.room_id, r]));
+      let activeRoomId = D.presets[1].room_id;
+      let activeFilterMode = 'ALL';
+      let scatterMode = 'COMPARE';
+      let demoMode = 'TEST';
+      let customAmenitiesSet = new Set(['air_conditioner', 'furnished', 'refrigerator', 'water_heater']);
+      let currentNote = D.presets[1].note;
+      let isFirstRender = true;
+
+      const presetsBar = document.getElementById('presetsBar');
+      function renderPresets() {
+        presetsBar.innerHTML = D.presets.map(p =>
+          `<button type="button" class="preset-pill ${p.room_id === activeRoomId ? 'active' : ''}" data-rid="${p.room_id}">${p.label}</button>`
+        ).join('');
+        presetsBar.querySelectorAll('.preset-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const rid = Number(btn.dataset.rid);
+            const p = D.presets.find(x => x.room_id === rid);
+            currentNote = p ? p.note : `ห้องทดสอบ room_id=${rid}`;
+            selectRoom(rid);
+          });
+        });
+      }
+
+      function triggerSpotlightPulse() {
+        if (isFirstRender) {
+          isFirstRender = false;
+          return;
+        }
+        const body = document.getElementById('spotlightBody');
+        body.classList.remove('pulse-swap');
+        void body.offsetWidth;
+        body.classList.add('pulse-swap');
+      }
+
+      function selectRoom(roomId) {
+        const r = testMap.get(roomId);
+        if (!r) return;
+        if (demoMode !== 'TEST') switchDemoMode('TEST', false);
+        activeRoomId = roomId;
+        triggerSpotlightPulse();
+
+        document.getElementById('actualCmpTitle').textContent = 'ค่าเช่าจริงตามประกาศ (มิ.ย. 2023)';
+        document.getElementById('spotTitle').textContent = r.project_name;
+        document.getElementById('spotRoomId').textContent = `room_id: ${r.room_id}`;
+        document.getElementById('spotDistrict').textContent = `เขต ${r.project_district.replace(' Bangkok', '')}`;
+        document.getElementById('presetNote').textContent = currentNote;
+
+        const typeText = r.is_duplex && !String(r.unit_type).toLowerCase().includes('duplex')
+          ? `${r.unit_type} (Duplex)`
+          : r.unit_type;
+
+        document.getElementById('spotRoomSpecs').innerHTML = `
+          <div class="spec-item">
+            <span class="spec-k">ขนาดพื้นที่ห้อง</span>
+            <span class="spec-v">${r.size_sqm} ตร.ม.</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">ประเภทห้อง</span>
+            <span class="spec-v">${typeText}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">ชั้นที่ตั้ง</span>
+            <span class="spec-v">${r.floor_no !== null ? 'ชั้น ' + r.floor_no : 'ไม่ระบุ (เติมค่ากลาง)'}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">จำนวนห้องนอน</span>
+            <span class="spec-v">${r.bedrooms !== null ? r.bedrooms + ' ห้องนอน' : 'ไม่ระบุ (เติมค่ากลาง)'}</span>
+          </div>
+        `;
+
+        document.getElementById('spotAmenCount').textContent = `ระบุ ${r.n_reported_room_amenities}/12 รายการ`;
+        document.getElementById('spotAmenities').innerHTML = r.amenities.length
+          ? r.amenities.map(k => `<span class="amen-tag">${AMEN_TH[k] || k}</span>`).join('')
+          : '<span class="amen-empty">ไม่ได้ระบุรายการเครื่องใช้ในประกาศ</span>';
+
+        document.getElementById('spotProjSpecs').innerHTML = `
+          <div class="spec-item">
+            <span class="spec-k">1. เขตที่ตั้ง (ทำเล)</span>
+            <span class="spec-v">${r.project_district.replace(' Bangkok', '')}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">2. จำนวนยูนิตทั้งโครงการ</span>
+            <span class="spec-v">${r.project_units !== null ? fmtTHB(r.project_units) + ' ยูนิต' : 'ไม่ทราบ (เติมค่ากลาง)'}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">3. อายุโครงการ (ณ ปี 2023)</span>
+            <span class="spec-v">${r.project_age_2023 !== null ? r.project_age_2023 + ' ปี' : 'ไม่ทราบ (เติมค่ากลาง)'}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">4. ความสูงอาคาร</span>
+            <span class="spec-v">${r.project_max_floors !== null ? r.project_max_floors + ' ชั้น' : 'ไม่ทราบ (เติมค่ากลาง)'}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">5. จำนวนอาคาร</span>
+            <span class="spec-v">${r.project_buildings !== null ? r.project_buildings + ' อาคาร' : 'ไม่ทราบ (เติมค่ากลาง)'}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-k">6. ส่วนกลางโครงการ</span>
+            <span class="spec-v">${r.reported_common_amenities !== null ? r.reported_common_amenities + ' / 20 รายการ' : '0 / 20 รายการ'}</span>
+          </div>
+        `;
+
+        const e2 = Math.abs(r.pred_phase2 - r.rental);
+        const e3 = Math.abs(r.pred_phase3 - r.rental);
+        const pct2 = (e2 / r.rental) * 100;
+        const pct3 = (e3 / r.rental) * 100;
+        const saved = e2 - e3;
+
+        const banner = document.getElementById('spotBanner');
+        const bannerText = document.getElementById('spotBannerText');
+        const bannerPct = document.getElementById('spotBannerPct');
+
+        if (saved >= 0) {
+          banner.className = 'pred-banner good';
+          bannerText.innerHTML = `Phase 3 ทายใกล้เคียงกว่า Phase 2 อยู่ <strong id="savedAnim">0</strong> บาท`;
+          bannerPct.textContent = `คลาดเคลื่อน ${fmtDec(pct3)}%`;
+          animateNumber(document.getElementById('savedAnim'), saved, v => fmtTHB(v));
+        } else {
+          banner.className = 'pred-banner neutral';
+          bannerText.innerHTML = `ห้องนี้ Phase 2 ใกล้กว่า <strong id="savedAnim">0</strong> บ. (ข้อมูลโครงการบางช่องว่าง)`;
+          bannerPct.textContent = `คลาดเคลื่อน ${fmtDec(pct3)}%`;
+          animateNumber(document.getElementById('savedAnim'), -saved, v => fmtTHB(v));
+        }
+
+        document.getElementById('spotPerSqm').textContent = `${fmtTHB(r.rental / r.size_sqm)} บาท / ตร.ม.`;
+        const s2 = r.pred_phase2 >= r.rental ? '+' : '-';
+        const s3 = r.pred_phase3 >= r.rental ? '+' : '-';
+        document.getElementById('spotP2Err').textContent = `คลาดเคลื่อน ${s2}${fmtTHB(e2)} บ. (${fmtDec(pct2)}%)`;
+        document.getElementById('spotP3Err').textContent = `คลาดเคลื่อน ${s3}${fmtTHB(e3)} บ. (${fmtDec(pct3)}%)`;
+
+        animateNumber(document.getElementById('spotActual'), r.rental, v => fmtTHB(v));
+        animateNumber(document.getElementById('spotP3'), r.pred_phase3, v => fmtTHB(v));
+        animateNumber(document.getElementById('spotP2'), r.pred_phase2, v => fmtTHB(v));
+
+        const maxVal = Math.max(r.rental, r.pred_phase2, r.pred_phase3, 1);
+        requestAnimationFrame(() => {
+          document.getElementById('barActual').style.width = `${Math.max(4, Math.round((r.rental / maxVal) * 100))}%`;
+          document.getElementById('barP3').style.width = `${Math.max(4, Math.round((r.pred_phase3 / maxVal) * 100))}%`;
+          document.getElementById('barP2').style.width = `${Math.max(4, Math.round((r.pred_phase2 / maxVal) * 100))}%`;
+        });
+
+        renderPresets();
+        renderScatter();
+        renderTable();
+      }
+
+      // Interactive Actual vs Predicted SVG Scatter Plot
+      function renderScatter() {
+        const svg = document.getElementById('scatterSvg');
+        if (!svg) return;
+        const L = 54, R = 18, T = 20, B = 42;
+        const W = 520 - L - R;
+        const H = 340 - T - B;
+        const minV = 5000, maxV = 600000;
+        const logMin = Math.log10(minV), logMax = Math.log10(maxV);
+        const clamp = (v) => Math.max(minV, Math.min(maxV, Number(v) || minV));
+        const toX = (v) => L + ((Math.log10(clamp(v)) - logMin) / (logMax - logMin)) * W;
+        const toY = (v) => T + H - ((Math.log10(clamp(v)) - logMin) / (logMax - logMin)) * H;
+
+        const ticks = [
+          { v: 5000, lbl: '5k' },
+          { v: 10000, lbl: '10k' },
+          { v: 25000, lbl: '25k' },
+          { v: 50000, lbl: '50k' },
+          { v: 100000, lbl: '100k' },
+          { v: 250000, lbl: '250k' },
+          { v: 500000, lbl: '500k' },
+        ];
+
+        const parts = [
+          '<defs><marker id="arrowHead" markerWidth="6" markerHeight="6" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0f172a"/></marker></defs>'
+        ];
+
+        for (const tk of ticks) {
+          const x = toX(tk.v).toFixed(1);
+          const y = toY(tk.v).toFixed(1);
+          parts.push(`<line x1="${L}" y1="${y}" x2="${L + W}" y2="${y}" stroke="#e2e8f0" stroke-dasharray="3 3" stroke-width="1"/>`);
+          parts.push(`<line x1="${x}" y1="${T}" x2="${x}" y2="${T + H}" stroke="#e2e8f0" stroke-dasharray="3 3" stroke-width="1"/>`);
+          parts.push(`<text x="${L - 7}" y="${Number(y) + 3}" text-anchor="end" font-size="10" fill="#64748b">${tk.lbl}</text>`);
+          parts.push(`<text x="${x}" y="${T + H + 15}" text-anchor="middle" font-size="10" fill="#64748b">${tk.lbl}</text>`);
+        }
+
+        parts.push(`<line x1="${L}" y1="${T}" x2="${L}" y2="${T + H}" stroke="#334155" stroke-width="1.3"/>`);
+        parts.push(`<line x1="${L}" y1="${T + H}" x2="${L + W}" y2="${T + H}" stroke="#334155" stroke-width="1.3"/>`);
+        parts.push(`<text x="${L + W / 2}" y="${T + H + 34}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">ค่าเช่าจริง (บาท/เดือน)</text>`);
+        parts.push(`<text x="14" y="${T + H / 2}" transform="rotate(-90 14 ${T + H / 2})" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">ค่าทำนาย (บาท/เดือน)</text>`);
+
+        parts.push(`<line x1="${toX(minV).toFixed(1)}" y1="${toY(minV).toFixed(1)}" x2="${toX(maxV).toFixed(1)}" y2="${toY(maxV).toFixed(1)}" stroke="#dc2626" stroke-width="1.6" stroke-opacity="0.82"/>`);
+        parts.push(`<text x="${toX(380000).toFixed(1)}" y="${(toY(380000) - 8).toFixed(1)}" text-anchor="end" font-size="9.5" font-weight="700" fill="#dc2626">ทายตรง 100%</text>`);
+
+        const dotColor = scatterMode === 'P2' ? '#64748b' : '#059669';
+        const dotOpacity = scatterMode === 'COMPARE' ? 0.24 : 0.48;
+        const dotRadius = scatterMode === 'COMPARE' ? 2.4 : 2.9;
+
+        for (const row of D.test_rows) {
+          const pred = scatterMode === 'P2' ? row.pred_phase2 : row.pred_phase3;
+          const cx = toX(row.rental).toFixed(1);
+          const cy = toY(pred).toFixed(1);
+          parts.push(
+            `<circle class="scatter-dot" data-rid="${row.room_id}" cx="${cx}" cy="${cy}" r="${dotRadius}" fill="${dotColor}" fill-opacity="${dotOpacity}">` +
+            `<title>room_id=${row.room_id} (${row.project_name})\nจริง: ${fmtTHB(row.rental)} บ. | P2: ${fmtTHB(row.pred_phase2)} บ. | P3: ${fmtTHB(row.pred_phase3)} บ.</title></circle>`
+          );
+        }
+
+        const cur = testMap.get(activeRoomId);
+        if (cur) {
+          const ax = toX(cur.rental);
+          const ayTrue = toY(cur.rental);
+          const ay2 = toY(cur.pred_phase2);
+          const ay3 = toY(cur.pred_phase3);
+
+          const minY = Math.min(ayTrue, ay2, ay3);
+          const maxY = Math.max(ayTrue, ay2, ay3);
+          parts.push(`<line x1="${ax.toFixed(1)}" y1="${minY.toFixed(1)}" x2="${ax.toFixed(1)}" y2="${maxY.toFixed(1)}" stroke="#94a3b8" stroke-dasharray="3 2" stroke-width="1.2"/>`);
+
+          if (Math.abs(ay3 - ay2) > 9) {
+            const yStart = ay2 + (ay3 > ay2 ? 4 : -4);
+            const yEnd = ay3 + (ay3 > ay2 ? -6 : 6);
+            parts.push(`<line x1="${ax.toFixed(1)}" y1="${yStart.toFixed(1)}" x2="${ax.toFixed(1)}" y2="${yEnd.toFixed(1)}" stroke="#0f172a" stroke-width="1.7" marker-end="url(#arrowHead)"/>`);
+          }
+
+          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ayTrue.toFixed(1)}" r="4.5" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>`);
+          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ay2.toFixed(1)}" r="5" fill="#64748b" stroke="#ffffff" stroke-width="1.6"/>`);
+          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ay3.toFixed(1)}" r="10" fill="#059669" fill-opacity="0.18"/>`);
+          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ay3.toFixed(1)}" r="5.8" fill="#059669" stroke="#ffffff" stroke-width="1.8"/>`);
+
+          const lblSide = ax > L + W - 75 ? -10 : 10;
+          const lblAnchor = lblSide < 0 ? 'end' : 'start';
+          parts.push(`<text x="${(ax + lblSide).toFixed(1)}" y="${(ay3 + 3).toFixed(1)}" text-anchor="${lblAnchor}" font-size="10" font-weight="800" fill="#047857">P3</text>`);
+          parts.push(`<text x="${(ax + lblSide).toFixed(1)}" y="${(ay2 + 3).toFixed(1)}" text-anchor="${lblAnchor}" font-size="9.5" font-weight="700" fill="#475569">P2</text>`);
+
+          const activeLabel = document.getElementById('scatterActiveLabel');
+          if (activeLabel) {
+            activeLabel.textContent = `ห้องที่เลือก: room_id=${cur.room_id} (${fmtTHB(cur.rental)} บ.)`;
+          }
+        }
+
+        svg.innerHTML = parts.join('');
+        svg.querySelectorAll('.scatter-dot').forEach(dot => {
+          dot.addEventListener('click', () => {
+            const rid = Number(dot.dataset.rid);
+            const row = testMap.get(rid);
+            currentNote = row ? `เลือกจากกราฟ: room_id=${row.room_id} (${row.project_name})` : '';
+            selectRoom(rid);
+          });
+        });
+      }
+
+      // Filter & Table
+      const searchEl = document.getElementById('searchInput');
+      const tableBody = document.getElementById('testTableBody');
+      const tableCount = document.getElementById('tableCount');
+
+      function getFiltered() {
+        const q = searchEl.value.trim().toLowerCase();
+
+        const list = D.test_rows.filter(r => {
+          if (q) {
+            const hay = `${r.room_id} ${r.project_name} ${r.project_district}`.toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+          if (activeFilterMode === 'IMPROVED') {
+            const imp = Math.abs(r.pred_phase2 - r.rental) - Math.abs(r.pred_phase3 - r.rental);
+            if (!(imp > 3500 && Math.abs(r.pred_phase3 - r.rental) <= r.rental * 0.25)) return false;
+          }
+          return true;
+        });
+
+        list.sort((a, b) => {
+          if (activeFilterMode === 'IMPROVED') {
+            const dA = Math.abs(a.pred_phase2 - a.rental) - Math.abs(a.pred_phase3 - a.rental);
+            const dB = Math.abs(b.pred_phase2 - b.rental) - Math.abs(b.pred_phase3 - b.rental);
+            return dB - dA;
+          }
+          if (activeFilterMode === 'ERR_ASC') {
+            return Math.abs(a.pred_phase3 - a.rental) - Math.abs(b.pred_phase3 - b.rental);
+          }
+          return a.room_id - b.room_id;
+        });
+        return list;
+      }
+
+      function renderTable() {
+        const filtered = getFiltered();
+        const shown = filtered.slice(0, 80);
+        tableCount.textContent = `แสดง ${shown.length} จาก ${filtered.length} รายการ (ทั้งหมด 800)`;
+
+        tableBody.innerHTML = shown.map(r => {
+          const imp = Math.abs(r.pred_phase2 - r.rental) - Math.abs(r.pred_phase3 - r.rental);
+          const tag = imp >= 0
+            ? `<span class="tag-win">ดีขึ้น ${fmtTHB(imp)} บ.</span>`
+            : `<span class="tag-lose">ต่าง +${fmtTHB(-imp)} บ.</span>`;
+          return `
+            <tr class="row-pick ${r.room_id === activeRoomId ? 'active' : ''}" data-rid="${r.room_id}">
+              <td><span class="code-tag">${r.room_id}</span></td>
+              <td><strong>${r.project_name}</strong></td>
+              <td>${r.project_district.replace(' Bangkok', '')}</td>
+              <td class="num">${r.size_sqm}</td>
+              <td class="num"><strong>${fmtTHB(r.rental)}</strong></td>
+              <td class="num muted-p2">${fmtTHB(r.pred_phase2)}</td>
+              <td class="num"><strong>${fmtTHB(r.pred_phase3)}</strong></td>
+              <td class="num">${tag}</td>
+            </tr>
+          `;
+        }).join('');
+
+        tableBody.querySelectorAll('tr').forEach(tr => {
+          tr.addEventListener('click', () => {
+            const rid = Number(tr.dataset.rid);
+            const r = testMap.get(rid);
+            currentNote = r ? `เลือกจากชุด Test: room_id=${r.room_id} (${r.project_name})` : '';
+            selectRoom(rid);
+            document.getElementById('spotlightBody').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          });
+        });
+      }
+
+      searchEl.addEventListener('input', renderTable);
+
+      document.getElementById('filterPills').querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          activeFilterMode = pill.dataset.mode;
+          document.getElementById('filterPills').querySelectorAll('.filter-pill').forEach(p => {
+            p.classList.toggle('active', p === pill);
+          });
+          renderTable();
+        });
+      });
+
+      document.getElementById('btnRandomAny').addEventListener('click', () => {
+        const pool = getFiltered();
+        const src = pool.length ? pool : D.test_rows;
+        const pick = src[Math.floor(Math.random() * src.length)];
+        currentNote = `สุ่มจากชุด Test: room_id=${pick.room_id} (${pick.project_name})`;
+        selectRoom(pick.room_id);
+      });
+
+      document.getElementById('btnRandomBetter').addEventListener('click', () => {
+        const better = D.test_rows.filter(r =>
+          Math.abs(r.pred_phase3 - r.rental) <= r.rental * 0.2 &&
+          Math.abs(r.pred_phase2 - r.rental) - Math.abs(r.pred_phase3 - r.rental) > 3500
+        );
+        const pick = better[Math.floor(Math.random() * better.length)];
+        currentNote = `สุ่มเคสที่ Phase 3 แม่นขึ้นชัด: room_id=${pick.room_id} (${pick.project_name})`;
+        selectRoom(pick.room_id);
+      });
+
+      // Hidden-by-default CSV Test Drawer
+      function isMissingNum(v) {
+        if (v === null || v === undefined) return true;
+        const s = String(v).trim();
+        return s === '' || Number.isNaN(Number(s));
+      }
+
+      function predictRidge(m, row) {
+        const numVals = [];
+        for (const c of m.num_cols) {
+          const v = row[c];
+          numVals.push(isMissingNum(v) ? m.medians[c] : Number(v));
+        }
+        for (const c of m.missing_indicators) {
+          const v = row[c];
+          numVals.push(isMissingNum(v) ? 1.0 : 0.0);
+        }
+        const x = numVals.map((nv, j) => (nv - m.means[j]) / m.stds[j]);
+        for (const c of m.cat_cols) {
+          const val = row[c] ?? '';
+          for (const catVal of m.cats[c]) {
+            x.push(val === catVal ? 1.0 : 0.0);
+          }
+        }
+        let lp = m.intercept;
+        for (let j = 0; j < x.length; j++) lp += m.weights[j] * x[j];
+        return Math.max(0, Math.expm1(lp));
+      }
+
+      function parseCSV(text) {
+        const rows = [];
+        let row = [], val = '', inQ = false;
+        const s = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
+        for (let i = 0; i < s.length; i++) {
+          const ch = s[i];
+          if (inQ) {
+            if (ch === '"' && s[i + 1] === '"') { val += '"'; i++; }
+            else if (ch === '"') inQ = false;
+            else val += ch;
+          } else {
+            if (ch === '"') inQ = true;
+            else if (ch === ',') { row.push(val); val = ''; }
+            else if (ch === '\n') { row.push(val); rows.push(row); row = []; val = ''; }
+            else val += ch;
+          }
+        }
+        row.push(val);
+        rows.push(row);
+        if (rows.length < 2) return [];
+        const headers = rows[0].map(h => h.replace(/^\uFEFF/, '').trim());
+        return rows.slice(1).filter(r => r.some(x => x.trim() !== '')).map(vals => {
+          const obj = {};
+          headers.forEach((h, i) => { obj[h] = (vals[i] ?? '').trim(); });
+          if (isMissingNum(obj.log_size) && !isMissingNum(obj.size_sqm)) {
+            const sz = Number(obj.size_sqm);
+            if (sz > 0) obj.log_size = Math.log(sz);
+          }
+          if (isMissingNum(obj.log_project_units) && !isMissingNum(obj.project_units)) {
+            const pu = Number(obj.project_units);
+            if (pu > 0) obj.log_project_units = Math.log1p(pu);
+          }
+          return obj;
+        });
+      }
+
+      const csvDrawer = document.getElementById('csvDrawer');
+      document.getElementById('btnToggleCsv').addEventListener('click', () => {
+        csvDrawer.classList.toggle('open');
+      });
+
+      const pngDrawer = document.getElementById('pngDrawer');
+      const btnTogglePngFigs = document.getElementById('btnTogglePngFigs');
+      if (btnTogglePngFigs && pngDrawer) {
+        btnTogglePngFigs.addEventListener('click', () => {
+          const open = pngDrawer.classList.toggle('open');
+          btnTogglePngFigs.classList.toggle('active', open);
+          btnTogglePngFigs.textContent = open ? 'ซ่อนรูปกราฟรายงาน (PNG)' : 'ดูรูปกราฟรายงาน (PNG)';
+        });
+      }
+
+      document.getElementById('scatterModePills').querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+          scatterMode = pill.dataset.smode;
+          document.getElementById('scatterModePills').querySelectorAll('.filter-pill').forEach(p => {
+            p.classList.toggle('active', p === pill);
+          });
+          renderScatter();
+        });
+      });
+
+      document.getElementById('csvFileInput').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          const parsed = parseCSV(reader.result);
+          const wrap = document.getElementById('csvOutputWrap');
+          const tbody = document.getElementById('csvOutputBody');
+          if (!parsed.length) return;
+          wrap.style.display = 'block';
+          const shown = parsed.slice(0, 100);
+          const customRows = shown.map((r, idx) => {
+            const rid = !isMissingNum(r.room_id) ? Number(r.room_id) : (900000 + idx + 1);
+            const p2 = predictRidge(D.models.phase2, r);
+            const p3 = predictRidge(D.models.phase3, r);
+            const act = !isMissingNum(r.rental) ? Number(r.rental) : Math.round(p3);
+            const amenKeys = Object.keys(AMEN_TH).filter(k => Number(r[k]) === 1);
+            const item = {
+              room_id: rid,
+              project_id: !isMissingNum(r.project_id) ? Number(r.project_id) : 0,
+              project_name: r.project_name || (`Project #${r.project_id || '-'}`),
+              project_district: r.project_district || 'ไม่ระบุเขต',
+              size_sqm: !isMissingNum(r.size_sqm) ? Number(r.size_sqm) : 0,
+              floor_no: !isMissingNum(r.floor_no) ? Number(r.floor_no) : null,
+              bedrooms: !isMissingNum(r.bedrooms) ? Number(r.bedrooms) : null,
+              unit_type: r.unit_type || '—',
+              is_duplex: !isMissingNum(r.is_duplex) ? Number(r.is_duplex) : 0,
+              n_reported_room_amenities: !isMissingNum(r.n_reported_room_amenities) ? Number(r.n_reported_room_amenities) : amenKeys.length,
+              project_units: !isMissingNum(r.project_units) ? Number(r.project_units) : null,
+              project_age_2023: !isMissingNum(r.project_age_2023) ? Number(r.project_age_2023) : null,
+              project_buildings: !isMissingNum(r.project_buildings) ? Number(r.project_buildings) : null,
+              project_max_floors: !isMissingNum(r.project_max_floors) ? Number(r.project_max_floors) : null,
+              reported_common_amenities: !isMissingNum(r.reported_common_amenities) ? Number(r.reported_common_amenities) : 0,
+              rental: act,
+              pred_phase2: p2,
+              pred_phase3: p3,
+              amenities: amenKeys,
+            };
+            testMap.set(rid, item);
+            return item;
+          });
+
+          tbody.innerHTML = customRows.map(r => {
+            const e3 = Math.abs(r.pred_phase3 - r.rental);
+            const pct3 = r.rental > 0 ? (e3 / r.rental * 100) : 0;
+            return `
+              <tr class="row-pick" data-rid="${r.room_id}">
+                <td><span class="code-tag">${r.room_id}</span></td>
+                <td><strong>${r.project_name}</strong></td>
+                <td>${r.project_district.replace(' Bangkok', '')}</td>
+                <td class="num">${r.size_sqm}</td>
+                <td class="num"><strong>${fmtTHB(r.rental)}</strong></td>
+                <td class="num muted-p2">${fmtTHB(r.pred_phase2)}</td>
+                <td class="num"><strong>${fmtTHB(r.pred_phase3)}</strong></td>
+                <td class="num"><span class="tag-win">±${fmtTHB(e3)} บ. (${fmtDec(pct3)}%)</span></td>
+              </tr>
+            `;
+          }).join('');
+
+          tbody.querySelectorAll('tr').forEach(tr => {
+            tr.addEventListener('click', () => {
+              const rid = Number(tr.dataset.rid);
+              currentNote = `ทดสอบจากไฟล์ ${file.name}: room_id=${rid}`;
+              selectRoom(rid);
+              document.getElementById('spotlightBody').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+          });
+
+          if (customRows.length) {
+            currentNote = `โหลดไฟล์ ${file.name} สำเร็จ (${parsed.length} แถว) — กำลังแสดงแถวแรก room_id=${customRows[0].room_id}`;
+            if (demoMode !== 'TEST') switchDemoMode('TEST', false);
+            selectRoom(customRows[0].room_id);
+          }
+        };
+        reader.readAsText(file, 'utf-8');
+      });
+
+      // Custom Input Simulator Logic
+      const inUnitType = document.getElementById('inUnitType');
+      const inDistrict = document.getElementById('inDistrict');
+      const inAmenities = document.getElementById('inAmenities');
+
+      function initCustomControls() {
+        inUnitType.innerHTML = D.models.phase3.cats.unit_type
+          .map(ut => `<option value="${ut}">${ut}</option>`)
+          .join('');
+        inDistrict.innerHTML = D.models.phase3.cats.project_district
+          .map(d => `<option value="${d}">${DISTRICT_TH[d] || d}</option>`)
+          .join('');
+
+        inAmenities.innerHTML = Object.entries(AMEN_TH)
+          .map(([k, th]) => `<button type="button" class="chip-toggle" data-akey="${k}">${th}</button>`)
+          .join('');
+
+        inAmenities.querySelectorAll('.chip-toggle').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const k = btn.dataset.akey;
+            if (customAmenitiesSet.has(k)) customAmenitiesSet.delete(k);
+            else customAmenitiesSet.add(k);
+            syncCustomChipsUI();
+            if (demoMode === 'CUSTOM') runCustomPrediction();
+          });
+        });
+
+        ['inSize', 'inUnitType', 'inFloor', 'inBedrooms', 'inDuplex', 'inDistrict', 'inProjUnits', 'inProjAge', 'inProjFloors', 'inProjBuildings', 'inProjAmenities'].forEach(id => {
+          document.getElementById(id).addEventListener('input', () => {
+            if (id === 'inUnitType') {
+              const ut = inUnitType.value.toLowerCase();
+              if (ut.includes('duplex')) document.getElementById('inDuplex').checked = true;
+            }
+            if (demoMode === 'CUSTOM') runCustomPrediction();
+          });
+        });
+
+        document.getElementById('btnResetCustom').addEventListener('click', () => {
+          loadCustomValues({
+            size_sqm: 35,
+            unit_type: '1 Bedroom',
+            floor_no: 15,
+            bedrooms: 1,
+            is_duplex: 0,
+            amenities: ['air_conditioner', 'furnished', 'refrigerator', 'washer', 'water_heater'],
+            project_district: 'Sathon Bangkok',
+            project_units: 350,
+            project_age_2023: 5,
+            project_max_floors: 30,
+            project_buildings: 1,
+            reported_common_amenities: 12,
+          });
+          runCustomPrediction();
+        });
+      }
+
+      function syncCustomChipsUI() {
+        document.getElementById('customAmenCount').textContent = `มีของใช้ ${customAmenitiesSet.size}/12 รายการ`;
+        inAmenities.querySelectorAll('.chip-toggle').forEach(btn => {
+          btn.classList.toggle('on', customAmenitiesSet.has(btn.dataset.akey));
+        });
+      }
+
+      function loadCustomValues(src) {
+        document.getElementById('inSize').value = src.size_sqm ?? 35;
+        if ([...inUnitType.options].some(o => o.value === src.unit_type)) inUnitType.value = src.unit_type;
+        document.getElementById('inFloor').value = src.floor_no !== null && src.floor_no !== undefined ? src.floor_no : '';
+        document.getElementById('inBedrooms').value = src.bedrooms !== null && src.bedrooms !== undefined ? src.bedrooms : 1;
+        document.getElementById('inDuplex').checked = Boolean(src.is_duplex);
+
+        customAmenitiesSet = new Set(src.amenities || []);
+        syncCustomChipsUI();
+
+        if ([...inDistrict.options].some(o => o.value === src.project_district)) inDistrict.value = src.project_district;
+        document.getElementById('inProjUnits').value = src.project_units !== null && src.project_units !== undefined ? Math.round(src.project_units) : '';
+        document.getElementById('inProjAge').value = src.project_age_2023 !== null && src.project_age_2023 !== undefined ? Math.round(src.project_age_2023) : '';
+        document.getElementById('inProjFloors').value = src.project_max_floors !== null && src.project_max_floors !== undefined ? Math.round(src.project_max_floors) : '';
+        document.getElementById('inProjBuildings').value = src.project_buildings !== null && src.project_buildings !== undefined ? Math.round(src.project_buildings) : '';
+        document.getElementById('inProjAmenities').value = src.reported_common_amenities !== null && src.reported_common_amenities !== undefined ? Math.round(src.reported_common_amenities) : 0;
+      }
+
+      function findNearestBenchmark(district, sizeSqm, bedrooms, isDuplex) {
+        const sameDistrict = D.test_rows.filter(r => r.project_district === district);
+        const candidates = sameDistrict.length ? sameDistrict : D.test_rows;
+        let best = candidates[0];
+        let bestScore = Infinity;
+        for (const r of candidates) {
+          const sizeDiff = Math.abs(r.size_sqm - sizeSqm) / Math.max(sizeSqm, 1);
+          const bedDiff = Math.abs((r.bedrooms ?? bedrooms) - bedrooms) * 0.25;
+          const dupDiff = (r.is_duplex !== isDuplex) ? 0.5 : 0;
+          const score = sizeDiff + bedDiff + dupDiff;
+          if (score < bestScore) {
+            bestScore = score;
+            best = r;
+          }
+        }
+        return best;
+      }
+
+      function runCustomPrediction() {
+        const szRaw = Number(document.getElementById('inSize').value);
+        const sz = Math.max(15, Math.min(400, Number.isFinite(szRaw) && szRaw > 0 ? szRaw : 35));
+        const puRaw = document.getElementById('inProjUnits').value.trim();
+        const puNum = puRaw === '' ? null : Number(puRaw);
+        const bedVal = document.getElementById('inBedrooms').value.trim();
+        const isDup = document.getElementById('inDuplex').checked ? 1 : 0;
+
+        const row = {
+          log_size: Math.log(sz),
+          floor_no: document.getElementById('inFloor').value.trim(),
+          bedrooms: bedVal,
+          unit_type: inUnitType.value,
+          is_duplex: isDup,
+          n_reported_room_amenities: customAmenitiesSet.size,
+          log_project_units: puNum && puNum > 0 ? Math.log1p(puNum) : '',
+          project_age_2023: document.getElementById('inProjAge').value.trim(),
+          project_max_floors: document.getElementById('inProjFloors').value.trim(),
+          project_buildings: document.getElementById('inProjBuildings').value.trim(),
+          reported_common_amenities: document.getElementById('inProjAmenities').value.trim() || 0,
+          project_district: inDistrict.value,
+        };
+        for (const k of Object.keys(AMEN_TH)) {
+          row[k] = customAmenitiesSet.has(k) ? 1 : 0;
+        }
+
+        const p2 = predictRidge(D.models.phase2, row);
+        const p3 = predictRidge(D.models.phase3, row);
+        const bench = findNearestBenchmark(inDistrict.value, sz, bedVal === '' ? 1 : Number(bedVal), isDup);
+        const refRent = bench.rental;
+        const e2 = Math.abs(p2 - refRent);
+        const e3 = Math.abs(p3 - refRent);
+        const pct2 = (e2 / refRent) * 100;
+        const pct3 = (e3 / refRent) * 100;
+        const saved = e2 - e3;
+
+        document.getElementById('spotTitle').textContent = 'ห้องจำลอง (ทดลองกรอกข้อมูลเอง)';
+        document.getElementById('spotRoomId').textContent = 'Custom Input';
+        document.getElementById('spotDistrict').textContent = `เขต ${inDistrict.value.replace(' Bangkok', '')}`;
+        document.getElementById('presetNote').textContent = `เทียบกับห้องจริงสเปกใกล้สุดในข้อมูล Test (${bench.project_name} • ${bench.size_sqm} ตร.ม. • ค่าเช่าจริง ${fmtTHB(refRent)} บ.)`;
+
+        document.getElementById('actualCmpTitle').textContent = `ราคาตลาดจริงอ้างอิง (${bench.project_name} • ${bench.size_sqm} ตร.ม.)`;
+        document.getElementById('spotPerSqm').textContent = `${fmtTHB(refRent / bench.size_sqm)} บาท / ตร.ม.`;
+        animateNumber(document.getElementById('spotActual'), refRent, v => fmtTHB(v), 240);
+
+        const banner = document.getElementById('spotBanner');
+        const bannerText = document.getElementById('spotBannerText');
+        const bannerPct = document.getElementById('spotBannerPct');
+        if (saved >= 0) {
+          banner.className = 'pred-banner good';
+          bannerText.innerHTML = `เทียบราคาตลาดจริงในเขตนี้ (${fmtTHB(refRent)} บ.) — Phase 3 แม่นกว่า Phase 2 อยู่ <strong id="savedAnim">0</strong> บาท`;
+          bannerPct.textContent = `คลาดเคลื่อน ${fmtDec(pct3)}%`;
+          animateNumber(document.getElementById('savedAnim'), saved, v => fmtTHB(v), 220);
+        } else {
+          banner.className = 'pred-banner neutral';
+          bannerText.innerHTML = `เทียบห้องอ้างอิง (${fmtTHB(refRent)} บ.) — เคสนี้ Phase 2 ใกล้กว่า <strong id="savedAnim">0</strong> บาท`;
+          bannerPct.textContent = `ต่างกัน ${fmtTHB(Math.abs(p3 - p2))} บ.`;
+          animateNumber(document.getElementById('savedAnim'), -saved, v => fmtTHB(v), 220);
+        }
+
+        const s2 = p2 >= refRent ? '+' : '-';
+        const s3 = p3 >= refRent ? '+' : '-';
+        document.getElementById('spotP3Err').textContent = `คลาดเคลื่อน ${s3}${fmtTHB(e3)} บ. (${fmtDec(pct3)}%) • เฉลี่ย ${fmtTHB(p3 / sz)} บ./ตร.ม.`;
+        document.getElementById('spotP2Err').textContent = `คลาดเคลื่อน ${s2}${fmtTHB(e2)} บ. (${fmtDec(pct2)}%) • เฉลี่ย ${fmtTHB(p2 / sz)} บ./ตร.ม.`;
+        animateNumber(document.getElementById('spotP3'), p3, v => fmtTHB(v), 240);
+        animateNumber(document.getElementById('spotP2'), p2, v => fmtTHB(v), 240);
+
+        const maxVal = Math.max(refRent, p2, p3, 1);
+        requestAnimationFrame(() => {
+          document.getElementById('barActual').style.width = `${Math.max(4, Math.round((refRent / maxVal) * 100))}%`;
+          document.getElementById('barP3').style.width = `${Math.max(4, Math.round((p3 / maxVal) * 100))}%`;
+          document.getElementById('barP2').style.width = `${Math.max(4, Math.round((p2 / maxVal) * 100))}%`;
+        });
+      }
+
+      function switchDemoMode(mode, runAction = true) {
+        demoMode = mode;
+        const isCustom = mode === 'CUSTOM';
+        document.getElementById('tabModeTest').classList.toggle('active', !isCustom);
+        document.getElementById('tabModeCustom').classList.toggle('active', isCustom);
+        document.getElementById('tabModeTest').setAttribute('aria-selected', String(!isCustom));
+        document.getElementById('tabModeCustom').setAttribute('aria-selected', String(isCustom));
+
+        document.getElementById('testToolbar').style.display = isCustom ? 'none' : 'flex';
+        document.getElementById('btnResetCustom').style.display = isCustom ? 'inline-block' : 'none';
+        document.getElementById('spotReadOnlyView').style.display = isCustom ? 'none' : 'block';
+        document.getElementById('spotCustomView').style.display = isCustom ? 'block' : 'none';
+        document.getElementById('actualCmpCard').style.display = 'block';
+
+        if (isCustom && runAction) {
+          const cur = testMap.get(activeRoomId);
+          if (cur) loadCustomValues(cur);
+          runCustomPrediction();
+        } else if (!isCustom && runAction) {
+          const p = D.presets.find(x => x.room_id === activeRoomId);
+          const cur = testMap.get(activeRoomId);
+          currentNote = p ? p.note : (cur ? `กำลังแสดงห้อง room_id=${cur.room_id} (${cur.project_name})` : '');
+          selectRoom(activeRoomId);
+        }
+      }
+
+      document.getElementById('tabModeTest').addEventListener('click', () => switchDemoMode('TEST'));
+      document.getElementById('tabModeCustom').addEventListener('click', () => switchDemoMode('CUSTOM'));
+
+      initCustomControls();
+
+      // Initialize on Case 2
+      selectRoom(activeRoomId);
+    })();
+  </script>
+</body>
+</html>

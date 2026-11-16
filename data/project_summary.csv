@@ -1,0 +1,242 @@
+﻿project_id,project_name,address,ceiling_height,completed_on,no_building,no_floor,total_units,utility_fee,bicycle_parking,cctv,convenience_store,fingerprint_access_control,fitness,jacuzzi,keycard_access_control,kids_playground,library,lift,massage_room,park_bbq_areas,parking,restaurant,sauna,security,shuttle_service,steam_room,swimming_pool,wifi,project_units,log_project_units,project_age_2023,project_buildings,project_max_floors,reported_common_amenities,project_district
+1,185 Ratchadamri,Pathum Wan Bangkok,3 m.,2014,2,35,265 rooms,80 THB/sq.m.,1,1,0,0,1,1,1,1,0,1,0,1,1,0,1,1,0,0,1,1,265.0,5.583496308781699,9.0,2.0,35.0,13,Pathum Wan Bangkok
+2,98 wireless,Pathum Wan Bangkok,,2017,1,25,77 rooms,- THB/sq.m.,0,1,0,0,1,1,0,1,0,1,1,1,1,0,0,1,0,1,1,1,77.0,4.356708826689592,6.0,1.0,25.0,12,Pathum Wan Bangkok
+3,Aliss Wongwianyai,Khlong San Bangkok,- m.,2009,2,"5,8",79 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,79.0,4.382026634673881,14.0,2.0,8.0,8,Khlong San Bangkok
+4,Altitude Symphony Charoenkrung,Bang Kho Laem Bangkok,2.65 m.,2021,1,21,99 rooms,80 THB/sq.m.,0,1,0,0,1,1,1,1,1,1,0,1,1,0,0,1,0,0,1,0,99.0,4.605170185988092,2.0,1.0,21.0,11,Bang Kho Laem Bangkok
+5,Altitude Unicorn Sathorn - Thapra,Thon Buri Bangkok,2.7 m.,2021,1,34,711 rooms,45 THB/sq.m.,0,1,1,1,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,711.0,6.568077911411976,2.0,1.0,34.0,10,Thon Buri Bangkok
+6,Anantara Baan Rajprasong,Pathum Wan Bangkok,,2009,1,34,220 rooms,,0,1,0,0,1,0,1,0,0,1,0,1,1,1,1,1,0,0,1,1,220.0,5.3981627015177525,14.0,1.0,34.0,11,Pathum Wan Bangkok
+7,Andaman Riviera,Thalang Phuket,,2023,1,8,165 rooms,,0,1,0,0,1,0,0,0,0,1,0,1,1,0,0,1,0,0,1,0,165.0,5.111987788356544,0.0,1.0,8.0,7,Thalang Phuket
+8,Anil Sathorn 12,Bang Rak Bangkok,3 m.,2022,1,42,222 rooms,95 THB/sq.m.,0,1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,1,1,0,222.0,5.407171771460119,1.0,1.0,42.0,12,Bang Rak Bangkok
+9,Ascott Sathorn,Sathon Bangkok,,,1,No information,No information,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,1.0,,0,Sathon Bangkok
+10,Ashton Chula - Silom,Bang Rak Bangkok,2.7 m.,2018,1,56,1182 rooms,65 THB/sq.m.,1,1,1,0,1,1,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1182.0,7.075808863978387,5.0,1.0,56.0,14,Bang Rak Bangkok
+11,Ashton Silom,Bang Rak Bangkok,"2.8,3.2,3.5 m.",2019,1,48,428 rooms,85 THB/sq.m.,1,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,428.0,6.061456918928017,4.0,1.0,48.0,16,Bang Rak Bangkok
+12,Aspire Sathorn - Ratchapruek,Phasi Charoen Bangkok,2.55 m.,2018,1,33,1049 rooms,38.00 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,1049.0,6.956545443151569,5.0,1.0,33.0,10,Phasi Charoen Bangkok
+13,Aspire Sathorn - Taksin (Brick Zone),Thon Buri Bangkok,2.55 m.,2015,2,8,364 rooms,55 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,364.0,5.8998973535824915,8.0,2.0,8.0,8,Thon Buri Bangkok
+14,Aspire Sathorn - Taksin (Copper Zone),Chom Thong Bangkok,2.55 m.,2016,1,21,613 rooms,45 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,613.0,6.419994928147142,7.0,1.0,21.0,9,Chom Thong Bangkok
+15,Aspire Sathorn - Taksin (Timber Zone),Thon Buri Bangkok,,2015,1,25,546 rooms,40 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,1,0,1,0,546.0,6.304448802421981,8.0,1.0,25.0,10,Thon Buri Bangkok
+16,Aspire Sathorn - Thapra,Thon Buri Bangkok,2.55 m.,2016,1,30,"1,219 rooms",38 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,1219.0,7.106606137727303,7.0,1.0,30.0,9,Thon Buri Bangkok
+17,Aspire Wutthakat,Thon Buri Bangkok,2.5 m.,2016,1,8,166 rooms,65.00 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,166.0,5.117993812416755,7.0,1.0,8.0,8,Thon Buri Bangkok
+18,Baan Kasemsan 1,Pathum Wan Bangkok,,,No information,No information,No information,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,0,Pathum Wan Bangkok
+19,Baan Klang Krung Siam - Pathumwan,Ratchathewi Bangkok,,2007,2,26,580 rooms,- THB/sq.m.,0,1,0,0,1,0,0,0,0,1,1,0,1,0,1,1,0,1,1,0,580.0,6.364750756851911,16.0,2.0,26.0,9,Ratchathewi Bangkok
+20,Baan Na Varang,Pathum Wan Bangkok,,1998,1,24,95 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,95.0,4.564348191467836,25.0,1.0,24.0,0,Pathum Wan Bangkok
+21,Baan Nonsee,Sathon Bangkok,,1999,1,20,64 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64.0,4.174387269895637,24.0,1.0,20.0,0,Sathon Bangkok
+22,Baan Nunthasiri,Sathon Bangkok,,2006,2,7,79 rooms,35 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,79.0,4.382026634673881,17.0,2.0,7.0,9,Sathon Bangkok
+23,Baan Piya Sathorn,Sathon Bangkok,,1998,1,33,146 rooms,,0,1,0,0,0,0,1,0,0,1,1,0,1,0,0,1,0,0,1,0,146.0,4.990432586778736,25.0,1.0,33.0,7,Sathon Bangkok
+24,Baan Rajprasong,Pathum Wan Bangkok,- m.,2007,1,34,220 rooms,45 THB/sq.m.,0,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,0,0,0,1,220.0,5.3981627015177525,16.0,1.0,34.0,13,Pathum Wan Bangkok
+25,Baan Ratchadamri,Pathum Wan Bangkok,,2005,1,26,52 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,52.0,3.970291913552122,18.0,1.0,26.0,0,Pathum Wan Bangkok
+26,Baan Sansiri,Pathum Wan Bangkok,,1993,1,24,32 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32.0,3.4965075614664802,30.0,1.0,24.0,0,Pathum Wan Bangkok
+27,Baan Sathorn,Sathon Bangkok,,1994,1,20,50 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,50.0,3.9318256327243257,29.0,1.0,20.0,0,Sathon Bangkok
+28,Baan Sathorn Chaopraya,Khlong San Bangkok,,2005,1,37,400 rooms,30 THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,1,1,1,0,0,1,0,400.0,5.993961427306569,18.0,1.0,37.0,12,Khlong San Bangkok
+29,Baan Sindhorn,Pathum Wan Bangkok,3 m.,-,1,8,32 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,1,1,1,0,32.0,3.4965075614664802,,1.0,8.0,11,Pathum Wan Bangkok
+30,Baan Siri Silom,Bang Rak Bangkok,,2006,1,25,137 rooms,45 THB/sq.m.,1,1,0,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,137.0,4.927253685157205,17.0,1.0,25.0,10,Bang Rak Bangkok
+31,Baan Somthavil,Pathum Wan Bangkok,,1997,1,21,113 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,113.0,4.736198448394496,26.0,1.0,21.0,0,Pathum Wan Bangkok
+32,Baan Thanon Sarasin,Pathum Wan Bangkok,,2006,1,7,22 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22.0,3.1354942159291497,17.0,1.0,7.0,0,Pathum Wan Bangkok
+33,Bangkok Feliz @ Krungthonburi 5 - 2,Thon Buri Bangkok,,2014,1,8,79 rooms,45.00 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,79.0,4.382026634673881,9.0,1.0,8.0,9,Thon Buri Bangkok
+34,Bangkok Feliz Sathorn - Taksin,Khlong San Bangkok,,,1,8,200 rooms,,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,200.0,5.303304908059076,,1.0,8.0,8,Khlong San Bangkok
+35,Bangkok Horizon Ratchada - Thapra,Thon Buri Bangkok,,2014,2,8,710 rooms,30.00 THB/sq.m.,0,1,0,0,0,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,710.0,6.566672429803241,9.0,2.0,8.0,8,Thon Buri Bangkok
+36,Bangkok Horizon Sathorn - Narathiwas,Sathon Bangkok,- m.,2014,1,24,268 rooms,45.00 THB/sq.m.,0,1,0,0,1,0,0,1,1,1,0,1,1,0,0,1,0,0,1,1,268.0,5.594711379601839,9.0,1.0,24.0,10,Sathon Bangkok
+37,Beat Bangwa Interchange,Phasi Charoen Bangkok,2.45 m.,2021,2,8,402 rooms,39 THB/sq.m.,0,1,1,0,1,1,1,0,1,1,0,1,1,1,0,1,1,0,1,0,402.0,5.998936561946683,2.0,2.0,8.0,13,Phasi Charoen Bangkok
+38,Blossom Condo @ Sathorn - Charoenrat,Sathon Bangkok,"2.50,4.75 m.",2018,4,8,792 rooms,50.00 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,1,1,1,1,0,1,0,792.0,6.675823221634848,5.0,4.0,8.0,12,Sathon Bangkok
+39,Bright Wongwian Yai,Thon Buri Bangkok,2.7 m.,2018,1,46,472 rooms,50.00 THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1,0,472.0,6.159095388491933,5.0,1.0,46.0,11,Thon Buri Bangkok
+40,CU Terrace,Pathum Wan Bangkok,,2013,2,26,No information,40 THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,1,0,1,0,0,1,0,,,10.0,2.0,26.0,11,Pathum Wan Bangkok
+41,Casa Condo Ratchada - Ratchaphruek,Thon Buri Bangkok,,2014,1,28,627 rooms,40 THB/sq.m.,0,1,0,0,1,0,0,0,0,1,0,1,1,0,1,1,0,0,1,0,627.0,6.4425401664681985,9.0,1.0,28.0,8,Thon Buri Bangkok
+42,Casa Condo Ratchada - Thapra,Thon Buri Bangkok,,2011,2,8,274 rooms,25 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,274.0,5.616771097666572,12.0,2.0,8.0,8,Thon Buri Bangkok
+43,Centric Sathorn - Saint Louis,Sathon Bangkok,,2013,2,28,365 rooms,65 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,365.0,5.902633333401366,10.0,2.0,28.0,8,Sathon Bangkok
+44,Charn Issara City Home,Phasi Charoen Bangkok,,1998,1,8,70 rooms,- THB/sq.m.,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,70.0,4.2626798770413155,25.0,1.0,8.0,6,Phasi Charoen Bangkok
+45,Chatrium Riverside Residence,Bang Kho Laem Bangkok,,2008,1,36,260 rooms,45 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,1,1,1,0,0,1,0,260.0,5.564520407322694,15.0,1.0,36.0,9,Bang Kho Laem Bangkok
+46,Chewathai Phetkasem 27,Phasi Charoen Bangkok,2.4 m.,2018,1,26,638 rooms,35.00 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,638.0,6.459904454377535,5.0,1.0,26.0,9,Phasi Charoen Bangkok
+47,Citrine,Khlong San Bangkok,,2009,1,8,55 rooms,35 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,55.0,4.02535169073515,14.0,1.0,8.0,9,Khlong San Bangkok
+48,Collezio Sathorn - Pipat,Bang Rak Bangkok,- m.,2011,1,8,95 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,0,95.0,4.564348191467836,12.0,1.0,8.0,8,Bang Rak Bangkok
+49,Condolette Light Convent,Bang Rak Bangkok,2.5 m.,2014,1,8,111 rooms,65 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,111.0,4.718498871295094,9.0,1.0,8.0,8,Bang Rak Bangkok
+50,Diamond Tower,Bang Rak Bangkok,,1985,1,23,100 rooms,- THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,0,100.0,4.61512051684126,38.0,1.0,23.0,9,Bang Rak Bangkok
+51,Elio Sathorn - Wutthakat,Chom Thong Bangkok,2.5 m.,2021,2,"35,41",1161 rooms,50 THB/sq.m.,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1161.0,7.057897937411856,2.0,2.0,41.0,15,Chom Thong Bangkok
+52,Flawless Sathorn Residence,Sathon Bangkok,,2014,1,5,42 rooms,85.00 THB/sq.m.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,42.0,3.7612001156935624,9.0,1.0,5.0,0,Sathon Bangkok
+53,Focus on Saladaeng,Bang Rak Bangkok,- m.,2011,1,8,62 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,62.0,4.143134726391533,12.0,1.0,8.0,7,Bang Rak Bangkok
+54,Four Seasons Private Residence Bangkok,Bang Kho Laem Bangkok,,2019,1,73,355 rooms,120 THB/sq.m.,0,1,0,0,1,1,0,1,1,1,1,1,1,0,1,1,0,1,1,0,355.0,5.87493073085203,4.0,1.0,73.0,13,Bang Kho Laem Bangkok
+55,Fuse Sathorn - Taksin,Khlong San Bangkok,- m.,2012,1,27,377 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,377.0,5.934894195619588,11.0,1.0,27.0,8,Khlong San Bangkok
+56,Garden View Mansion,Pathum Wan Bangkok,,1985,1,15,38 rooms,,0,0,0,0,1,0,0,0,0,1,0,1,0,0,1,1,0,0,1,1,38.0,3.6635616461296463,38.0,1.0,15.0,7,Pathum Wan Bangkok
+57,Grand Diamond Pratunam,Ratchathewi Bangkok,,1998,1,26,610 rooms,,0,1,0,0,1,0,1,1,1,1,0,1,1,1,1,1,0,0,1,0,610.0,6.415096959171596,25.0,1.0,26.0,12,Ratchathewi Bangkok
+58,Grand Langsuan,Pathum Wan Bangkok,,1998,1,36,104 rooms,,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,104.0,4.653960350157523,25.0,1.0,36.0,9,Pathum Wan Bangkok
+59,Green Point Silom,Bang Rak Bangkok,,1998,4,8,156 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,0,156.0,5.056245805348308,25.0,4.0,8.0,8,Bang Rak Bangkok
+60,Hampton Residence Bangkok,Khlong Toei Bangkok,- m.,-,3,"2,29,51",837 rooms,- THB/sq.m.,0,1,1,0,1,1,1,0,0,1,0,1,1,1,1,1,1,0,1,1,837.0,6.731018100482083,,3.0,51.0,14,Khlong Toei Bangkok
+61,Hansar Rajdamri,Pathum Wan Bangkok,,2009,1,43,196 rooms,50 THB/sq.m.,0,1,0,0,1,0,0,0,0,1,0,1,1,0,1,1,0,0,1,1,196.0,5.2832037287379885,14.0,1.0,43.0,9,Pathum Wan Bangkok
+62,Heritage Condominium,Phasi Charoen Bangkok,,1997,1,8,47 rooms,,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,47.0,3.871201010907891,26.0,1.0,8.0,5,Phasi Charoen Bangkok
+63,Hive Sathorn,Khlong San Bangkok,2.7 m.,2010,1,31,363 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,1,1,363.0,5.8971538676367405,13.0,1.0,31.0,11,Khlong San Bangkok
+64,Hive Taksin,Khlong San Bangkok,- m.,2009,1,28,365 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,1,365.0,5.902633333401366,14.0,1.0,28.0,10,Khlong San Bangkok
+65,IDEO Blucove Sathorn,Khlong San Bangkok,- m.,2009,2,8,266 rooms,35 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,266.0,5.58724865840025,14.0,2.0,8.0,9,Khlong San Bangkok
+66,IDEO Mobi Sathorn,Khlong San Bangkok,- m.,2014,1,31,530 rooms,45 THB/sq.m.,0,1,1,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,0,530.0,6.274762021241939,9.0,1.0,31.0,10,Khlong San Bangkok
+67,IDEO Q Ratchathewi,Ratchathewi Bangkok,2.6 m.,2015,1,37,323 rooms,65 THB/sq.m.,0,1,1,0,1,1,1,0,1,1,0,1,1,0,1,1,0,0,1,0,323.0,5.780743515792329,8.0,1.0,37.0,12,Ratchathewi Bangkok
+68,IDEO Q Sukhumvit 36,Khlong Toei Bangkok,2.7 m.,2020,2,"24,47",449 rooms,85 THB/sq.m.,0,1,1,1,1,0,1,0,1,1,0,1,1,0,1,1,1,1,1,0,449.0,6.1092475827643655,3.0,2.0,47.0,14,Khlong Toei Bangkok
+69,IDEO Sathorn - Taksin,Khlong San Bangkok,- m.,2010,1,27,349 rooms,35 THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,0,349.0,5.857933154483459,13.0,1.0,27.0,9,Khlong San Bangkok
+70,IDEO Sathorn - Thapra,Thon Buri Bangkok,2.5 m.,2015,1,31,1339 rooms,45 THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,0,0,1,0,0,1,0,1339.0,7.200424892944957,8.0,1.0,31.0,10,Thon Buri Bangkok
+71,IDEO Sathorn - Wongwian Yai,Khlong San Bangkok,2.6 m.,2020,1,28,508 rooms,60 THB/sq.m.,1,1,1,1,1,0,0,0,0,1,0,1,1,0,1,1,0,1,1,0,508.0,6.2324480165505225,3.0,1.0,28.0,12,Khlong San Bangkok
+72,IDEO Wutthakat,Chom Thong Bangkok,,2016,1,31,979 rooms,45 THB/sq.m.,0,1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,1,1,0,979.0,6.887552571664617,7.0,1.0,31.0,12,Chom Thong Bangkok
+73,ITF Silom Palace,Bang Rak Bangkok,,1986,1,27,930 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,930.0,6.836259277277067,37.0,1.0,27.0,0,Bang Rak Bangkok
+74,Ivy Sathorn 10,Bang Rak Bangkok,,2009,1,29,290 rooms,- THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,290.0,5.673323267171493,14.0,1.0,29.0,10,Bang Rak Bangkok
+75,Klass Langsuan,Pathum Wan Bangkok,,2015,1,8,110 rooms,60.00 THB/sq.m.,0,1,0,0,1,1,1,0,1,1,0,1,1,0,1,1,0,0,1,0,110.0,4.709530201312334,8.0,1.0,8.0,11,Pathum Wan Bangkok
+76,Klass Sarasin-Rajdamri,Pathum Wan Bangkok,,2017,1,8,68 rooms,80.00 THB/sq.m.,0,1,0,0,1,1,1,0,1,1,0,1,1,0,0,1,0,0,1,0,68.0,4.23410650459726,6.0,1.0,8.0,10,Pathum Wan Bangkok
+77,Klass Siam,Pathum Wan Bangkok,,2017,1,8,79 rooms,80.00 THB/sq.m.,0,1,0,0,1,1,1,0,1,1,0,1,1,0,0,1,0,0,1,0,79.0,4.382026634673881,6.0,1.0,8.0,10,Pathum Wan Bangkok
+78,Klass Silom,Bang Rak Bangkok,,2014,1,8,176 rooms,60 THB/sq.m.,0,1,0,0,1,1,1,0,1,1,0,1,1,0,0,1,0,0,1,0,176.0,5.176149732573829,9.0,1.0,8.0,10,Bang Rak Bangkok
+79,Knightsbridge Prime Sathorn,Sathon Bangkok,"2.6,4.4 m.",2019,1,43,726 rooms,55 THB/sq.m.,0,1,1,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,1,726.0,6.588926477533519,4.0,1.0,43.0,11,Sathon Bangkok
+80,Langsuan Ville,Pathum Wan Bangkok,,2001,1,39,262 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,262.0,5.572154032177765,22.0,1.0,39.0,0,Pathum Wan Bangkok
+81,Life @ BTS Tha - Phra,Thon Buri Bangkok,- m.,2009,1,17,672 rooms,30 THB/sq.m.,0,1,1,0,0,0,1,0,0,1,0,1,1,1,1,1,0,1,1,0,672.0,6.511745329644728,14.0,1.0,17.0,11,Thon Buri Bangkok
+82,Life @ Sathorn 10,Bang Rak Bangkok,- m.,2010,1,27,286 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,286.0,5.659482215759621,13.0,1.0,27.0,9,Bang Rak Bangkok
+83,Life Sathorn Sierra,Thon Buri Bangkok,2.55 m.,2022,1,40,1971 rooms,- THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,1,1,1,0,1,1,0,1971.0,7.586803535162581,1.0,1.0,40.0,13,Thon Buri Bangkok
+84,Lumpini Park View,Pathum Wan Bangkok,- m.,1998,1,35,277 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,277.0,5.627621113690637,25.0,1.0,35.0,7,Pathum Wan Bangkok
+85,Lumpini Place Ratchada - Thapra,Thon Buri Bangkok,- m.,2007,3,29,923 rooms,30 THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,1,1,1,0,0,1,1,923.0,6.828712071641684,16.0,3.0,29.0,13,Thon Buri Bangkok
+86,Lumpini Place Sathorn,Sathon Bangkok,- m.,2002,4,9,603 rooms,20 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,603.0,6.403574197934815,21.0,4.0,9.0,8,Sathon Bangkok
+87,Lumpini Place Suanplu - Sathorn,Sathon Bangkok,- m.,2003,2,9,281 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,281.0,5.641907070938114,20.0,2.0,9.0,9,Sathon Bangkok
+88,M Silom,Bang Rak Bangkok,2.8 m.,2014,1,53,161 rooms,50 THB/sq.m.,0,1,0,0,1,1,1,0,0,1,1,1,1,0,1,1,0,1,1,0,161.0,5.087596335232384,9.0,1.0,53.0,12,Bang Rak Bangkok
+89,Maestro 14 Siam - Ratchathewi,Ratchathewi Bangkok,2.45 m.,2017,1,8,179 rooms,65 THB/sq.m.,1,1,0,0,1,0,1,0,1,1,0,1,1,0,1,0,0,1,1,1,179.0,5.19295685089021,6.0,1.0,8.0,12,Ratchathewi Bangkok
+90,Magnolias Ratchadamri Boulevard,Pathum Wan Bangkok,3.0 m.,2015,1,60,316 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1,0,316.0,5.75890177387728,8.0,1.0,60.0,11,Pathum Wan Bangkok
+91,Marsh Tien Zieng,Sathon Bangkok,,1997,1,5,40 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,40.0,3.713572066704308,26.0,1.0,5.0,0,Sathon Bangkok
+92,Merlin Tower,Sathon Bangkok,- m.,2012,1,16,- rooms,- THB/sq.m.,0,1,1,0,1,0,0,0,0,1,0,1,1,0,0,1,0,0,0,0,,,11.0,1.0,16.0,7,Sathon Bangkok
+93,Metro Sky Sathorn - Wutthakat,Thon Buri Bangkok,2.65 m.,2021,1,31,527 rooms,45 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,527.0,6.269096283706261,2.0,1.0,31.0,8,Thon Buri Bangkok
+94,Monet House,Pathum Wan Bangkok,,2015,1,5,11 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,11.0,2.4849066497880004,8.0,1.0,5.0,7,Pathum Wan Bangkok
+95,Montrari Jomtien Beach View,Bang Lamung Chonburi,,2009,1,6,0 rooms,,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,,,14.0,1.0,6.0,4,Bang Lamung Chonburi
+96,Muniq Langsuan,Pathum Wan Bangkok,3 m.,2021,1,28,166 rooms,120 THB/sq.m.,0,1,0,0,1,0,1,1,1,1,0,1,1,0,0,1,0,0,1,0,166.0,5.117993812416755,2.0,1.0,28.0,10,Pathum Wan Bangkok
+97,My Condo Sathorn - Taksin,Khlong San Bangkok,- m.,2009,2,8,238 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,238.0,5.476463551931511,14.0,2.0,8.0,6,Khlong San Bangkok
+98,Na Vara Residence,Pathum Wan Bangkok,,2019,1,8,96 rooms,,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,0,96.0,4.574710978503383,4.0,1.0,8.0,9,Pathum Wan Bangkok
+99,Nara 9,Sathon Bangkok,2.7 m.,2016,1,40,361 rooms,50 THB/sq.m.,0,1,0,0,1,1,0,1,0,1,0,1,1,0,1,1,0,0,1,0,361.0,5.8916442118257715,7.0,1.0,40.0,10,Sathon Bangkok
+100,Noble Ambience Sarasin,Pathum Wan Bangkok,- m.,2008,1,8,79 rooms,60 THB/sq.m.,0,1,0,0,1,0,0,1,0,1,0,1,1,0,0,1,0,0,1,0,79.0,4.382026634673881,15.0,1.0,8.0,8,Pathum Wan Bangkok
+101,Noble Revo Silom,Bang Rak Bangkok,2.6 m.,2016,1,32,319 rooms,55 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,319.0,5.768320995793772,7.0,1.0,32.0,8,Bang Rak Bangkok
+102,Nusa State Tower,Bang Rak Bangkok,,2001,1,68,166 rooms,- THB/sq.m.,0,1,0,0,1,0,0,0,1,1,0,0,1,1,1,1,0,0,1,1,166.0,5.117993812416755,22.0,1.0,68.0,10,Bang Rak Bangkok
+103,Nye by Sansiri,Khlong San Bangkok,2.7 m.,2015,2,30,636 rooms,50.00 THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,1,636.0,6.456769655572163,8.0,2.0,30.0,10,Khlong San Bangkok
+104,One Siam,Pathum Wan Bangkok,,2009,1,8,147 rooms,,0,1,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,1,0,147.0,4.997212273764115,14.0,1.0,8.0,5,Pathum Wan Bangkok
+105,Oriental Residence,Pathum Wan Bangkok,,2010,1,32,44 rooms,70 THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,1,1,1,0,0,1,0,44.0,3.8066624897703196,13.0,1.0,32.0,12,Pathum Wan Bangkok
+106,Pabhada Silom,Bang Rak Bangkok,,2007,1,8,69 rooms,30 THB/sq.m.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,69.0,4.248495242049359,16.0,1.0,8.0,0,Bang Rak Bangkok
+107,Panburi,Bang Rak Bangkok,- m.,2002,1,22,15 rooms,- THB/sq.m.,0,1,0,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,15.0,2.772588722239781,21.0,1.0,22.0,9,Bang Rak Bangkok
+108,Pathumwan Oasis,Pathum Wan Bangkok,,2009,1,7,22 rooms,50 THB/sq.m.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22.0,3.1354942159291497,14.0,1.0,7.0,0,Pathum Wan Bangkok
+109,Pathumwan Place,Pathum Wan Bangkok,,,1,17,No information,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,1.0,17.0,0,Pathum Wan Bangkok
+110,Pearl Garden,Bang Rak Bangkok,,1999,1,16,69 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,69.0,4.248495242049359,24.0,1.0,16.0,7,Bang Rak Bangkok
+111,Pela Wutthakat,Thon Buri Bangkok,2.5 m.,2016,1,22,190 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,190.0,5.25227342804663,7.0,1.0,22.0,8,Thon Buri Bangkok
+112,Pingpha,Bang Lamung Chonburi,,2006,1,8,0 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,17.0,1.0,8.0,0,Bang Lamung Chonburi
+113,Pipat Place,Bang Rak Bangkok,,2002,1,8,129 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,129.0,4.867534450455582,21.0,1.0,8.0,0,Bang Rak Bangkok
+114,Polo Park,Pathum Wan Bangkok,,,1,19,47 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,47.0,3.871201010907891,,1.0,19.0,0,Pathum Wan Bangkok
+115,Prive by Sansiri,Pathum Wan Bangkok,- m.,2009,1,13,78 rooms,50 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,78.0,4.3694478524670215,14.0,1.0,13.0,9,Pathum Wan Bangkok
+116,Pyne by Sansiri,Ratchathewi Bangkok,- m.,2013,1,42,298 rooms,55 THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,1,298.0,5.700443573390687,10.0,1.0,42.0,10,Ratchathewi Bangkok
+117,Q House Sathorn,Khlong San Bangkok,2.7 m.,2010,1,35,533 rooms,45 THB/sq.m.,0,1,0,0,1,1,1,1,1,1,0,1,1,0,0,1,0,0,1,1,533.0,6.280395838960195,13.0,1.0,35.0,12,Khlong San Bangkok
+118,Q Langsuan,Pathum Wan Bangkok,,2009,1,36,177 rooms,60.00 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,177.0,5.181783550292085,14.0,1.0,36.0,7,Pathum Wan Bangkok
+119,Quad Sathon,Sathon Bangkok,2.60-2.65 m.,2013,1,5,64 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,0,1,64.0,4.174387269895637,10.0,1.0,5.0,8,Sathon Bangkok
+120,Quad Suites Silom,Bang Rak Bangkok,- m.,2010,1,8,74 rooms,- THB/sq.m.,0,1,0,0,1,1,1,0,0,1,0,1,1,0,0,1,0,0,1,0,74.0,4.31748811353631,13.0,1.0,8.0,9,Bang Rak Bangkok
+121,RYE Talat Phlu,Thon Buri Bangkok,- m.,2021,2,8,422 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,1,0,1,0,422.0,6.0473721790462776,2.0,2.0,8.0,8,Thon Buri Bangkok
+122,Ratchada - Thapra Condominium,Thon Buri Bangkok,,1995,1,10,132 rooms,,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,132.0,4.890349128221754,28.0,1.0,10.0,4,Thon Buri Bangkok
+123,Regent Orchid Talad Plu,Thon Buri Bangkok,,,3,8,581 rooms,30 THB/sq.m.,1,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,581.0,6.366470447731438,,3.0,8.0,10,Thon Buri Bangkok
+124,Regent Royal Place 1,Pathum Wan Bangkok,,1998,1,29,380 rooms,,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,380.0,5.942799375126701,25.0,1.0,29.0,8,Pathum Wan Bangkok
+125,Regent Royal Place 2,Pathum Wan Bangkok,,1995,1,25,360 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,360.0,5.8888779583328805,28.0,1.0,25.0,0,Pathum Wan Bangkok
+126,Rhythm Sathorn,Sathon Bangkok,2.6 m.,2015,2,"37,41",910 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,910.0,6.814542897259958,8.0,2.0,41.0,9,Sathon Bangkok
+127,Rhythm Sathorn - Narathiwas,Sathon Bangkok,2.6 m.,2014,1,27,301 rooms,55 THB/sq.m.,0,1,1,0,1,1,1,1,0,1,0,1,1,0,1,1,0,0,1,0,301.0,5.71042701737487,9.0,1.0,27.0,12,Sathon Bangkok
+128,Royal Residence Park,Pathum Wan Bangkok,,0,0,0,0 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,0,Pathum Wan Bangkok
+129,S.L.D. Condo,Bang Rak Bangkok,,2005,1,15,No information,,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,,,18.0,1.0,15.0,6,Bang Rak Bangkok
+130,SCOPE Langsuan,Pathum Wan Bangkok,,2023,1,34,158 rooms,,0,1,1,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,0,158.0,5.0689042022202315,0.0,1.0,34.0,9,Pathum Wan Bangkok
+131,Saladaeng Colonnade,Bang Rak Bangkok,,1998,1,7,81 rooms,,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,81.0,4.406719247264253,25.0,1.0,7.0,5,Bang Rak Bangkok
+132,Saladaeng Executive,Bang Rak Bangkok,,2001,1,7,21 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,21.0,3.091042453358316,22.0,1.0,7.0,0,Bang Rak Bangkok
+133,Saladaeng One,Bang Rak Bangkok,3 m.,2018,1,33,187 rooms,90 THB/sq.m.,0,1,0,0,1,1,1,0,0,1,0,1,1,0,1,1,0,1,1,0,187.0,5.236441962829949,5.0,1.0,33.0,11,Bang Rak Bangkok
+134,Saladaeng Residences,Bang Rak Bangkok,- m.,2011,1,25,132 rooms,60 THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1,0,132.0,4.890349128221754,12.0,1.0,25.0,11,Bang Rak Bangkok
+135,Sampoom Garden,Bang Rak Bangkok,,1997,1,17,65 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,65.0,4.189654742026425,26.0,1.0,17.0,0,Bang Rak Bangkok
+136,Sathorn Gallery Residences,Bang Rak Bangkok,,2006,1,11,29 rooms,,0,0,0,0,1,0,0,1,0,1,0,0,0,0,1,1,0,0,1,1,29.0,3.4011973816621555,17.0,1.0,11.0,7,Bang Rak Bangkok
+137,Sathorn Gardens,Sathon Bangkok,- m.,2009,2,41,580 rooms,25 THB/sq.m.,0,1,0,0,1,0,1,1,1,1,0,1,1,0,1,1,0,0,1,0,580.0,6.364750756851911,14.0,2.0,41.0,11,Sathon Bangkok
+138,Sathorn Happy Land Tower,Sathon Bangkok,- m.,1996,1,19,135 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,135.0,4.912654885736052,27.0,1.0,19.0,7,Sathon Bangkok
+139,Sathorn Heritage,Sathon Bangkok,,2008,1,38,180 rooms,40.00 THB/sq.m.,0,1,0,0,1,0,1,1,0,1,0,0,1,1,1,1,0,0,1,0,180.0,5.198497031265826,15.0,1.0,38.0,10,Sathon Bangkok
+140,Sathorn House,Bang Rak Bangkok,,1997,1,50,396 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,396.0,5.983936280687191,26.0,1.0,50.0,0,Bang Rak Bangkok
+141,Sathorn Park Place,Sathon Bangkok,,1992,1,37,131 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131.0,4.882801922586371,31.0,1.0,37.0,0,Sathon Bangkok
+142,Sathorn Place,Khlong San Bangkok,,,No information,No information,No information,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,0,Khlong San Bangkok
+143,Sathorn Prime Residence,Sathon Bangkok,,2008,2,40,310 rooms,,0,1,1,0,1,0,0,0,0,1,0,0,1,1,0,1,0,0,1,0,310.0,5.739792912179234,15.0,2.0,40.0,8,Sathon Bangkok
+144,Sathorn Residence,Khlong San Bangkok,,,1,8,No information,,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,,,,1.0,8.0,4,Khlong San Bangkok
+145,Sathorn Seven Residence,Sathon Bangkok,,2005,1,6,13 rooms,,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,13.0,2.6390573296152584,18.0,1.0,6.0,5,Sathon Bangkok
+146,Sawang Apartment,Sathon Bangkok,,2006,1,10,34 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,0,34.0,3.5553480614894135,17.0,1.0,10.0,8,Sathon Bangkok
+147,Siam Oriental Twins,Bang Lamung Chonburi,,2009,2,7,0 rooms,,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,,,14.0,2.0,7.0,4,Bang Lamung Chonburi
+148,Siam Penthouse 2,Sathon Bangkok,,1982,1,7,38 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,38.0,3.6635616461296463,41.0,1.0,7.0,0,Sathon Bangkok
+149,Silom City Resort,Bang Rak Bangkok,- m.,2006,1,8,117 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,117.0,4.770684624465665,17.0,1.0,8.0,9,Bang Rak Bangkok
+150,Silom Condominium,Bang Rak Bangkok,,2014,1,12,38 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,38.0,3.6635616461296463,9.0,1.0,12.0,7,Bang Rak Bangkok
+151,Silom Grand Terrace,Bang Rak Bangkok,,2005,1,21,226 rooms,,0,1,1,0,1,0,1,1,0,1,0,1,1,0,0,1,0,0,1,0,226.0,5.424950017481403,18.0,1.0,21.0,10,Bang Rak Bangkok
+152,Silom Park View,Bang Rak Bangkok,,1998,1,15,127 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,127.0,4.852030263919617,25.0,1.0,15.0,0,Bang Rak Bangkok
+153,Silom Suite,Bang Rak Bangkok,,1997,1,37,218 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,218.0,5.389071729816501,26.0,1.0,37.0,0,Bang Rak Bangkok
+154,Silom Surawong,Bang Rak Bangkok,,1993,1,17,402 rooms,,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,402.0,5.998936561946683,30.0,1.0,17.0,5,Bang Rak Bangkok
+155,Silom Terrace,Bang Rak Bangkok,,2002,1,8,151 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,0,151.0,5.0238805208462765,21.0,1.0,8.0,8,Bang Rak Bangkok
+156,Sindhorn Lumpini,Pathum Wan Bangkok,3.5 m.,2017,1,14,20 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,1,1,1,0,20.0,3.044522437723423,6.0,1.0,14.0,11,Pathum Wan Bangkok
+157,Sindhorn Residence,Pathum Wan Bangkok,3 m.,2017,2,"10,35",200 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,1,1,0,200.0,5.303304908059076,6.0,2.0,35.0,10,Pathum Wan Bangkok
+158,Sindhorn Tonson,Pathum Wan Bangkok,2.7-3.0 m.,2018,3,17,59 rooms,- THB/sq.m.,0,1,0,0,1,0,0,0,0,1,0,1,1,0,1,1,1,1,1,0,59.0,4.0943445622221,5.0,3.0,17.0,10,Pathum Wan Bangkok
+159,Siri Sathorn Residence,Bang Rak Bangkok,,,No information,No information,No information,,1,1,0,0,1,0,0,0,0,1,0,0,1,0,0,1,1,0,1,1,,,,,,9,Bang Rak Bangkok
+160,Sky Villas,Sathon Bangkok,,2012,1,35,117 rooms,,0,1,1,0,1,0,1,0,0,1,0,1,1,1,1,1,0,0,1,0,117.0,4.770684624465665,11.0,1.0,35.0,11,Sathon Bangkok
+161,South Beach,Bang Lamung Chonburi,,2012,1,7,0 rooms,,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,1,0,0,0,0,,,11.0,1.0,7.0,4,Bang Lamung Chonburi
+162,St. Louis Grand Terrace,Sathon Bangkok,,2006,1,28,245 rooms,27 THB/sq.m.,0,1,0,0,1,0,1,1,0,1,0,0,1,0,1,1,0,0,1,0,245.0,5.5053315359323625,17.0,1.0,28.0,9,Sathon Bangkok
+163,State Tower,Bang Rak Bangkok,,2001,1,68,"1,700 rooms",,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1700.0,7.438971592395862,22.0,1.0,68.0,0,Bang Rak Bangkok
+164,Supalai Elite Sathorn - Suanplu,Sathon Bangkok,2.6 m.,2016,1,23,180 rooms,- THB/sq.m.,0,1,0,0,1,1,0,0,0,1,0,1,1,0,1,1,0,0,1,0,180.0,5.198497031265826,7.0,1.0,23.0,9,Sathon Bangkok
+165,Supalai Elite Surawong,Bang Rak Bangkok,2.75 m.,2019,1,31,277 rooms,48 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,277.0,5.627621113690637,4.0,1.0,31.0,9,Bang Rak Bangkok
+166,Supalai Loft Sathorn - Ratchaphruek,Phasi Charoen Bangkok,2.7 m.,2023,1,33,563 rooms,39 THB/sq.m.,0,1,1,0,1,1,1,1,0,1,0,1,1,0,1,1,1,0,1,0,563.0,6.335054251498059,0.0,1.0,33.0,13,Phasi Charoen Bangkok
+167,Supalai Loft Talat Phlu Station,Thon Buri Bangkok,2.60 m.,2018,1,35,879 rooms,35 THB/sq.m.,0,1,1,0,1,1,0,0,0,1,0,1,1,0,1,1,0,0,1,0,879.0,6.779921907472252,5.0,1.0,35.0,10,Thon Buri Bangkok
+168,Supalai Oriental Place Sathorn - Suanplu,Sathon Bangkok,- m.,2006,1,20,302 rooms,28 THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,1,1,1,0,0,1,0,302.0,5.713732805509369,17.0,1.0,20.0,12,Sathon Bangkok
+169,Supalai Park Ratchaphruek - Phetkasem,Phasi Charoen Bangkok,,2013,1,35,825 rooms,- THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,825.0,6.716594773520978,10.0,1.0,35.0,10,Phasi Charoen Bangkok
+170,Supalai Park Talat Phlu Station,Thon Buri Bangkok,2.5 m.,2020,1,34,785 rooms,38 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,1,785.0,6.666956792429207,3.0,1.0,34.0,11,Thon Buri Bangkok
+171,Surawong City Resort,Bang Rak Bangkok,- m.,2011,1,8,116 rooms,40 THB/sq.m.,0,1,0,0,0,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,116.0,4.762173934797756,12.0,1.0,8.0,7,Bang Rak Bangkok
+172,Sync Nature Siam,Pathum Wan Bangkok,2.5 m.,2015,1,8,81 rooms,50.00 THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,0,81.0,4.406719247264253,8.0,1.0,8.0,9,Pathum Wan Bangkok
+173,TEAL Sathorn - Taksin,Khlong San Bangkok,- m.,2013,1,27,409 rooms,45.00 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,409.0,6.016157159698354,10.0,1.0,27.0,8,Khlong San Bangkok
+174,THE LINE Ratchathewi,Ratchathewi Bangkok,"2.75,3.35 m.",2018,1,38,231 rooms,90 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,231.0,5.44673737166631,5.0,1.0,38.0,9,Ratchathewi Bangkok
+175,The Address Pathumwan,Ratchathewi Bangkok,- m.,2010,2,8,156 rooms,55 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,156.0,5.056245805348308,13.0,2.0,8.0,9,Ratchathewi Bangkok
+176,The Address Sathorn,Bang Rak Bangkok,2.8 m.,2012,1,40,562 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,1,1,0,562.0,6.333279628139691,11.0,1.0,40.0,10,Bang Rak Bangkok
+177,The Address Siam,Ratchathewi Bangkok,- m.,2008,1,24,224 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,224.0,5.41610040220442,15.0,1.0,24.0,9,Ratchathewi Bangkok
+178,The Bangkok Narathiwas,Sathon Bangkok,- m.,2005,5,8,294 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,294.0,5.68697535633982,18.0,5.0,8.0,9,Sathon Bangkok
+179,The Bangkok Sathon,Sathon Bangkok,- m.,2017,1,50,468 rooms,70.00 THB/sq.m.,0,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1,0,468.0,6.150602768446279,6.0,1.0,50.0,11,Sathon Bangkok
+180,The Bangkok Sathorn - Taksin,Khlong San Bangkok,- m.,2008,2,8,214 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,214.0,5.3706380281276624,15.0,2.0,8.0,7,Khlong San Bangkok
+181,The Diplomat Sathorn,Bang Rak Bangkok,3 m.,2016,1,35,192 rooms,80.00 THB/sq.m.,0,1,0,0,1,0,1,1,0,1,0,1,1,0,0,1,0,0,1,0,192.0,5.262690188904886,7.0,1.0,35.0,9,Bang Rak Bangkok
+182,The Empire Place,Sathon Bangkok,- m.,2008,1,45,493 rooms,40 THB/sq.m.,0,1,0,0,1,0,0,1,0,1,0,1,1,0,1,1,0,1,0,0,493.0,6.202535517187923,15.0,1.0,45.0,9,Sathon Bangkok
+183,The Grand Condo,Pathum Wan Bangkok,- m.,0,1,-,- rooms,- THB/sq.m.,0,1,0,0,0,0,0,1,0,1,0,1,1,0,1,1,0,0,1,0,,,,1.0,,8,Pathum Wan Bangkok
+184,The Grand Regent,Pathum Wan Bangkok,,1998,1,24,300 rooms,,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,1,300.0,5.707110264748875,25.0,1.0,24.0,10,Pathum Wan Bangkok
+185,The Hudson Sathorn 7,Sathon Bangkok,,2014,1,12,49 rooms,90 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,0,49.0,3.912023005428146,9.0,1.0,12.0,8,Sathon Bangkok
+186,The Infinity,Bang Rak Bangkok,- m.,2008,1,40,108 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,108.0,4.6913478822291435,15.0,1.0,40.0,8,Bang Rak Bangkok
+187,The Key Sathorn - Ratchapruek,Chom Thong Bangkok,- m.,2014,4,23,834 rooms,38 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,1,0,1,0,0,1,1,834.0,6.727431724850855,9.0,4.0,23.0,11,Chom Thong Bangkok
+188,The Key Wutthakat,Thon Buri Bangkok,2.6 m.,2015,1,21,441 rooms,40 THB/sq.m.,0,0,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,441.0,6.091309882077698,8.0,1.0,21.0,7,Thon Buri Bangkok
+189,The Legend Saladaeng,Bang Rak Bangkok,,2005,1,14,78 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,78.0,4.3694478524670215,18.0,1.0,14.0,0,Bang Rak Bangkok
+190,The Lofts Silom,Bang Rak Bangkok,"3,4.7,5,5.6 m.",2020,1,37,268 rooms,90 THB/sq.m.,0,1,0,0,1,1,1,1,0,1,0,1,1,0,0,1,0,1,1,1,268.0,5.594711379601839,3.0,1.0,37.0,12,Bang Rak Bangkok
+191,The Master Sathorn Executive,Khlong San Bangkok,,2006,2,8,199 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,199.0,5.298317366548036,17.0,2.0,8.0,0,Khlong San Bangkok
+192,The Matt Sathorn - Thapra 1,Thon Buri Bangkok,2.6 m.,2020,1,8,178 rooms,50 THB/sq.m.,1,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,178.0,5.187385805840755,3.0,1.0,8.0,10,Thon Buri Bangkok
+193,The Met Sathorn,Sathon Bangkok,3 m.,,No information,66,370 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,1,0,370.0,5.916202062607435,,,66.0,10,Sathon Bangkok
+194,The Natural Place Suite,Sathon Bangkok,,1996,1,19,112 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,112.0,4.727387818712341,27.0,1.0,19.0,7,Sathon Bangkok
+195,The Parkland Grand Taksin,Thon Buri Bangkok,2.6 m.,2012,1,34,566 rooms,28 THB/sq.m.,0,1,0,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,1,0,566.0,6.340359303727752,11.0,1.0,34.0,10,Thon Buri Bangkok
+196,The Parkland Ratchada - Thapra,Thon Buri Bangkok,- m.,2009,1,33,743 rooms,- THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,743.0,6.612041034833092,14.0,1.0,33.0,9,Thon Buri Bangkok
+197,The Parkland Taksin - Thapra,Thon Buri Bangkok,- m.,2011,2,34,829 rooms,28 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,829.0,6.721425700790643,12.0,2.0,34.0,9,Thon Buri Bangkok
+198,The Platinum,Ratchathewi Bangkok,,2007,1,23,319 rooms,30 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,0,1,1,0,1,0,0,1,0,319.0,5.768320995793772,16.0,1.0,23.0,9,Ratchathewi Bangkok
+199,The Plenary Sathorn,Khlong San Bangkok,,2009,2,8,171 rooms,35 THB/sq.m.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,171.0,5.147494476813453,14.0,2.0,8.0,0,Khlong San Bangkok
+200,The President Sathorn - Ratchaphruek,Phasi Charoen Bangkok,- m.,2014,1,30,584 rooms,35.00 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,584.0,6.371611847231857,9.0,1.0,30.0,10,Phasi Charoen Bangkok
+201,The President Sathorn - Ratchaphruek 2,Phasi Charoen Bangkok,- m.,2016,1,30,793 rooms,35.00 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,793.0,6.677083461247136,7.0,1.0,30.0,10,Phasi Charoen Bangkok
+202,The President Sathorn - Ratchaphruek 3,Phasi Charoen Bangkok,2.55 m.,2016,1,34,799 rooms,35 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,1,799.0,6.684611727667927,7.0,1.0,34.0,11,Phasi Charoen Bangkok
+203,The Private Residence Rajdamri,Pathum Wan Bangkok,- m.,2012,1,8,54 rooms,- THB/sq.m.,1,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,1,1,0,54.0,4.007333185232471,11.0,1.0,8.0,10,Pathum Wan Bangkok
+204,The Rajdamri,Pathum Wan Bangkok,,2008,1,29,278 rooms,,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,278.0,5.631211781821365,15.0,1.0,29.0,8,Pathum Wan Bangkok
+205,The Reserve Kasemsan 3,Pathum Wan Bangkok,2.6 m.,2015,1,7,273 rooms,65 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,1,273.0,5.6131281063880705,8.0,1.0,7.0,9,Pathum Wan Bangkok
+206,The Reserve Sathorn,Sathon Bangkok,3 m.,2021,1,30,134 rooms,110 THB/sq.m.,0,1,0,0,1,1,1,0,0,1,1,0,1,0,0,1,0,0,1,0,134.0,4.90527477843843,2.0,1.0,30.0,9,Sathon Bangkok
+207,The Residences at Sindhorn Kempinski Hotel Bangkok,Pathum Wan Bangkok,3.00 - 3.85 m.,2020,1,33,231 rooms,120 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,1,1,1,0,231.0,5.44673737166631,3.0,1.0,33.0,11,Pathum Wan Bangkok
+208,The Residences at The St. Regis Bangkok,Pathum Wan Bangkok,,2010,1,47,53 rooms,120.00 THB/sq.m.,0,1,0,0,1,1,1,0,1,1,1,1,1,1,1,1,0,1,1,1,53.0,3.9889840465642745,13.0,1.0,47.0,15,Pathum Wan Bangkok
+209,The Rich Sathorn - Taksin,Khlong San Bangkok,2.7 m.,2017,1,23,511 rooms,55.00 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,511.0,6.238324625039508,6.0,1.0,23.0,9,Khlong San Bangkok
+210,The Ritz - Carlton Residences at MahaNakhon,Bang Rak Bangkok,,2015,1,78,209 rooms,- THB/sq.m.,0,1,0,0,1,0,1,1,1,1,0,1,1,0,0,1,0,0,1,0,209.0,5.3471075307174685,8.0,1.0,78.0,10,Bang Rak Bangkok
+211,The Room BTS Wongwian Yai,Khlong San Bangkok,- m.,2014,1,28,201 rooms,45 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,1,201.0,5.308267697401205,9.0,1.0,28.0,10,Khlong San Bangkok
+212,The Room Charoenkrung 30,Bang Rak Bangkok,2.45 – 2.7 m.,2014,1,23,211 rooms,55 THB/sq.m.,0,1,0,0,1,1,1,0,1,1,0,1,1,0,0,1,0,0,1,0,211.0,5.356586274672012,9.0,1.0,23.0,10,Bang Rak Bangkok
+213,The Room Sathorn - St.Louis,Sathon Bangkok,2.7 m.,2016,1,24,376 rooms,50 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,376.0,5.932245187448011,7.0,1.0,24.0,8,Sathon Bangkok
+214,The Room Sathorn - Taksin,Thon Buri Bangkok,- m.,2011,1,23,268 rooms,40 THB/sq.m.,0,1,0,0,1,0,0,0,0,1,0,1,1,0,0,1,0,0,1,1,268.0,5.594711379601839,12.0,1.0,23.0,8,Thon Buri Bangkok
+215,The Room Sathorn - TanonPun,Bang Rak Bangkok,- m.,2016,1,25,219 rooms,55 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,219.0,5.393627546352362,7.0,1.0,25.0,7,Bang Rak Bangkok
+216,The Royal Maneeya,Pathum Wan Bangkok,- m.,2008,1,35,76 rooms,- THB/sq.m.,0,1,1,0,1,0,0,0,0,1,0,0,1,0,1,1,0,0,1,0,76.0,4.343805421853684,15.0,1.0,35.0,8,Pathum Wan Bangkok
+217,The Royal Place 2,Pathum Wan Bangkok,,1998,1,25,360 rooms,,1,1,0,0,1,0,0,0,0,1,0,1,1,0,0,1,0,0,1,0,360.0,5.8888779583328805,25.0,1.0,25.0,8,Pathum Wan Bangkok
+218,The Royal Saladaeng,Bang Rak Bangkok,,2006,1,29,71 rooms,40 THB/sq.m.,0,1,0,0,1,0,0,1,0,1,0,1,1,0,1,1,0,0,0,0,71.0,4.276666119016055,17.0,1.0,29.0,8,Bang Rak Bangkok
+219,The Seed Memories Siam,Pathum Wan Bangkok,- m.,2011,2,8,303 rooms,40.00 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,303.0,5.717027701406222,12.0,2.0,8.0,8,Pathum Wan Bangkok
+220,The Seed Mingle,Sathon Bangkok,- m.,2012,1,31,531 rooms,40 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,1,0,1,1,531.0,6.2766434893416445,11.0,1.0,31.0,11,Sathon Bangkok
+221,The Seed Sathorn - Taksin,Khlong San Bangkok,- m.,2009,1,8,219 rooms,40 THB/sq.m.,0,1,0,0,0,0,1,0,0,1,0,1,1,0,0,1,0,0,0,0,219.0,5.393627546352362,14.0,1.0,8.0,6,Khlong San Bangkok
+222,The Station Sathorn - Bangrak,Sathon Bangkok,,2008,2,17,675 rooms,25 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,675.0,6.516193076042964,15.0,2.0,17.0,7,Sathon Bangkok
+223,The Sukhothai Residences,Sathon Bangkok,,2010,1,41,196 rooms,,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,1,196.0,5.2832037287379885,13.0,1.0,41.0,10,Sathon Bangkok
+224,The Surawong,Bang Rak Bangkok,- m.,2017,1,8,52 rooms,- THB/sq.m.,0,1,0,0,1,0,0,0,0,1,0,1,1,0,0,1,0,0,1,1,52.0,3.970291913552122,6.0,1.0,8.0,8,Bang Rak Bangkok
+225,The Tempo Grand Sathorn - Wutthakat,Chom Thong Bangkok,2.6 m.,2016,2,"24,32",1004 rooms,40.00 THB/sq.m.,0,1,1,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1,0,1004.0,6.912742820493176,7.0,2.0,32.0,12,Chom Thong Bangkok
+226,The Treasure Silom,Bang Rak Bangkok,,2009,1,8,71 rooms,40 THB/sq.m.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,71.0,4.276666119016055,14.0,1.0,8.0,0,Bang Rak Bangkok
+227,The Viva Condo Sathorn-taksin,Khlong San Bangkok,,2012,1,8,120 rooms,40 THB/sq.m.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,120.0,4.795790545596741,11.0,1.0,8.0,0,Khlong San Bangkok
+228,The Willows,Sathon Bangkok,,2015,1,21,29 rooms,,0,1,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,0,1,1,29.0,3.4011973816621555,8.0,1.0,21.0,9,Sathon Bangkok
+229,Tonson One Residence,Pathum Wan Bangkok,- m.,2023,1,29,80 rooms,- THB/sq.m.,0,1,0,0,1,1,0,0,0,1,0,1,1,0,0,1,0,0,1,0,80.0,4.394449154672439,0.0,1.0,29.0,8,Pathum Wan Bangkok
+230,Tropical Langsuan,Pathum Wan Bangkok,,2012,1,8,22 rooms,,0,1,0,0,1,1,0,0,0,1,0,0,1,0,0,1,0,0,1,0,22.0,3.1354942159291497,11.0,1.0,8.0,7,Pathum Wan Bangkok
+231,U Delight @Talat phlu Station,Thon Buri Bangkok,2.6 m.,2016,2,"27,34",973 rooms,35 THB/sq.m.,0,1,1,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,973.0,6.881411303642535,7.0,2.0,34.0,10,Thon Buri Bangkok
+232,Urbana Langsuan,Pathum Wan Bangkok,,,No information,No information,151 rooms,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,151.0,5.0238805208462765,,,,0,Pathum Wan Bangkok
+233,Urbana Sathorn,Sathon Bangkok,,2006,1,35,242 rooms,45 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,0,1,0,0,1,0,242.0,5.493061443340548,17.0,1.0,35.0,8,Sathon Bangkok
+234,Urbano Absolute Sathon - Taksin,Khlong San Bangkok,2.6 m.,2013,1,40,593 rooms,45 THB/sq.m.,0,1,0,0,1,0,1,0,0,1,0,1,1,0,1,1,0,0,1,0,593.0,6.386879319362645,10.0,1.0,40.0,9,Khlong San Bangkok
+235,Vanicha Park Langsuan,Pathum Wan Bangkok,,,1,No information,No information,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,,,1.0,,0,Pathum Wan Bangkok
+236,Villa Sathorn,Khlong San Bangkok,2.7 m.,2010,1,40,636 rooms,35 THB/sq.m.,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,1,0,0,1,0,636.0,6.456769655572163,13.0,1.0,40.0,11,Khlong San Bangkok
+237,Whizdom Station Ratchada - Thapra,Thon Buri Bangkok,2.65 m.,2018,1,37,690 rooms,45 THB/sq.m.,0,1,1,0,1,0,1,0,1,1,0,1,1,0,0,1,0,0,1,1,690.0,6.53813982376767,5.0,1.0,37.0,11,Thon Buri Bangkok
+238,Wish @ Siam,Ratchathewi Bangkok,- m.,2009,2,8,284 rooms,35 THB/sq.m.,1,1,0,0,1,0,1,0,0,1,0,0,1,0,0,1,0,0,1,1,284.0,5.652489180268651,14.0,2.0,8.0,9,Ratchathewi Bangkok
+239,Wish Signature  Midtown Siam,Ratchathewi Bangkok,2.65 m.,2018,1,45,623 rooms,65.00 THB/sq.m.,0,1,1,0,1,0,1,0,1,1,0,1,1,0,1,1,0,0,1,0,623.0,6.436150368369428,5.0,1.0,45.0,11,Ratchathewi Bangkok
+240,Wish Signature 2 Midtown Siam,Ratchathewi Bangkok,3 m.,2022,1,41,333 rooms,80 THB/sq.m.,0,1,0,0,1,1,1,0,0,1,0,1,1,0,0,1,0,0,1,0,333.0,5.811140992976701,1.0,1.0,41.0,9,Ratchathewi Bangkok
+241,Zelle+ Talat Phlu Station,Thon Buri Bangkok,2.67 m.,2020,2,5,93 rooms,- THB/sq.m.,0,1,0,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0,0,93.0,4.543294782270004,3.0,2.0,5.0,5,Thon Buri Bangkok

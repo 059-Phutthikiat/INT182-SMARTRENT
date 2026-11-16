@@ -1,5 +1,5 @@
 """
-SMARTRENT — ชุดฟังก์ชันเตรียมข้อมูล สร้างโมเดล และวัดผล (Phase 2 Baseline)
+SMARTRENT — ชุดฟังก์ชันเตรียมข้อมูล สร้างโมเดล และวัดผล (Phase 2 & Phase 3)
 รวบรวมขั้นตอน Data Preprocessing, Training, Evaluation และการตรวจสอบโมเดลที่บันทึกไว้
 """
 
@@ -30,6 +30,14 @@ ROOM = [
 ]
 CAT = ['unit_type']
 FEATURES = ROOM + CAT
+
+# ตัวแปรระดับโครงการเพิ่มเติมสำหรับ Phase 3 (+6 ตัว = รวม 24 Features)
+PROJ_NUM = [
+    'log_project_units', 'project_age_2023', 'project_buildings',
+    'project_max_floors', 'reported_common_amenities'
+]
+PROJ_CAT = ['project_district']
+PHASE3_FEATURES = ROOM + PROJ_NUM + CAT + PROJ_CAT
 
 
 def preprocessor(num, cat):
@@ -225,3 +233,58 @@ def reproduce_all(root, output):
         len(test),
     )
     return pd.DataFrame(final_rows)
+
+
+def _phase3_ridge_pipeline(alpha, num, cat):
+    """สร้าง Pipeline สำหรับโมเดล Ridge Regression ใน Phase 3"""
+    pre = ColumnTransformer([
+        ('num', Pipeline([
+            ('impute', SimpleImputer(strategy='median', add_indicator=True, keep_empty_features=True)),
+            ('scale', StandardScaler()),
+        ]), num),
+        ('cat', Pipeline([
+            ('impute', SimpleImputer(strategy='most_frequent')),
+            ('onehot', OneHotEncoder(handle_unknown='ignore', sparse_output=False)),
+        ]), cat),
+    ], sparse_threshold=0)
+    reg = TransformedTargetRegressor(
+        regressor=Ridge(alpha=alpha), func=np.log1p, inverse_func=np.expm1
+    )
+    return Pipeline([('preprocess', pre), ('regressor', reg)])
+
+
+def fit_phase3_model(frame, alpha=1.0):
+    """ฝึกโมเดล Ridge Regression (Phase 3) ที่ใช้ทั้งข้อมูลห้องและข้อมูลโครงการรวม 24 Features"""
+    num = ROOM + PROJ_NUM
+    cat = CAT + PROJ_CAT
+    features = num + cat
+    return _phase3_ridge_pipeline(alpha, num, cat).fit(frame[features], frame.rental)
+
+
+def predict_phase3_model(model_obj, frame):
+    """ทำนายค่าเช่าด้วยโมเดล Phase 3 (รองรับทั้ง Pipeline โดยตรงและไฟล์ Bundle ที่บันทึกไว้)"""
+    if isinstance(model_obj, dict) and 'pooled' in model_obj:
+        feats = model_obj['features']
+        return np.maximum(0.0, model_obj['pooled'].predict(frame[feats]))
+    return np.maximum(0.0, model_obj.predict(frame[PHASE3_FEATURES]))
+
+
+def verify_phase3_saved(root):
+    """ตรวจสอบโมเดล Phase 2 (18 Features) เทียบกับ Phase 3 (24 Features) บนชุด Test 800 รายการ"""
+    root = Path(root)
+    train, val, test, dev = load_data(root)
+    assert set(PHASE3_FEATURES).issubset(test.columns)
+    ref = pd.read_csv(root / 'results' / 'phase3_test_predictions.csv').set_index('room_id').loc[test.room_id]
+
+    p2_model = joblib.load(root / 'models' / 'phase2_ridge_rent_model.joblib')
+    p2_pred = p2_model.predict(test[FEATURES])
+    np.testing.assert_allclose(p2_pred, ref.pred_phase2, rtol=1e-9, atol=1e-6)
+
+    p3_model = joblib.load(root / 'models' / 'phase3_ridge_rent_model.joblib')
+    p3_pred = predict_phase3_model(p3_model, test)
+    np.testing.assert_allclose(p3_pred, ref.pred_phase3, rtol=1e-9, atol=1e-6)
+
+    return pd.DataFrame([
+        {'model': 'Phase 2: Ridge (18 Room Features)', **metrics(test.rental, p2_pred, test.project_id)},
+        {'model': 'Phase 3: Ridge (18 Room + 6 Project = 24 Features)', **metrics(test.rental, p3_pred, test.project_id)},
+    ])
