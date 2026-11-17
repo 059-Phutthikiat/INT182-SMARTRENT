@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SMARTRENT — ทำนายค่าเช่าคอนโดกรุงเทพฯ (Phase 3)</title>
+  <title>SMARTRENT — สาธิตทำนายค่าเช่าคอนโดกรุงเทพฯ (Phase 3)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-fallback: #e9eef5;
-      --surface: rgba(255, 255, 255, 0.90);
-      --surface-solid: #ffffff;
-      --surface-soft: rgba(248, 250, 252, 0.88);
+      --bg-fallback: #dde6f0;
+      --glass: rgba(255, 255, 255, 0.80);
+      --glass-strong: rgba(255, 255, 255, 0.90);
+      --glass-soft: rgba(248, 250, 252, 0.78);
       --border: rgba(203, 213, 225, 0.72);
-      --border-strong: rgba(148, 163, 184, 0.75);
+      --border-strong: rgba(148, 163, 184, 0.78);
+      --glass-edge: rgba(255, 255, 255, 0.75);
 
       --ink: #0f172a;
       --ink-2: #334155;
@@ -23,17 +24,19 @@
 
       --emerald: #059669;
       --emerald-dark: #047857;
-      --emerald-soft: rgba(236, 253, 245, 0.92);
-      --emerald-border: #a7f3d0;
+      --emerald-soft: rgba(236, 253, 245, 0.88);
+      --emerald-border: rgba(110, 231, 183, 0.85);
 
       --amber-dark: #92400e;
-      --amber-soft: rgba(255, 251, 235, 0.95);
-      --amber-border: #fde68a;
+      --amber-soft: rgba(255, 251, 235, 0.92);
+      --amber-border: rgba(252, 211, 77, 0.85);
 
-      --radius-lg: 16px;
-      --radius-md: 12px;
+      --radius-xl: 20px;
+      --radius-lg: 15px;
+      --radius-md: 11px;
       --radius-sm: 9px;
-      --shadow: 0 8px 30px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+      --shadow-card: 0 14px 38px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04), inset 0 1px 0 var(--glass-edge);
+      --shadow-btn: 0 2px 8px rgba(15, 23, 42, 0.14);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -51,19 +54,19 @@
       min-height: 100vh;
     }
 
-    /* Soft Blurred Condominium Background (real photo + offline SVG skyline fallback) */
+    /* Atmospheric Blurred Bangkok Condo Backdrop + SVG Skyline Fallback */
     .bg-condo {
       position: fixed;
-      inset: 0;
+      inset: -20px;
       z-index: -2;
       pointer-events: none;
       background-image:
         url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80'),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23cbd5e1'/%3E%3Cstop offset='55%25' stop-color='%23e2e8f0'/%3E%3Cstop offset='100%25' stop-color='%23cbd5e1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='900' fill='url(%23sky)'/%3E%3Crect x='90' y='210' width='190' height='690' rx='6' fill='%2394a3b8' opacity='0.55'/%3E%3Crect x='320' y='130' width='240' height='770' rx='8' fill='%2364748b' opacity='0.45'/%3E%3Crect x='620' y='260' width='210' height='640' rx='6' fill='%2394a3b8' opacity='0.5'/%3E%3Crect x='890' y='95' width='270' height='805' rx='8' fill='%23475569' opacity='0.42'/%3E%3Crect x='1220' y='190' width='220' height='710' rx='6' fill='%2364748b' opacity='0.48'/%3E%3Ccircle cx='380' cy='180' r='110' fill='%23fde68a' opacity='0.38'/%3E%3Ccircle cx='1280' cy='250' r='140' fill='%23a7f3d0' opacity='0.32'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0.2' y2='1'%3E%3Cstop offset='0%25' stop-color='%23bae6fd'/%3E%3Cstop offset='50%25' stop-color='%23e2e8f0'/%3E%3Cstop offset='100%25' stop-color='%23cbd5e1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='900' fill='url(%23sky)'/%3E%3Crect x='70' y='180' width='200' height='720' rx='8' fill='%2364748b' opacity='0.48'/%3E%3Crect x='310' y='110' width='250' height='790' rx='10' fill='%23475569' opacity='0.42'/%3E%3Crect x='610' y='230' width='220' height='670' rx='8' fill='%2364748b' opacity='0.45'/%3E%3Crect x='880' y='80' width='280' height='820' rx='10' fill='%23334155' opacity='0.38'/%3E%3Crect x='1210' y='170' width='240' height='730' rx='8' fill='%23475569' opacity='0.44'/%3E%3Ccircle cx='350' cy='180' r='160' fill='%23fef3c7' opacity='0.45'/%3E%3Ccircle cx='1290' cy='240' r='180' fill='%23a7f3d0' opacity='0.38'/%3E%3C/svg%3E");
       background-size: cover;
       background-position: center;
-      filter: blur(15px) saturate(1.06);
-      transform: scale(1.07);
+      filter: blur(11px) saturate(1.12) brightness(1.03);
+      transform: scale(1.04);
     }
 
     .bg-veil {
@@ -71,7 +74,10 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(241, 245, 249, 0.72) 0%, rgba(248, 250, 252, 0.80) 100%);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(236, 253, 245, 0.45) 0%, transparent 46%),
+        radial-gradient(circle at 88% 18%, rgba(224, 242, 254, 0.45) 0%, transparent 48%),
+        linear-gradient(180deg, rgba(241, 245, 249, 0.56) 0%, rgba(248, 250, 252, 0.72) 100%);
     }
 
     @keyframes fadeUp {
@@ -80,31 +86,30 @@
     }
 
     @keyframes contentPulse {
-      from { opacity: 0.5; transform: translateY(4px); }
+      from { opacity: 0.55; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .stagger-1 { animation: fadeUp 0.45s var(--ease) 0ms both; }
-    .stagger-2 { animation: fadeUp 0.45s var(--ease) 60ms both; }
-    .stagger-3 { animation: fadeUp 0.45s var(--ease) 120ms both; }
-    .stagger-4 { animation: fadeUp 0.45s var(--ease) 180ms both; }
+    .stagger-2 { animation: fadeUp 0.45s var(--ease) 80ms both; }
     .pulse-swap { animation: contentPulse 0.24s var(--ease) both; }
 
-    /* Clean Sticky Navigation Bar */
+    /* Minimal Sticky Top Navigation Bar */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 40;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.76);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
     }
 
     .topbar-inner {
-      max-width: 1140px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 12px 24px;
+      padding: 12px 22px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -114,25 +119,38 @@
 
     .brand {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+      flex-shrink: 0;
     }
 
     .brand-row {
       display: flex;
-      align-items: baseline;
-      gap: 10px;
+      align-items: center;
+      gap: 8px;
     }
 
     .brand-title {
       margin: 0;
-      font-size: 1.15rem;
+      font-size: 1.08rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--ink);
     }
 
     .brand-tag {
-      font-size: 0.74rem;
+      font-size: 0.71rem;
       font-weight: 700;
       color: var(--emerald-dark);
       background: var(--emerald-soft);
@@ -143,146 +161,151 @@
 
     .brand-sub {
       margin: 1px 0 0;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--muted);
       font-weight: 500;
     }
 
     .nav-tabs {
-      display: flex;
-      flex-wrap: wrap;
+      display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: rgba(241, 245, 249, 0.85);
+      background: rgba(226, 232, 240, 0.62);
       padding: 4px;
       border-radius: 999px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255, 255, 255, 0.75);
     }
 
     .nav-tab {
       text-decoration: none;
       color: var(--ink-2);
-      font-size: 0.79rem;
-      font-weight: 600;
-      padding: 6px 13px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 7px 15px;
       border-radius: 999px;
       transition: background 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
     }
 
-    .nav-tab:hover {
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.7);
-    }
-
+    .nav-tab:hover { color: var(--ink); background: rgba(255, 255, 255, 0.6); }
     .nav-tab.active {
       background: #ffffff;
       color: var(--ink);
-      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.1);
     }
 
-    /* Main Layout */
+    /* Page Container */
     main.wrap {
-      max-width: 1140px;
-      margin: 22px auto 60px;
+      max-width: 1120px;
+      margin: 24px auto 48px;
       padding: 0 20px;
-    }
-
-    section[id] {
-      scroll-margin-top: 78px;
-    }
-
-    /* Frosted Minimal Cards */
-    .card {
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 22px 24px;
-      box-shadow: var(--shadow);
-      margin-bottom: 18px;
-    }
-
-    /* 1. KPI Strip */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .kpi-card {
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      box-shadow: var(--shadow);
-      transition: transform 0.18s var(--ease), border-color 0.18s ease;
-    }
-
-    .kpi-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--border-strong);
-    }
-
-    .kpi-top {
       display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    section[id] { scroll-margin-top: 82px; }
+
+    /* Frosted Glass Cards */
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(18px) saturate(150%);
+      -webkit-backdrop-filter: blur(18px) saturate(150%);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: var(--radius-xl);
+      padding: 24px 26px;
+      box-shadow: var(--shadow-card);
+    }
+
+    /* Section Header Divider */
+    .part-head {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
     }
 
-    .kpi-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .kpi-delta {
-      font-size: 0.73rem;
-      font-weight: 700;
-      color: var(--emerald-dark);
-      background: var(--emerald-soft);
-      border: 1px solid var(--emerald-border);
-      padding: 2px 8px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
-
-    .kpi-values {
-      margin-top: 8px;
+    .part-title-group {
       display: flex;
-      align-items: baseline;
-      gap: 10px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .kpi-new {
-      font-size: 1.65rem;
+    .part-kicker {
+      font-size: 0.71rem;
       font-weight: 800;
-      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--emerald-dark);
+    }
+
+    .part-title {
+      margin: 0;
+      font-size: 1.12rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
       color: var(--ink);
     }
 
-    .kpi-old {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--muted-light);
-      text-decoration: line-through;
+    .part-desc {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
     }
 
-    /* 2. Spotlight Toolbar */
+    /* Mode Tabs & Action Buttons */
+    .mode-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .mode-tabs {
+      display: inline-flex;
+      background: rgba(226, 232, 240, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .mode-tab {
+      border: none;
+      background: transparent;
+      color: var(--ink-2);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.16s var(--ease);
+    }
+
+    .mode-tab:hover { color: var(--ink); background: rgba(255, 255, 255, 0.55); }
+    .mode-tab.active {
+      background: var(--ink);
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+    }
+
     .spotlight-toolbar {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 18px;
+      padding: 12px 14px;
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 20px;
     }
 
     .preset-row {
@@ -293,28 +316,30 @@
     }
 
     .preset-pill {
-      background: var(--surface-soft);
+      background: #ffffff;
       border: 1px solid var(--border);
       color: var(--ink-2);
       padding: 6px 12px;
       border-radius: 999px;
       font-family: inherit;
-      font-size: 0.79rem;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.16s ease;
+      transition: all 0.16s var(--ease);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
 
     .preset-pill:hover {
-      border-color: var(--border-strong);
+      border-color: var(--ink-2);
       color: var(--ink);
-      background: #ffffff;
+      transform: translateY(-1px);
     }
 
     .preset-pill.active {
       background: var(--ink);
       border-color: var(--ink);
       color: #ffffff;
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.16);
     }
 
     .action-group {
@@ -327,91 +352,119 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      padding: 7px 14px;
-      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      border-radius: 10px;
       border: 1px solid transparent;
       font-family: inherit;
-      font-size: 0.81rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
-      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      transition: transform 0.15s var(--ease), background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
     }
 
-    .btn:active { transform: scale(0.98); }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0) scale(0.98); }
 
     .btn-primary {
-      background: var(--ink);
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
       color: #ffffff;
+      box-shadow: var(--shadow-btn);
     }
-    .btn-primary:hover { background: #1e293b; }
+    .btn-primary:hover { background: linear-gradient(180deg, #334155 0%, #0f172a 100%); }
 
     .btn-emerald {
       background: var(--emerald-soft);
       color: var(--emerald-dark);
       border-color: var(--emerald-border);
+      box-shadow: 0 1px 3px rgba(5, 150, 105, 0.08);
     }
-    .btn-emerald:hover { background: #dcfce7; }
+    .btn-emerald:hover { background: #dcfce7; border-color: var(--emerald); }
 
-    /* Spotlight Grid */
+    .btn-amber {
+      background: var(--amber-soft);
+      color: var(--amber-dark);
+      border-color: var(--amber-border);
+      box-shadow: 0 1px 3px rgba(146, 64, 14, 0.08);
+    }
+    .btn-amber:hover { background: #fef3c7; border-color: #f59e0b; }
+
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--ink-2);
+      border-color: var(--border-strong);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    .btn-ghost:hover { color: var(--ink); border-color: var(--ink-2); }
+
+    /* Two-Column Demo Workspace */
     .spotlight-grid {
       display: grid;
-      grid-template-columns: 1.04fr 0.96fr;
-      gap: 22px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
       align-items: start;
     }
 
-    .room-header { margin-bottom: 14px; }
+    .room-header {
+      padding: 14px 16px;
+      background: var(--glass-strong);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 14px;
+    }
 
     .room-title {
       margin: 0;
-      font-size: 1.32rem;
+      font-size: 1.24rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--ink);
     }
 
     .room-meta {
-      margin-top: 4px;
+      margin-top: 5px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 8px;
-      font-size: 0.82rem;
+      font-size: 0.81rem;
       color: var(--muted);
+      font-weight: 600;
     }
 
     .code-tag {
       display: inline-block;
-      background: rgba(241, 245, 249, 0.9);
+      background: #f1f5f9;
       color: var(--ink);
       padding: 2px 8px;
       border-radius: 6px;
       font-family: ui-monospace, Consolas, monospace;
-      font-size: 0.77rem;
+      font-size: 0.76rem;
       font-weight: 700;
       border: 1px solid var(--border);
     }
 
     .preset-caption {
-      margin-top: 6px;
-      font-size: 0.8rem;
+      margin-top: 7px;
+      font-size: 0.79rem;
       color: var(--ink-2);
+      line-height: 1.45;
     }
 
-    /* Feature Boxes */
+    /* Feature Input & Read-Only Spec Panels */
     .spec-box {
-      background: var(--surface-soft);
+      background: var(--glass-strong);
       border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 13px 15px;
-      margin-bottom: 11px;
+      border-radius: var(--radius-lg);
+      padding: 15px 16px;
+      margin-bottom: 12px;
     }
 
     .spec-box:last-child { margin-bottom: 0; }
 
     .spec-box.project {
-      background: var(--emerald-soft);
+      background: linear-gradient(145deg, rgba(236, 253, 245, 0.92) 0%, rgba(255, 255, 255, 0.9) 100%);
       border-color: var(--emerald-border);
     }
 
@@ -420,11 +473,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 9px;
+      margin-bottom: 11px;
     }
 
     .spec-heading {
-      font-size: 0.78rem;
+      font-size: 0.79rem;
       font-weight: 800;
       color: var(--ink-2);
     }
@@ -434,7 +487,7 @@
     .spec-count-pill {
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 2px 8px;
+      padding: 2px 9px;
       border-radius: 999px;
       background: #ffffff;
       color: var(--ink-2);
@@ -449,7 +502,7 @@
     .spec-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 14px;
+      gap: 9px 16px;
     }
 
     .spec-item { display: flex; flex-direction: column; gap: 1px; }
@@ -460,443 +513,24 @@
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
-      margin-top: 10px;
-      padding-top: 9px;
+      margin-top: 11px;
+      padding-top: 10px;
       border-top: 1px dashed var(--border);
     }
 
     .amen-tag {
       font-size: 0.73rem;
       font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 6px;
-      background: #ffffff;
+      padding: 3px 9px;
+      border-radius: 7px;
+      background: #f8fafc;
       border: 1px solid var(--border);
       color: var(--ink-2);
     }
 
     .amen-empty { font-size: 0.77rem; color: var(--muted); }
 
-    /* Right Side: Comparison Cards */
-    .pred-col { display: flex; flex-direction: column; gap: 11px; }
-
-    .pred-banner {
-      padding: 10px 14px;
-      border-radius: var(--radius-md);
-      font-size: 0.86rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      border: 1px solid transparent;
-    }
-
-    .pred-banner.good {
-      background: var(--emerald-soft);
-      color: var(--emerald-dark);
-      border-color: var(--emerald-border);
-    }
-
-    .pred-banner.neutral {
-      background: var(--amber-soft);
-      color: var(--amber-dark);
-      border-color: var(--amber-border);
-    }
-
-    .pred-banner-pill {
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 9px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid currentColor;
-      white-space: nowrap;
-    }
-
-    .cmp-stack { display: flex; flex-direction: column; gap: 10px; }
-
-    .cmp-card {
-      border-radius: var(--radius-md);
-      padding: 13px 15px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-    }
-
-    .cmp-card.actual {
-      background: var(--surface-soft);
-      border-color: var(--border-strong);
-    }
-
-    .cmp-card.phase3 {
-      background: linear-gradient(135deg, rgba(240, 253, 244, 0.95) 0%, rgba(255, 255, 255, 0.96) 80%);
-      border: 1.5px solid var(--emerald);
-    }
-
-    .cmp-card.phase2 {
-      background: var(--surface-soft);
-    }
-
-    .cmp-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .cmp-title { font-size: 0.79rem; font-weight: 700; color: var(--muted); }
-    .cmp-card.actual .cmp-title { color: var(--ink-2); }
-    .cmp-card.phase3 .cmp-title { color: var(--emerald-dark); }
-
-    .cmp-err { font-size: 0.77rem; font-weight: 600; color: var(--muted); }
-    .cmp-card.phase3 .cmp-err { color: var(--emerald-dark); }
-
-    .cmp-price-row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 9px;
-    }
-
-    .cmp-price {
-      font-size: 1.48rem;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      color: var(--ink);
-    }
-    .cmp-card.phase2 .cmp-price { color: var(--ink-2); }
-    .cmp-unit { font-size: 0.78rem; font-weight: 600; color: var(--muted-light); }
-
-    .cmp-track {
-      height: 7px;
-      width: 100%;
-      background: #e2e8f0;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .cmp-card.phase3 .cmp-track { background: #dcfce7; }
-
-    .cmp-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      transition: width 0.5s var(--ease);
-    }
-    .cmp-fill.actual { background: var(--ink); }
-    .cmp-fill.phase3 { background: var(--emerald); }
-    .cmp-fill.phase2 { background: var(--muted-light); }
-
-    /* 3. Charts Section */
-    .section-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-
-    .section-sub {
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .charts-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .chart-panel {
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 15px 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .chart-panel-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .chart-sub-title { font-size: 0.84rem; font-weight: 700; color: var(--ink); }
-    .chart-hint { font-size: 0.74rem; color: var(--muted); }
-
-    .scatter-svg {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-    }
-
-    .scatter-dot { cursor: pointer; transition: opacity 0.14s ease; }
-    .scatter-dot:hover { opacity: 1 !important; }
-
-    .scatter-legend {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 0.74rem;
-      color: var(--muted);
-    }
-
-    .legend-items { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    .legend-item { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; color: var(--ink-2); }
-    .legend-swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
-
-    .metric-bars { display: flex; flex-direction: column; gap: 10px; }
-
-    .mbar-group {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-    }
-
-    .mbar-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 6px;
-      font-size: 0.78rem;
-    }
-
-    .mbar-name { font-weight: 700; color: var(--ink); }
-    .mbar-diff {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--emerald-dark);
-      background: var(--emerald-soft);
-      border: 1px solid var(--emerald-border);
-      padding: 1px 7px;
-      border-radius: 999px;
-    }
-
-    .mbar-row {
-      display: grid;
-      grid-template-columns: 54px 1fr 78px;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.74rem;
-      margin-bottom: 4px;
-    }
-    .mbar-row:last-child { margin-bottom: 0; }
-    .mbar-tag { font-weight: 600; color: var(--muted); }
-    .mbar-tag.p3 { color: var(--emerald-dark); font-weight: 700; }
-    .mbar-track { height: 7px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
-    .mbar-fill { height: 100%; border-radius: 999px; }
-    .mbar-fill.p2 { background: var(--muted-light); }
-    .mbar-fill.p3 { background: var(--emerald); }
-    .mbar-val { text-align: right; font-weight: 700; color: var(--ink-2); }
-    .mbar-val.p3 { color: var(--emerald-dark); }
-
-    .png-drawer {
-      display: none;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .png-drawer.open { display: grid; animation: contentPulse 0.22s var(--ease) both; }
-
-    .png-fig-box {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 10px;
-    }
-    .png-fig-box img { width: 100%; height: auto; display: block; border-radius: 6px; }
-    .png-fig-cap { margin-top: 6px; font-size: 0.73rem; color: var(--muted); font-weight: 600; text-align: center; }
-
-    /* 4. Test Table Explorer */
-    .explorer-title-wrap { display: flex; align-items: center; gap: 10px; }
-
-    .count-pill {
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 2px 10px;
-      border-radius: 999px;
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    .explorer-controls {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      flex: 1;
-      justify-content: flex-end;
-    }
-
-    .search-input {
-      width: 100%;
-      max-width: 280px;
-      padding: 7px 12px;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      font-family: inherit;
-      font-size: 0.83rem;
-      color: var(--ink);
-      background: #ffffff;
-    }
-    .search-input::placeholder { color: var(--muted-light); }
-    .search-input:focus { outline: none; border-color: var(--emerald); }
-
-    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .filter-pill {
-      padding: 6px 11px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-      color: var(--ink-2);
-      font-family: inherit;
-      font-size: 0.77rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .filter-pill:hover { border-color: var(--border-strong); color: var(--ink); background: #ffffff; }
-    .filter-pill.active {
-      background: var(--emerald-soft);
-      border-color: var(--emerald-border);
-      color: var(--emerald-dark);
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      max-height: 380px;
-      overflow-y: auto;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: #ffffff;
-    }
-
-    table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
-    th, td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--border); }
-
-    th {
-      background: #f8fafc;
-      position: sticky;
-      top: 0;
-      z-index: 2;
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: var(--muted);
-      white-space: nowrap;
-      border-bottom: 1px solid var(--border-strong);
-    }
-
-    td.num, th.num { text-align: right; }
-    tbody tr.row-pick { cursor: pointer; transition: background 0.1s ease; }
-    tbody tr.row-pick:hover { background: #f8fafc; }
-    tbody tr.row-pick.active { background: var(--emerald-soft); }
-    tbody tr.row-pick.active td:first-child { box-shadow: inset 3px 0 0 var(--emerald); }
-
-    .tag-win, .tag-lose {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 0.73rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .tag-win { background: var(--emerald-soft); color: var(--emerald-dark); border: 1px solid var(--emerald-border); }
-    .tag-lose { background: var(--amber-soft); color: var(--amber-dark); border: 1px solid var(--amber-border); }
-
-    .muted-p2 { color: var(--muted); }
-
-    .explorer-footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px solid var(--border);
-      font-size: 0.77rem;
-      color: var(--muted);
-    }
-
-    .csv-drawer {
-      display: none;
-      margin-top: 12px;
-      padding: 14px 16px;
-      border-radius: var(--radius-md);
-      background: var(--surface-soft);
-      border: 1px dashed var(--border-strong);
-    }
-    .csv-drawer.open { display: block; animation: contentPulse 0.2s var(--ease) both; }
-    .csv-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
-    .csv-file-input { font-family: inherit; font-size: 0.8rem; color: var(--ink-2); }
-
-    /* Mode Switch & Custom Input Form */
-    .mode-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .mode-tabs {
-      display: inline-flex;
-      background: rgba(241, 245, 249, 0.9);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 4px;
-      gap: 4px;
-    }
-
-    .mode-tab {
-      border: none;
-      background: transparent;
-      color: var(--ink-2);
-      font-family: inherit;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 7px 15px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.16s ease;
-    }
-
-    .mode-tab:hover { color: var(--ink); }
-    .mode-tab.active {
-      background: var(--ink);
-      color: #ffffff;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
-    }
-
+    /* Form Controls */
     .form-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -911,33 +545,38 @@
 
     .f-label {
       font-size: 0.74rem;
-      font-weight: 600;
-      color: var(--muted);
+      font-weight: 700;
+      color: var(--ink-2);
     }
 
     .f-input, .f-select {
       width: 100%;
-      padding: 7px 10px;
+      padding: 8px 11px;
       border: 1px solid var(--border-strong);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       background: #ffffff;
       color: var(--ink);
       font-family: inherit;
       font-size: 0.84rem;
       font-weight: 600;
-      transition: border-color 0.15s ease;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .f-input:focus, .f-select:focus {
       outline: none;
       border-color: var(--emerald);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.14);
     }
 
     .f-check-row {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 7px;
-      margin-top: 9px;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--ink-2);
@@ -956,13 +595,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 10px;
+      margin-top: 11px;
       padding-top: 10px;
       border-top: 1px dashed var(--border);
     }
 
     .chip-toggle {
-      padding: 4px 10px;
+      padding: 5px 11px;
       border-radius: 999px;
       border: 1px solid var(--border-strong);
       background: #ffffff;
@@ -971,22 +610,410 @@
       font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.14s ease;
+      transition: all 0.15s var(--ease);
     }
 
-    .chip-toggle:hover { border-color: var(--ink-2); color: var(--ink); }
+    .chip-toggle:hover { border-color: var(--ink); color: var(--ink); }
     .chip-toggle.on {
       background: var(--emerald-soft);
       border-color: var(--emerald);
       color: var(--emerald-dark);
+      font-weight: 700;
+      box-shadow: 0 1px 4px rgba(5, 150, 105, 0.14);
+    }
+
+    /* Sticky Right Prediction Result Panel */
+    .pred-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: sticky;
+      top: 84px;
+    }
+
+    .pred-banner {
+      padding: 12px 15px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid transparent;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+
+    .pred-banner.good {
+      background: var(--emerald-soft);
+      color: var(--emerald-dark);
+      border-color: var(--emerald-border);
+    }
+
+    .pred-banner.neutral {
+      background: var(--amber-soft);
+      color: var(--amber-dark);
+      border-color: var(--amber-border);
+    }
+
+    .pred-banner-pill {
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid currentColor;
+      white-space: nowrap;
+    }
+
+    .cmp-stack { display: flex; flex-direction: column; gap: 11px; }
+
+    .cmp-card {
+      border-radius: var(--radius-lg);
+      padding: 15px 17px;
+      border: 1px solid var(--border);
+      background: var(--glass-strong);
+      transition: transform 0.18s var(--ease), border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cmp-card.actual {
+      background: #ffffff;
+      border-color: var(--border-strong);
+    }
+
+    .cmp-card.muted {
+      background: var(--glass-soft);
+      border-color: var(--border);
+    }
+
+    .cmp-card.winner {
+      background: linear-gradient(135deg, rgba(236, 253, 245, 0.96) 0%, rgba(255, 255, 255, 0.98) 82%);
+      border: 1.8px solid var(--emerald);
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.12);
+      padding: 17px 18px;
+    }
+
+    .cmp-card.worse {
+      background: linear-gradient(135deg, rgba(255, 251, 235, 0.96) 0%, rgba(255, 255, 255, 0.98) 85%);
+      border: 1.6px solid #f59e0b;
+      box-shadow: 0 6px 18px rgba(217, 119, 6, 0.09);
+    }
+
+    .cmp-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 5px;
+    }
+
+    .cmp-title { font-size: 0.79rem; font-weight: 700; color: var(--muted); }
+    .cmp-card.actual .cmp-title { color: var(--ink-2); }
+    .cmp-card.winner .cmp-title { color: var(--emerald-dark); font-weight: 800; }
+    .cmp-card.worse .cmp-title { color: var(--amber-dark); font-weight: 700; }
+
+    .cmp-err { font-size: 0.76rem; font-weight: 600; color: var(--muted); text-align: right; }
+    .cmp-card.winner .cmp-err { color: var(--emerald-dark); font-weight: 700; }
+    .cmp-card.worse .cmp-err { color: var(--amber-dark); font-weight: 700; }
+
+    .cmp-price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .cmp-price {
+      font-size: 1.48rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+    }
+    .cmp-card.winner .cmp-price { font-size: 1.75rem; color: #064e3b; }
+    .cmp-card.worse .cmp-price { color: #78350f; }
+    .cmp-card.muted .cmp-price { color: var(--ink-2); }
+    .cmp-unit { font-size: 0.78rem; font-weight: 600; color: var(--muted); }
+
+    .cmp-track {
+      height: 7px;
+      width: 100%;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .cmp-card.winner .cmp-track { background: #dcfce7; height: 8px; }
+    .cmp-card.worse .cmp-track { background: #fef3c7; }
+
+    .cmp-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      transition: width 0.45s var(--ease), background 0.2s ease;
+    }
+    .cmp-fill.actual { background: var(--ink); }
+    .cmp-card.muted .cmp-fill { background: var(--muted-light); }
+    .cmp-card.winner .cmp-fill { background: linear-gradient(90deg, #10b981 0%, #059669 100%); }
+    .cmp-card.worse .cmp-fill { background: linear-gradient(90deg, #fbbf24 0%, #d97706 100%); }
+
+    /* Section 2: Unseen Test Data Explorer & CSV Upload */
+    .explorer-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .search-input {
+      width: 100%;
+      max-width: 240px;
+      padding: 8px 13px;
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--ink);
+      background: #ffffff;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .search-input::placeholder { color: var(--muted-light); }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.12);
+    }
+
+    .district-select {
+      padding: 8px 11px;
+      border: 1px solid var(--border-strong);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.81rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: #ffffff;
+      cursor: pointer;
+    }
+    .district-select:focus { outline: none; border-color: var(--emerald); }
+
+    .stats-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 16px;
+      padding: 9px 14px;
+      margin-bottom: 12px;
+      border-radius: var(--radius-md);
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+    .stats-strip strong { color: var(--ink); font-weight: 800; }
+    .stats-strip .em { color: var(--emerald-dark); }
+
+    .badge-ok, .badge-warn {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .badge-ok { background: var(--emerald-soft); color: var(--emerald-dark); border: 1px solid var(--emerald-border); }
+    .badge-warn { background: var(--amber-soft); color: var(--amber-dark); border: 1px solid var(--amber-border); }
+
+    .filter-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .filter-pill {
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      color: var(--ink-2);
+      font-family: inherit;
+      font-size: 0.77rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s var(--ease);
+    }
+    .filter-pill:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-1px); }
+    .filter-pill.active {
+      background: var(--emerald-soft);
+      border-color: var(--emerald);
+      color: var(--emerald-dark);
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.12);
+    }
+
+    .count-pill {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      max-height: 360px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+    th, td { padding: 10px 13px; text-align: left; border-bottom: 1px solid var(--border); }
+
+    th {
+      background: #f8fafc;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border-strong);
+    }
+
+    th.sort-th { cursor: pointer; user-select: none; transition: color 0.12s ease, background 0.12s ease; }
+    th.sort-th:hover { color: var(--ink); background: #f1f5f9; }
+    th.sort-th.sorted { color: var(--emerald-dark); }
+    .sort-ind { margin-left: 4px; font-size: 0.72rem; opacity: 0.85; }
+
+    td.num, th.num { text-align: right; }
+    tbody tr.row-pick { cursor: pointer; transition: background 0.12s ease; }
+    tbody tr.row-pick:hover { background: #f1f5f9; }
+    tbody tr.row-pick.active { background: var(--emerald-soft); }
+    tbody tr.row-pick.active td:first-child { box-shadow: inset 3px 0 0 var(--emerald); }
+
+    .tag-win, .tag-lose {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .tag-win { background: var(--emerald-soft); color: var(--emerald-dark); border: 1px solid var(--emerald-border); }
+    .tag-lose { background: var(--amber-soft); color: var(--amber-dark); border: 1px solid var(--amber-border); }
+
+    .muted-p2 { color: var(--muted); }
+
+    .pager-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: var(--glass-soft);
+      border: 1px solid var(--border);
+    }
+
+    .pager-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+
+    .page-size-select {
+      padding: 5px 10px;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 0.77rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .page-size-select:focus { outline: none; border-color: var(--emerald); }
+
+    .pager-btns {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .page-btn {
+      min-width: 32px;
+      height: 32px;
+      padding: 0 9px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      color: var(--ink-2);
+      font-family: inherit;
+      font-size: 0.77rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.14s var(--ease);
+    }
+    .page-btn:hover:not(:disabled) { border-color: var(--ink); color: var(--ink); transform: translateY(-1px); }
+    .page-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #ffffff;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+    }
+    .page-btn:disabled { opacity: 0.42; cursor: not-allowed; }
+
+    .page-dots { padding: 0 4px; font-size: 0.8rem; color: var(--muted); font-weight: 700; }
+
+    .explorer-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .csv-drawer {
+      display: none;
+      margin-top: 14px;
+      padding: 15px 17px;
+      border-radius: var(--radius-lg);
+      background: var(--glass-strong);
+      border: 1.5px dashed var(--border-strong);
+    }
+    .csv-drawer.open { display: block; animation: contentPulse 0.2s var(--ease) both; }
+    .csv-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+    .csv-file-input { font-family: inherit; font-size: 0.8rem; color: var(--ink-2); }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      padding: 6px 0 12px;
     }
 
     @media (max-width: 960px) {
-      .kpi-grid, .spotlight-grid, .charts-grid, .png-drawer { grid-template-columns: 1fr; }
+      .spotlight-grid { grid-template-columns: 1fr; }
+      .pred-col { position: static; }
       .explorer-controls { justify-content: flex-start; }
       .search-input { max-width: none; }
       .mode-tabs { width: 100%; justify-content: space-between; }
-      .mode-tab { flex: 1; text-align: center; padding: 7px 8px; }
+      .mode-tab { flex: 1; text-align: center; padding: 8px 10px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1004,83 +1031,64 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <div class="brand-row">
-          <h1 class="brand-title">SMARTRENT</h1>
-          <span class="brand-tag">Phase 3 Final</span>
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01"/><path d="M9 13h.01"/><path d="M9 17h.01"/>
+          </svg>
         </div>
-        <p class="brand-sub">เปรียบเทียบโมเดลทำนายค่าเช่าคอนโดกรุงเทพฯ (Phase 2 กับ Phase 3 • ชุดทดสอบ 800 ห้อง)</p>
+        <div>
+          <div class="brand-row">
+            <h1 class="brand-title">SMARTRENT</h1>
+            <span class="brand-tag">Live Demo • Phase 3</span>
+          </div>
+          <p class="brand-sub">ระบบสาธิตทำนายค่าเช่าคอนโดมิเนียมรายเดือนในกรุงเทพฯ (24 ตัวแปร)</p>
+        </div>
       </div>
 
       <nav class="nav-tabs" aria-label="เมนูหลัก">
-        <a class="nav-tab active" href="#sec-kpi">สรุปผลวัดค่า</a>
-        <a class="nav-tab" href="#sec-demo">ทดลองเปรียบเทียบ</a>
-        <a class="nav-tab" href="#sec-chart">กราฟความแม่นยำ</a>
-        <a class="nav-tab" href="#sec-table">ตาราง 800 ห้อง</a>
+        <a class="nav-tab active" href="#sec-demo">จำลองทำนายราคา</a>
+        <a class="nav-tab" href="#sec-test">ชุดข้อมูลทดสอบ &amp; .csv</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- 1. KPI Summary Strip -->
-    <section id="sec-kpi" class="kpi-grid stagger-1" aria-label="สรุปผลเปรียบเทียบ Phase 2 กับ Phase 3">
-      <div class="kpi-card">
-        <div class="kpi-top">
-          <span class="kpi-label">ความคลาดเคลื่อนมาตรฐาน (RMSE)</span>
-          <span class="kpi-delta">ลดลง 17.5%</span>
+    <!-- Part 1: Live Prediction Demo -->
+    <section id="sec-demo" class="card stagger-1" aria-label="ระบบสาธิตทำนายราคาค่าเช่า">
+      <div class="part-head">
+        <div class="part-title-group">
+          <span class="part-kicker">Part 1 • Live Rent Prediction Demo</span>
+          <h2 class="part-title">ทดลองประเมินค่าเช่าคอนโด (Phase 3 เทียบกับ Phase 2)</h2>
+          <p class="part-desc">เลือกดูตัวอย่างห้องจากชุดทดสอบจริง หรือกรอกข้อมูลห้องและโครงการเองเพื่อเทียบผลทำนายแบบเรียลไทม์</p>
         </div>
-        <div class="kpi-values">
-          <span class="kpi-new">24,660 บ.</span>
-          <span class="kpi-old">เดิม 29,880 บ.</span>
-        </div>
+        <button type="button" class="btn btn-ghost" id="btnResetCustom" style="display:none;">รีเซ็ตเป็นห้องตัวอย่าง (35 ตร.ม. สาทร)</button>
       </div>
-      <div class="kpi-card">
-        <div class="kpi-top">
-          <span class="kpi-label">ผิดพลาดเฉลี่ยต่อห้อง (MAE)</span>
-          <span class="kpi-delta">ลดลง 27.8%</span>
-        </div>
-        <div class="kpi-values">
-          <span class="kpi-new">10,014 บ.</span>
-          <span class="kpi-old">เดิม 13,866 บ.</span>
-        </div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-top">
-          <span class="kpi-label">ทายใกล้เคียงราคาจริง (±20%)</span>
-          <span class="kpi-delta">R² = 0.80</span>
-        </div>
-        <div class="kpi-values">
-          <span class="kpi-new">69.5%</span>
-          <span class="kpi-old">เดิม 31.4%</span>
-        </div>
-      </div>
-    </section>
 
-    <!-- 2. Spotlight Room Comparison -->
-    <section id="sec-demo" class="card stagger-2" aria-label="ทดลองทำนายรายห้อง">
-      <div class="mode-head">
-        <div class="mode-tabs" role="tablist" aria-label="เลือกโหมดทดลองทำนาย">
+      <div class="mode-bar">
+        <div class="mode-tabs" role="tablist" aria-label="เลือกโหมดสาธิต">
           <button type="button" class="mode-tab active" id="tabModeTest" role="tab" aria-selected="true">เลือกห้องจากชุด Test (800 ห้อง)</button>
           <button type="button" class="mode-tab" id="tabModeCustom" role="tab" aria-selected="false">ทดลองกรอกข้อมูลห้องเอง</button>
         </div>
-        <button type="button" class="filter-pill" id="btnResetCustom" style="display:none;">รีเซ็ตเป็นห้องตัวอย่าง (35 ตร.ม. สาทร)</button>
       </div>
 
       <div class="spotlight-toolbar" id="testToolbar">
         <div class="preset-row" id="presetsBar"></div>
         <div class="action-group">
-          <button class="btn btn-primary" id="btnRandomAny" type="button">สุ่มห้องจากชุด Test</button>
-          <button class="btn btn-emerald" id="btnRandomBetter" type="button">สุ่มเคสที่แม่นขึ้น</button>
+          <button class="btn btn-primary" id="btnRandomAny" type="button">สุ่มห้องทดสอบ</button>
+          <button class="btn btn-emerald" id="btnRandomBetter" type="button">สุ่มเคสที่ Phase 3 แม่นขึ้น</button>
+          <button class="btn btn-amber" id="btnRandomWorse" type="button">สุ่มเคสที่ Phase 3 เพี้ยนมากขึ้น</button>
         </div>
       </div>
 
       <div class="spotlight-grid" id="spotlightBody">
-        <!-- Left Column: Read-Only Test Room OR Custom Input Form -->
+        <!-- Left Column: Inputs or Selected Room Specs -->
         <div>
           <div class="room-header">
-            <h2 class="room-title" id="spotTitle">—</h2>
+            <h3 class="room-title" id="spotTitle">—</h3>
             <div class="room-meta">
               <span class="code-tag" id="spotRoomId">room_id: —</span>
               <span id="spotDistrict">—</span>
+              <span class="badge-ok" id="spotDataBadge" style="display:none;">—</span>
             </div>
             <div class="preset-caption" id="presetNote">—</div>
           </div>
@@ -1088,7 +1096,7 @@
           <div id="spotReadOnlyView">
             <div class="spec-box">
               <div class="spec-header">
-                <span class="spec-heading">ข้อมูลภายในห้อง (18 ตัวแปรเดิมใน Phase 2)</span>
+                <span class="spec-heading">1) ข้อมูลภายในห้อง (18 ตัวแปร • Phase 2)</span>
                 <span class="spec-count-pill" id="spotAmenCount">ระบุ 0/12 รายการ</span>
               </div>
               <div class="spec-grid-2" id="spotRoomSpecs"></div>
@@ -1097,7 +1105,7 @@
 
             <div class="spec-box project">
               <div class="spec-header">
-                <span class="spec-heading">ข้อมูลระดับโครงการ (+6 ตัวแปรใหม่ใน Phase 3)</span>
+                <span class="spec-heading">2) ข้อมูลระดับโครงการ (+6 ตัวแปร • Phase 3)</span>
                 <span class="spec-count-pill">ตาราง Project</span>
               </div>
               <div class="spec-grid-2" id="spotProjSpecs"></div>
@@ -1107,7 +1115,7 @@
           <div id="spotCustomView" style="display:none;">
             <div class="spec-box">
               <div class="spec-header">
-                <span class="spec-heading">กรอกข้อมูลภายในห้อง (18 ตัวแปร • Phase 2)</span>
+                <span class="spec-heading">1) กรอกข้อมูลภายในห้อง (18 ตัวแปร • Phase 2)</span>
                 <span class="spec-count-pill" id="customAmenCount">มีของใช้ 0/12 รายการ</span>
               </div>
               <div class="form-grid-2">
@@ -1137,7 +1145,7 @@
 
             <div class="spec-box project">
               <div class="spec-header">
-                <span class="spec-heading">กรอกข้อมูลระดับโครงการ (+6 ตัวแปร • Phase 3)</span>
+                <span class="spec-heading">2) กรอกข้อมูลระดับโครงการ (+6 ตัวแปร • Phase 3)</span>
                 <span class="spec-count-pill">มีผลเฉพาะ Phase 3</span>
               </div>
               <div class="form-grid-2">
@@ -1170,7 +1178,7 @@
           </div>
         </div>
 
-        <!-- Right Column: Actual vs Phase 3 vs Phase 2 -->
+        <!-- Right Sticky Column: Live Prediction Comparison -->
         <div class="pred-col">
           <div class="pred-banner good" id="spotBanner">
             <span id="spotBannerText">—</span>
@@ -1192,9 +1200,9 @@
               </div>
             </div>
 
-            <div class="cmp-card phase3">
+            <div class="cmp-card phase3 winner" id="cardP3">
               <div class="cmp-head">
-                <span class="cmp-title">โมเดล Phase 3 (24 ตัวแปร: 18 ห้อง + 6 โครงการ)</span>
+                <span class="cmp-title">ผลทำนาย Phase 3 (24 ตัวแปร: ห้อง + โครงการ)</span>
                 <span class="cmp-err" id="spotP3Err">—</span>
               </div>
               <div class="cmp-price-row">
@@ -1206,9 +1214,9 @@
               </div>
             </div>
 
-            <div class="cmp-card phase2">
+            <div class="cmp-card phase2 muted" id="cardP2">
               <div class="cmp-head">
-                <span class="cmp-title">โมเดล Phase 2 (18 ตัวแปรห้อง)</span>
+                <span class="cmp-title">ผลทำนายเดิม Phase 2 (18 ตัวแปรภายในห้อง)</span>
                 <span class="cmp-err" id="spotP2Err">—</span>
               </div>
               <div class="cmp-price-row">
@@ -1224,179 +1232,79 @@
       </div>
     </section>
 
-    <!-- 3. Visual Performance Charts -->
-    <section id="sec-chart" class="card stagger-3" aria-label="กราฟแสดงประสิทธิภาพของโมเดล">
-      <div class="section-head">
-        <div>
-          <h3 class="section-title">กราฟแสดงความแม่นยำ (Test Set 800 ห้อง)</h3>
-          <div class="section-sub">คลิกที่จุดบนกราฟเพื่อดูข้อมูลห้องนั้น หรือสังเกตการขยับจากจุด Phase 2 ไป Phase 3 เข้าใกล้เส้นทายตรง</div>
-        </div>
-        <button type="button" class="filter-pill" id="btnTogglePngFigs">ดูรูปกราฟรายงาน (PNG)</button>
-      </div>
-
-      <div class="charts-grid">
-        <div class="chart-panel">
-          <div class="chart-panel-top">
-            <span class="chart-sub-title">ค่าเช่าจริง เทียบ ค่าที่โมเดลทาย (Log Scale)</span>
-            <div class="filter-pills" id="scatterModePills" role="group" aria-label="เลือกมุมมองกราฟ">
-              <button type="button" class="filter-pill active" data-smode="COMPARE">เทียบจุดที่เลือก (P2 → P3)</button>
-              <button type="button" class="filter-pill" data-smode="P3">จุดทั้งหมด Phase 3</button>
-              <button type="button" class="filter-pill" data-smode="P2">จุดทั้งหมด Phase 2</button>
-            </div>
+    <!-- Part 2: Test Data Explorer & CSV Upload Testing -->
+    <section id="sec-test" class="card stagger-2" aria-label="ชุดข้อมูลทดสอบและทดสอบไฟล์ CSV">
+      <div class="part-head">
+        <div class="part-title-group">
+          <span class="part-kicker">Part 2 • Unseen Test Set &amp; CSV Evaluation</span>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
+            <h2 class="part-title">ค้นหาห้องในชุดทดสอบ (800 ห้อง)</h2>
+            <span class="count-pill" id="tableCount">—</span>
           </div>
-
-          <svg id="scatterSvg" class="scatter-svg" viewBox="0 0 520 340" role="img" aria-label="กราฟค่าเช่าจริงเทียบค่าทำนาย 800 ห้อง"></svg>
-
-          <div class="scatter-legend">
-            <div class="legend-items">
-              <span class="legend-item"><span class="legend-swatch" style="background:#059669;"></span>Phase 3 (18 ห้อง + 6 โครงการ)</span>
-              <span class="legend-item"><span class="legend-swatch" style="background:#64748b;"></span>Phase 2 (18 ห้อง)</span>
-              <span class="legend-item"><span class="legend-swatch" style="background:#dc2626; border-radius:2px; width:12px; height:3px;"></span>ทายตรง 100%</span>
-            </div>
-            <span id="scatterActiveLabel">—</span>
-          </div>
-        </div>
-
-        <div class="chart-panel">
-          <div class="chart-panel-top">
-            <span class="chart-sub-title">เทียบค่าชี้วัดสำคัญ (Phase 2 vs Phase 3)</span>
-            <span class="chart-hint">ชุดทดสอบเดียวกัน 800 ห้อง</span>
-          </div>
-
-          <div class="metric-bars">
-            <div class="mbar-group">
-              <div class="mbar-top">
-                <span class="mbar-name">RMSE (ยิ่งต่ำยิ่งดี)</span>
-                <span class="mbar-diff">ลดลง 17.5%</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag p3">Phase 3</span>
-                <div class="mbar-track"><div class="mbar-fill p3" style="width:82.5%"></div></div>
-                <span class="mbar-val p3">24,660 บ.</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag">Phase 2</span>
-                <div class="mbar-track"><div class="mbar-fill p2" style="width:100%"></div></div>
-                <span class="mbar-val">29,880 บ.</span>
-              </div>
-            </div>
-
-            <div class="mbar-group">
-              <div class="mbar-top">
-                <span class="mbar-name">MAE (ยิ่งต่ำยิ่งดี)</span>
-                <span class="mbar-diff">ลดลง 27.8%</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag p3">Phase 3</span>
-                <div class="mbar-track"><div class="mbar-fill p3" style="width:72.2%"></div></div>
-                <span class="mbar-val p3">10,014 บ.</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag">Phase 2</span>
-                <div class="mbar-track"><div class="mbar-fill p2" style="width:100%"></div></div>
-                <span class="mbar-val">13,866 บ.</span>
-              </div>
-            </div>
-
-            <div class="mbar-group">
-              <div class="mbar-top">
-                <span class="mbar-name">ทายใกล้เคียง ±20% (ยิ่งสูงยิ่งดี)</span>
-                <span class="mbar-diff">556 จาก 800 ห้อง</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag p3">Phase 3</span>
-                <div class="mbar-track"><div class="mbar-fill p3" style="width:69.5%"></div></div>
-                <span class="mbar-val p3">69.5%</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag">Phase 2</span>
-                <div class="mbar-track"><div class="mbar-fill p2" style="width:31.4%"></div></div>
-                <span class="mbar-val">31.4%</span>
-              </div>
-            </div>
-
-            <div class="mbar-group">
-              <div class="mbar-top">
-                <span class="mbar-name">R² อธิบายราคาตลาดได้</span>
-                <span class="mbar-diff">เพิ่มเป็น 0.80</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag p3">Phase 3</span>
-                <div class="mbar-track"><div class="mbar-fill p3" style="width:80.2%"></div></div>
-                <span class="mbar-val p3">0.80 (80.2%)</span>
-              </div>
-              <div class="mbar-row">
-                <span class="mbar-tag">Phase 2</span>
-                <div class="mbar-track"><div class="mbar-fill p2" style="width:70.9%"></div></div>
-                <span class="mbar-val">0.71 (70.9%)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="png-drawer" id="pngDrawer">
-        <div class="png-fig-box">
-          <img src="results/figures/phase3_rmse_comparison.png" alt="กราฟแท่งเปรียบเทียบ RMSE และ MAE ระหว่าง Phase 2 กับ Phase 3" loading="lazy" />
-          <div class="png-fig-cap">results/figures/phase3_rmse_comparison.png</div>
-        </div>
-        <div class="png-fig-box">
-          <img src="results/figures/phase3_actual_vs_predicted.png" alt="กราฟจุด Actual vs Predicted ของ Phase 2 เทียบ Phase 3" loading="lazy" />
-          <div class="png-fig-cap">results/figures/phase3_actual_vs_predicted.png</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Dataset Explorer -->
-    <section id="sec-table" class="card stagger-4" aria-label="ชุดข้อมูลทดสอบ 800 ห้อง">
-      <div class="section-head">
-        <div class="explorer-title-wrap">
-          <h3 class="section-title">ชุดข้อมูลทดสอบ (Unseen Test Set)</h3>
-          <span class="count-pill" id="tableCount">—</span>
+          <p class="part-desc">คลิกเลือกแถวใดก็ได้เพื่อดึงขึ้นไปแสดงผลเปรียบเทียบด้านบน • คลิกหัวตารางเพื่อสลับเรียงลำดับ หรืออัปโหลดไฟล์ .csv</p>
         </div>
 
         <div class="explorer-controls">
-          <input type="text" class="search-input" id="searchInput" placeholder="ค้นหา room_id, ชื่อคอนโด หรือเขต..." />
+          <input type="search" class="search-input" id="searchInput" placeholder="ค้นหา room_id หรือชื่อคอนโด..." />
+          <select id="districtFilter" class="district-select" aria-label="กรองตามเขต">
+            <option value="ALL">ทุกเขตในกรุงเทพฯ</option>
+          </select>
           <div class="filter-pills" id="filterPills" role="group" aria-label="ตัวกรองข้อมูล">
-            <button type="button" class="filter-pill active" data-mode="ALL">ทั้งหมด 800 ห้อง</button>
+            <button type="button" class="filter-pill active" data-mode="ALL">ทั้งหมด (เรียง room_id)</button>
             <button type="button" class="filter-pill" data-mode="IMPROVED">Phase 3 แม่นขึ้น</button>
             <button type="button" class="filter-pill" data-mode="ERR_ASC">คลาดเคลื่อนน้อยสุด</button>
+            <button type="button" class="filter-pill" data-mode="ERR_DESC">คลาดเคลื่อนมากสุด</button>
           </div>
         </div>
       </div>
 
-      <div class="table-wrap">
+      <div class="stats-strip" id="subsetStats">—</div>
+
+      <div class="table-wrap" id="testTableWrap">
         <table>
           <thead>
             <tr>
-              <th>room_id</th>
+              <th class="sort-th sorted" data-sort="room_id">room_id<span class="sort-ind">↑</span></th>
               <th>โครงการคอนโด</th>
               <th>เขต</th>
-              <th class="num">ตร.ม.</th>
-              <th class="num">ค่าเช่าจริง</th>
-              <th class="num">Phase 2 (เดิม)</th>
-              <th class="num">Phase 3 (ใหม่)</th>
-              <th class="num">ผลต่าง Error</th>
+              <th class="num sort-th" data-sort="size_sqm">ตร.ม.<span class="sort-ind"></span></th>
+              <th class="num sort-th" data-sort="rental">ค่าเช่าจริง<span class="sort-ind"></span></th>
+              <th class="num sort-th" data-sort="pred_phase2">Phase 2 (เดิม)<span class="sort-ind"></span></th>
+              <th class="num sort-th" data-sort="pred_phase3">Phase 3 (ใหม่)<span class="sort-ind"></span></th>
+              <th class="num sort-th" data-sort="err3">คลาดเคลื่อน (P3)<span class="sort-ind"></span></th>
             </tr>
           </thead>
           <tbody id="testTableBody"></tbody>
         </table>
       </div>
 
+      <div class="pager-bar" id="pagerBar">
+        <div class="pager-info">
+          <span id="pagerSummary">แสดงแถว 1–50 จาก 800 รายการ</span>
+          <select id="pageSizeSelect" class="page-size-select" aria-label="จำนวนรายการต่อหน้า">
+            <option value="50" selected>หน้าละ 50 แถว</option>
+            <option value="100">หน้าละ 100 แถว</option>
+            <option value="ALL">แสดงทั้งหมดในหน้าเดียว (800)</option>
+          </select>
+        </div>
+        <div class="pager-btns" id="pagerBtns"></div>
+      </div>
+
       <div class="explorer-footer">
-        <span>คลิกเลือกแถวใดก็ได้เพื่อดูผลเปรียบเทียบด้านบน</span>
-        <button type="button" class="filter-pill" id="btnToggleCsv">+ ทดสอบไฟล์ .csv เพิ่มเติม</button>
+        <span>ชุดทดสอบทั้ง 800 ห้องมาจาก 46 โครงการที่ไม่เคยซ้ำกับชุด Train / Validation</span>
+        <button type="button" class="btn btn-emerald" id="btnToggleCsv">+ ทดสอบไฟล์ .csv เพิ่มเติม</button>
       </div>
 
       <div class="csv-drawer" id="csvDrawer">
         <div class="csv-bar">
           <div>
-            <strong style="color:var(--ink); font-size:0.83rem;">อัปโหลดไฟล์ .csv เพื่อทดสอบโมเดลสด (เช่น train.csv, validation.csv, test.csv)</strong>
-            <div style="font-size:0.75rem; color:var(--muted);">คำนวณด้วยสมการ Ridge Regression ของ Phase 2 และ Phase 3 โดยตรง</div>
+            <strong style="color:var(--ink); font-size:0.84rem;">อัปโหลดไฟล์ .csv เพื่อทดสอบทำนายทีละหลายห้อง</strong>
+            <div style="font-size:0.75rem; color:var(--muted);">รองรับไฟล์รูปแบบเดียวกับ data/test.csv • คำนวณด้วยสมการ Ridge Phase 2 &amp; Phase 3 บนเบราว์เซอร์ทันที</div>
           </div>
           <input type="file" id="csvFileInput" accept=".csv" class="csv-file-input" />
         </div>
-        <div class="table-wrap" id="csvOutputWrap" style="display:none; margin-top:12px; max-height:260px;">
+        <div class="stats-strip" id="csvStatsBar" style="display:none; margin-top:12px; margin-bottom:0;"></div>
+        <div class="table-wrap" id="csvOutputWrap" style="display:none; margin-top:10px; max-height:260px;">
           <table>
             <thead>
               <tr>
@@ -1415,6 +1323,10 @@
         </div>
       </div>
     </section>
+
+    <footer class="footer-note">
+      SMARTRENT • INT182 Data Science and AI — Group 1 • Live Demo Application
+    </footer>
   </main>
 
   <script src="demo_data.js"></script>
@@ -1450,7 +1362,7 @@
 
       // Smooth number animation
       const counterState = new WeakMap();
-      function animateNumber(el, targetValue, formatter, duration = 360) {
+      function animateNumber(el, targetValue, formatter, duration = 340) {
         const prev = counterState.get(el);
         if (prev && prev.raf) cancelAnimationFrame(prev.raf);
 
@@ -1516,7 +1428,6 @@
       const testMap = new Map(D.test_rows.map(r => [r.room_id, r]));
       let activeRoomId = D.presets[1].room_id;
       let activeFilterMode = 'ALL';
-      let scatterMode = 'COMPARE';
       let demoMode = 'TEST';
       let customAmenitiesSet = new Set(['air_conditioner', 'furnished', 'refrigerator', 'water_heater']);
       let currentNote = D.presets[1].note;
@@ -1546,6 +1457,19 @@
         body.classList.remove('pulse-swap');
         void body.offsetWidth;
         body.classList.add('pulse-swap');
+      }
+
+      function syncWinnerCards(p3Wins) {
+        const cardP3 = document.getElementById('cardP3');
+        const cardP2 = document.getElementById('cardP2');
+        if (!cardP3 || !cardP2) return;
+        if (p3Wins) {
+          cardP3.className = 'cmp-card phase3 winner';
+          cardP2.className = 'cmp-card phase2 muted';
+        } else {
+          cardP3.className = 'cmp-card phase3 worse';
+          cardP2.className = 'cmp-card phase2 winner';
+        }
       }
 
       function selectRoom(roomId) {
@@ -1622,6 +1546,34 @@
         const pct3 = (e3 / r.rental) * 100;
         const saved = e2 - e3;
 
+        const missingNullCount = [
+          r.project_units,
+          r.project_age_2023,
+          r.project_max_floors,
+          r.project_buildings,
+        ].filter(v => v === null || v === undefined).length;
+        const zeroCommon = !r.reported_common_amenities;
+
+        const dataBadge = document.getElementById('spotDataBadge');
+        if (dataBadge) {
+          dataBadge.style.display = 'inline-block';
+          if (missingNullCount === 0 && !zeroCommon) {
+            dataBadge.className = 'badge-ok';
+            dataBadge.textContent = 'ข้อมูลโครงการครบ 6/6';
+          } else if (missingNullCount > 0 && zeroCommon) {
+            dataBadge.className = 'badge-warn';
+            dataBadge.textContent = `ข้อมูลโครงการขาด ${missingNullCount} ช่อง • ส่วนกลาง 0`;
+          } else if (missingNullCount > 0) {
+            dataBadge.className = 'badge-warn';
+            dataBadge.textContent = `ข้อมูลโครงการขาด ${missingNullCount} ช่อง`;
+          } else {
+            dataBadge.className = 'badge-warn';
+            dataBadge.textContent = 'ส่วนกลางระบุเป็น 0 รายการ';
+          }
+        }
+
+        syncWinnerCards(saved >= 0);
+
         const banner = document.getElementById('spotBanner');
         const bannerText = document.getElementById('spotBannerText');
         const bannerPct = document.getElementById('spotBannerPct');
@@ -1629,12 +1581,15 @@
         if (saved >= 0) {
           banner.className = 'pred-banner good';
           bannerText.innerHTML = `Phase 3 ทายใกล้เคียงกว่า Phase 2 อยู่ <strong id="savedAnim">0</strong> บาท`;
-          bannerPct.textContent = `คลาดเคลื่อน ${fmtDec(pct3)}%`;
+          bannerPct.textContent = `P3 คลาดเคลื่อน ${fmtDec(pct3)}%`;
           animateNumber(document.getElementById('savedAnim'), saved, v => fmtTHB(v));
         } else {
           banner.className = 'pred-banner neutral';
-          bannerText.innerHTML = `ห้องนี้ Phase 2 ใกล้กว่า <strong id="savedAnim">0</strong> บ. (ข้อมูลโครงการบางช่องว่าง)`;
-          bannerPct.textContent = `คลาดเคลื่อน ${fmtDec(pct3)}%`;
+          let reason = 'พฤติกรรมราคาเฉพาะตึกที่ 24 ตัวแปรยังจับได้จำกัด';
+          if (missingNullCount > 0 || zeroCommon) reason = 'ข้อมูลโครงการบางช่องว่าง/เป็น 0';
+          else if (r.rental >= 100000) reason = 'กลุ่มห้องหรูเกินแสน (แบรนด์/เกรดที่ยังไม่มีในสมการ)';
+          bannerText.innerHTML = `ห้องนี้ Phase 2 ใกล้กว่า <strong id="savedAnim">0</strong> บ. (${reason})`;
+          bannerPct.textContent = `P2 พลาด ${fmtDec(pct2)}% • P3 ${fmtDec(pct3)}%`;
           animateNumber(document.getElementById('savedAnim'), -saved, v => fmtTHB(v));
         }
 
@@ -1656,121 +1611,52 @@
         });
 
         renderPresets();
-        renderScatter();
-        renderTable();
+        const fList = getFiltered();
+        const foundIdx = fList.findIndex(x => x.room_id === activeRoomId);
+        if (foundIdx >= 0 && Number.isFinite(pageSize)) {
+          currentPage = Math.floor(foundIdx / pageSize) + 1;
+        }
+        renderTable(fList);
       }
 
-      // Interactive Actual vs Predicted SVG Scatter Plot
-      function renderScatter() {
-        const svg = document.getElementById('scatterSvg');
-        if (!svg) return;
-        const L = 54, R = 18, T = 20, B = 42;
-        const W = 520 - L - R;
-        const H = 340 - T - B;
-        const minV = 5000, maxV = 600000;
-        const logMin = Math.log10(minV), logMax = Math.log10(maxV);
-        const clamp = (v) => Math.max(minV, Math.min(maxV, Number(v) || minV));
-        const toX = (v) => L + ((Math.log10(clamp(v)) - logMin) / (logMax - logMin)) * W;
-        const toY = (v) => T + H - ((Math.log10(clamp(v)) - logMin) / (logMax - logMin)) * H;
-
-        const ticks = [
-          { v: 5000, lbl: '5k' },
-          { v: 10000, lbl: '10k' },
-          { v: 25000, lbl: '25k' },
-          { v: 50000, lbl: '50k' },
-          { v: 100000, lbl: '100k' },
-          { v: 250000, lbl: '250k' },
-          { v: 500000, lbl: '500k' },
-        ];
-
-        const parts = [
-          '<defs><marker id="arrowHead" markerWidth="6" markerHeight="6" refX="4.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0f172a"/></marker></defs>'
-        ];
-
-        for (const tk of ticks) {
-          const x = toX(tk.v).toFixed(1);
-          const y = toY(tk.v).toFixed(1);
-          parts.push(`<line x1="${L}" y1="${y}" x2="${L + W}" y2="${y}" stroke="#e2e8f0" stroke-dasharray="3 3" stroke-width="1"/>`);
-          parts.push(`<line x1="${x}" y1="${T}" x2="${x}" y2="${T + H}" stroke="#e2e8f0" stroke-dasharray="3 3" stroke-width="1"/>`);
-          parts.push(`<text x="${L - 7}" y="${Number(y) + 3}" text-anchor="end" font-size="10" fill="#64748b">${tk.lbl}</text>`);
-          parts.push(`<text x="${x}" y="${T + H + 15}" text-anchor="middle" font-size="10" fill="#64748b">${tk.lbl}</text>`);
-        }
-
-        parts.push(`<line x1="${L}" y1="${T}" x2="${L}" y2="${T + H}" stroke="#334155" stroke-width="1.3"/>`);
-        parts.push(`<line x1="${L}" y1="${T + H}" x2="${L + W}" y2="${T + H}" stroke="#334155" stroke-width="1.3"/>`);
-        parts.push(`<text x="${L + W / 2}" y="${T + H + 34}" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">ค่าเช่าจริง (บาท/เดือน)</text>`);
-        parts.push(`<text x="14" y="${T + H / 2}" transform="rotate(-90 14 ${T + H / 2})" text-anchor="middle" font-size="10.5" font-weight="700" fill="#334155">ค่าทำนาย (บาท/เดือน)</text>`);
-
-        parts.push(`<line x1="${toX(minV).toFixed(1)}" y1="${toY(minV).toFixed(1)}" x2="${toX(maxV).toFixed(1)}" y2="${toY(maxV).toFixed(1)}" stroke="#dc2626" stroke-width="1.6" stroke-opacity="0.82"/>`);
-        parts.push(`<text x="${toX(380000).toFixed(1)}" y="${(toY(380000) - 8).toFixed(1)}" text-anchor="end" font-size="9.5" font-weight="700" fill="#dc2626">ทายตรง 100%</text>`);
-
-        const dotColor = scatterMode === 'P2' ? '#64748b' : '#059669';
-        const dotOpacity = scatterMode === 'COMPARE' ? 0.24 : 0.48;
-        const dotRadius = scatterMode === 'COMPARE' ? 2.4 : 2.9;
-
-        for (const row of D.test_rows) {
-          const pred = scatterMode === 'P2' ? row.pred_phase2 : row.pred_phase3;
-          const cx = toX(row.rental).toFixed(1);
-          const cy = toY(pred).toFixed(1);
-          parts.push(
-            `<circle class="scatter-dot" data-rid="${row.room_id}" cx="${cx}" cy="${cy}" r="${dotRadius}" fill="${dotColor}" fill-opacity="${dotOpacity}">` +
-            `<title>room_id=${row.room_id} (${row.project_name})\nจริง: ${fmtTHB(row.rental)} บ. | P2: ${fmtTHB(row.pred_phase2)} บ. | P3: ${fmtTHB(row.pred_phase3)} บ.</title></circle>`
-          );
-        }
-
-        const cur = testMap.get(activeRoomId);
-        if (cur) {
-          const ax = toX(cur.rental);
-          const ayTrue = toY(cur.rental);
-          const ay2 = toY(cur.pred_phase2);
-          const ay3 = toY(cur.pred_phase3);
-
-          const minY = Math.min(ayTrue, ay2, ay3);
-          const maxY = Math.max(ayTrue, ay2, ay3);
-          parts.push(`<line x1="${ax.toFixed(1)}" y1="${minY.toFixed(1)}" x2="${ax.toFixed(1)}" y2="${maxY.toFixed(1)}" stroke="#94a3b8" stroke-dasharray="3 2" stroke-width="1.2"/>`);
-
-          if (Math.abs(ay3 - ay2) > 9) {
-            const yStart = ay2 + (ay3 > ay2 ? 4 : -4);
-            const yEnd = ay3 + (ay3 > ay2 ? -6 : 6);
-            parts.push(`<line x1="${ax.toFixed(1)}" y1="${yStart.toFixed(1)}" x2="${ax.toFixed(1)}" y2="${yEnd.toFixed(1)}" stroke="#0f172a" stroke-width="1.7" marker-end="url(#arrowHead)"/>`);
-          }
-
-          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ayTrue.toFixed(1)}" r="4.5" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>`);
-          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ay2.toFixed(1)}" r="5" fill="#64748b" stroke="#ffffff" stroke-width="1.6"/>`);
-          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ay3.toFixed(1)}" r="10" fill="#059669" fill-opacity="0.18"/>`);
-          parts.push(`<circle cx="${ax.toFixed(1)}" cy="${ay3.toFixed(1)}" r="5.8" fill="#059669" stroke="#ffffff" stroke-width="1.8"/>`);
-
-          const lblSide = ax > L + W - 75 ? -10 : 10;
-          const lblAnchor = lblSide < 0 ? 'end' : 'start';
-          parts.push(`<text x="${(ax + lblSide).toFixed(1)}" y="${(ay3 + 3).toFixed(1)}" text-anchor="${lblAnchor}" font-size="10" font-weight="800" fill="#047857">P3</text>`);
-          parts.push(`<text x="${(ax + lblSide).toFixed(1)}" y="${(ay2 + 3).toFixed(1)}" text-anchor="${lblAnchor}" font-size="9.5" font-weight="700" fill="#475569">P2</text>`);
-
-          const activeLabel = document.getElementById('scatterActiveLabel');
-          if (activeLabel) {
-            activeLabel.textContent = `ห้องที่เลือก: room_id=${cur.room_id} (${fmtTHB(cur.rental)} บ.)`;
-          }
-        }
-
-        svg.innerHTML = parts.join('');
-        svg.querySelectorAll('.scatter-dot').forEach(dot => {
-          dot.addEventListener('click', () => {
-            const rid = Number(dot.dataset.rid);
-            const row = testMap.get(rid);
-            currentNote = row ? `เลือกจากกราฟ: room_id=${row.room_id} (${row.project_name})` : '';
-            selectRoom(rid);
-          });
-        });
-      }
-
-      // Filter & Table
+      // Filter, District, Sort, Pagination & Table
       const searchEl = document.getElementById('searchInput');
+      const districtFilterEl = document.getElementById('districtFilter');
+      const subsetStatsEl = document.getElementById('subsetStats');
+      const tableWrap = document.getElementById('testTableWrap');
       const tableBody = document.getElementById('testTableBody');
       const tableCount = document.getElementById('tableCount');
+      const pagerSummary = document.getElementById('pagerSummary');
+      const pagerBtns = document.getElementById('pagerBtns');
+      const pageSizeSelect = document.getElementById('pageSizeSelect');
+      let currentPage = 1;
+      let pageSize = 50;
+      let sortCol = 'room_id';
+      let sortDir = 'asc';
+
+      function initDistrictFilter() {
+        const distCounts = new Map();
+        for (const r of D.test_rows) {
+          distCounts.set(r.project_district, (distCounts.get(r.project_district) || 0) + 1);
+        }
+        const sortedDists = [...distCounts.keys()].sort();
+        districtFilterEl.innerHTML = `<option value="ALL">ทุกเขต (${D.test_rows.length} ห้อง)</option>` +
+          sortedDists.map(d => `<option value="${d}">${DISTRICT_TH[d] || d} (${distCounts.get(d)})</option>`).join('');
+      }
+      initDistrictFilter();
+
+      function getSortValue(r, col) {
+        if (col === 'err3') return Math.abs(r.pred_phase3 - r.rental);
+        if (col === 'imp') return Math.abs(r.pred_phase2 - r.rental) - Math.abs(r.pred_phase3 - r.rental);
+        return Number(r[col]) || 0;
+      }
 
       function getFiltered() {
         const q = searchEl.value.trim().toLowerCase();
+        const dist = districtFilterEl.value;
 
         const list = D.test_rows.filter(r => {
+          if (dist && dist !== 'ALL' && r.project_district !== dist) return false;
           if (q) {
             const hay = `${r.room_id} ${r.project_name} ${r.project_district}`.toLowerCase();
             if (!hay.includes(q)) return false;
@@ -1783,29 +1669,92 @@
         });
 
         list.sort((a, b) => {
-          if (activeFilterMode === 'IMPROVED') {
-            const dA = Math.abs(a.pred_phase2 - a.rental) - Math.abs(a.pred_phase3 - a.rental);
-            const dB = Math.abs(b.pred_phase2 - b.rental) - Math.abs(b.pred_phase3 - b.rental);
-            return dB - dA;
-          }
-          if (activeFilterMode === 'ERR_ASC') {
-            return Math.abs(a.pred_phase3 - a.rental) - Math.abs(b.pred_phase3 - b.rental);
-          }
+          const diff = getSortValue(a, sortCol) - getSortValue(b, sortCol);
+          if (diff !== 0) return sortDir === 'asc' ? diff : -diff;
           return a.room_id - b.room_id;
         });
         return list;
       }
 
-      function renderTable() {
-        const filtered = getFiltered();
-        const shown = filtered.slice(0, 80);
-        tableCount.textContent = `แสดง ${shown.length} จาก ${filtered.length} รายการ (ทั้งหมด 800)`;
+      function buildPageItems(cur, total) {
+        if (total <= 7) {
+          return Array.from({ length: total }, (_, i) => i + 1);
+        }
+        const pages = new Set([1, total, cur - 1, cur, cur + 1].filter(p => p >= 1 && p <= total));
+        const sorted = [...pages].sort((a, b) => a - b);
+        const out = [];
+        for (let i = 0; i < sorted.length; i++) {
+          if (i > 0 && sorted[i] - sorted[i - 1] > 1) out.push('...');
+          out.push(sorted[i]);
+        }
+        return out;
+      }
 
-        tableBody.innerHTML = shown.map(r => {
-          const imp = Math.abs(r.pred_phase2 - r.rental) - Math.abs(r.pred_phase3 - r.rental);
+      function syncSortHeadersUI() {
+        document.querySelectorAll('th.sort-th').forEach(th => {
+          const isCur = th.dataset.sort === sortCol;
+          th.classList.toggle('sorted', isCur);
+          const ind = th.querySelector('.sort-ind');
+          if (ind) ind.textContent = isCur ? (sortDir === 'asc' ? '↑' : '↓') : '↕';
+        });
+      }
+
+      function renderSubsetStats(list) {
+        if (!list.length) {
+          subsetStatsEl.innerHTML = '<span>ไม่พบรายการที่ตรงกับตัวกรองปัจจุบัน</span>';
+          return;
+        }
+        const n = list.length;
+        let sumE2 = 0, sumE3 = 0, wins = 0, w20 = 0;
+        for (const r of list) {
+          const e2 = Math.abs(r.pred_phase2 - r.rental);
+          const e3 = Math.abs(r.pred_phase3 - r.rental);
+          sumE2 += e2;
+          sumE3 += e3;
+          if (e3 <= e2) wins++;
+          if (e3 <= r.rental * 0.2) w20++;
+        }
+        const mae2 = sumE2 / n;
+        const mae3 = sumE3 / n;
+        const winPct = (wins / n) * 100;
+        const w20Pct = (w20 / n) * 100;
+        subsetStatsEl.innerHTML = `
+          <span>กลุ่มนี้: <strong>${n} ห้อง</strong></span>
+          <span>Phase 3 ใกล้กว่า Phase 2: <strong class="em">${wins}/${n} ห้อง (${fmtDec(winPct)}%)</strong></span>
+          <span>MAE เฉลี่ย: <strong class="em">${fmtTHB(mae3)} บ.</strong> (เดิม ${fmtTHB(mae2)} บ.)</span>
+          <span>ทายใกล้ ±20%: <strong>${fmtDec(w20Pct)}%</strong></span>
+        `;
+      }
+
+      function renderTable(preFiltered) {
+        const filtered = Array.isArray(preFiltered) ? preFiltered : getFiltered();
+        const total = filtered.length;
+        const effSize = Number.isFinite(pageSize) ? pageSize : Math.max(total, 1);
+        const totalPages = Math.max(1, Math.ceil(total / effSize));
+        currentPage = Math.max(1, Math.min(totalPages, currentPage));
+
+        const startIdx = total === 0 ? 0 : (currentPage - 1) * effSize;
+        const endIdx = Math.min(total, startIdx + effSize);
+        const shown = filtered.slice(startIdx, endIdx);
+
+        tableCount.textContent = total === D.test_rows.length
+          ? `ทั้งหมด ${total} ห้อง`
+          : `พบ ${total} จาก ${D.test_rows.length} ห้อง`;
+        pagerSummary.textContent = total === 0
+          ? 'ไม่พบรายการที่ตรงกับคำค้น'
+          : `แสดงแถว ${startIdx + 1}–${endIdx} จาก ${total} รายการ (หน้า ${currentPage}/${totalPages})`;
+
+        syncSortHeadersUI();
+        renderSubsetStats(filtered);
+
+        tableBody.innerHTML = shown.length ? shown.map(r => {
+          const e2 = Math.abs(r.pred_phase2 - r.rental);
+          const e3 = Math.abs(r.pred_phase3 - r.rental);
+          const imp = e2 - e3;
+          const pct3 = r.rental > 0 ? (e3 / r.rental) * 100 : 0;
           const tag = imp >= 0
-            ? `<span class="tag-win">ดีขึ้น ${fmtTHB(imp)} บ.</span>`
-            : `<span class="tag-lose">ต่าง +${fmtTHB(-imp)} บ.</span>`;
+            ? `<span class="tag-win">±${fmtTHB(e3)} บ. (ดีขึ้น ${fmtTHB(imp)})</span>`
+            : `<span class="tag-lose">±${fmtTHB(e3)} บ. (${fmtDec(pct3)}%)</span>`;
           return `
             <tr class="row-pick ${r.room_id === activeRoomId ? 'active' : ''}" data-rid="${r.room_id}">
               <td><span class="code-tag">${r.room_id}</span></td>
@@ -1818,24 +1767,92 @@
               <td class="num">${tag}</td>
             </tr>
           `;
-        }).join('');
+        }).join('') : '<tr><td colspan="8" style="text-align:center; padding:24px; color:var(--muted);">ไม่พบห้องที่ตรงกับเงื่อนไข</td></tr>';
 
-        tableBody.querySelectorAll('tr').forEach(tr => {
+        tableBody.querySelectorAll('tr.row-pick').forEach(tr => {
           tr.addEventListener('click', () => {
             const rid = Number(tr.dataset.rid);
             const r = testMap.get(rid);
             currentNote = r ? `เลือกจากชุด Test: room_id=${r.room_id} (${r.project_name})` : '';
             selectRoom(rid);
-            document.getElementById('spotlightBody').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            document.getElementById('sec-demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+
+        const items = buildPageItems(currentPage, totalPages);
+        const btnHtml = [
+          `<button type="button" class="page-btn" data-page="${currentPage - 1}" ${currentPage <= 1 ? 'disabled' : ''}>‹ ก่อนหน้า</button>`,
+          ...items.map(it => it === '...'
+            ? '<span class="page-dots">…</span>'
+            : `<button type="button" class="page-btn ${it === currentPage ? 'active' : ''}" data-page="${it}">${it}</button>`
+          ),
+          `<button type="button" class="page-btn" data-page="${currentPage + 1}" ${currentPage >= totalPages ? 'disabled' : ''}>ถัดไป ›</button>`,
+        ].join('');
+        pagerBtns.innerHTML = btnHtml;
+        pagerBtns.querySelectorAll('.page-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const p = Number(btn.dataset.page);
+            if (!Number.isFinite(p) || p === currentPage) return;
+            currentPage = p;
+            renderTable();
+            if (tableWrap) tableWrap.scrollTop = 0;
           });
         });
       }
 
-      searchEl.addEventListener('input', renderTable);
+      searchEl.addEventListener('input', () => {
+        currentPage = 1;
+        renderTable();
+      });
+
+      districtFilterEl.addEventListener('change', () => {
+        currentPage = 1;
+        renderTable();
+      });
+
+      pageSizeSelect.addEventListener('change', () => {
+        const val = pageSizeSelect.value;
+        pageSize = val === 'ALL' ? Infinity : Number(val);
+        currentPage = 1;
+        renderTable();
+        if (tableWrap) tableWrap.scrollTop = 0;
+      });
+
+      document.querySelectorAll('th.sort-th').forEach(th => {
+        th.addEventListener('click', () => {
+          const col = th.dataset.sort;
+          if (sortCol === col) {
+            sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+          } else {
+            sortCol = col;
+            sortDir = (col === 'room_id' || col === 'size_sqm') ? 'asc' : 'desc';
+          }
+          currentPage = 1;
+          renderTable();
+        });
+      });
 
       document.getElementById('filterPills').querySelectorAll('.filter-pill').forEach(pill => {
         pill.addEventListener('click', () => {
-          activeFilterMode = pill.dataset.mode;
+          const mode = pill.dataset.mode;
+          if (mode === 'ALL') {
+            activeFilterMode = 'ALL';
+            sortCol = 'room_id';
+            sortDir = 'asc';
+          } else if (mode === 'IMPROVED') {
+            activeFilterMode = 'IMPROVED';
+            sortCol = 'imp';
+            sortDir = 'desc';
+          } else if (mode === 'ERR_ASC') {
+            activeFilterMode = 'ALL';
+            sortCol = 'err3';
+            sortDir = 'asc';
+          } else if (mode === 'ERR_DESC') {
+            activeFilterMode = 'ALL';
+            sortCol = 'err3';
+            sortDir = 'desc';
+          }
+          currentPage = 1;
           document.getElementById('filterPills').querySelectorAll('.filter-pill').forEach(p => {
             p.classList.toggle('active', p === pill);
           });
@@ -1861,7 +1878,20 @@
         selectRoom(pick.room_id);
       });
 
-      // Hidden-by-default CSV Test Drawer
+      document.getElementById('btnRandomWorse').addEventListener('click', () => {
+        const notableWorse = D.test_rows.filter(r =>
+          Math.abs(r.pred_phase3 - r.rental) - Math.abs(r.pred_phase2 - r.rental) > 2500
+        );
+        const allWorse = D.test_rows.filter(r =>
+          Math.abs(r.pred_phase3 - r.rental) > Math.abs(r.pred_phase2 - r.rental)
+        );
+        const src = notableWorse.length ? notableWorse : allWorse;
+        const pick = src[Math.floor(Math.random() * src.length)];
+        currentNote = `สุ่มเคสที่ Phase 3 คลาดเคลื่อนมากขึ้น (Limit Case): room_id=${pick.room_id} (${pick.project_name})`;
+        selectRoom(pick.room_id);
+      });
+
+      // Exact Ridge Regression Inference + CSV Uploader
       function isMissingNum(v) {
         if (v === null || v === undefined) return true;
         const s = String(v).trim();
@@ -1922,33 +1952,21 @@
             const pu = Number(obj.project_units);
             if (pu > 0) obj.log_project_units = Math.log1p(pu);
           }
+          if (isMissingNum(obj.n_reported_room_amenities)) {
+            const amenCols = Object.keys(AMEN_TH);
+            if (amenCols.some(k => k in obj)) {
+              obj.n_reported_room_amenities = amenCols.reduce((s, k) => s + (Number(obj[k]) === 1 ? 1 : 0), 0);
+            }
+          }
           return obj;
         });
       }
 
       const csvDrawer = document.getElementById('csvDrawer');
-      document.getElementById('btnToggleCsv').addEventListener('click', () => {
-        csvDrawer.classList.toggle('open');
-      });
-
-      const pngDrawer = document.getElementById('pngDrawer');
-      const btnTogglePngFigs = document.getElementById('btnTogglePngFigs');
-      if (btnTogglePngFigs && pngDrawer) {
-        btnTogglePngFigs.addEventListener('click', () => {
-          const open = pngDrawer.classList.toggle('open');
-          btnTogglePngFigs.classList.toggle('active', open);
-          btnTogglePngFigs.textContent = open ? 'ซ่อนรูปกราฟรายงาน (PNG)' : 'ดูรูปกราฟรายงาน (PNG)';
-        });
-      }
-
-      document.getElementById('scatterModePills').querySelectorAll('.filter-pill').forEach(pill => {
-        pill.addEventListener('click', () => {
-          scatterMode = pill.dataset.smode;
-          document.getElementById('scatterModePills').querySelectorAll('.filter-pill').forEach(p => {
-            p.classList.toggle('active', p === pill);
-          });
-          renderScatter();
-        });
+      const btnToggleCsv = document.getElementById('btnToggleCsv');
+      btnToggleCsv.addEventListener('click', () => {
+        const open = csvDrawer.classList.toggle('open');
+        btnToggleCsv.textContent = open ? 'ซ่อนกล่องอัปโหลด .csv' : '+ ทดสอบไฟล์ .csv เพิ่มเติม';
       });
 
       document.getElementById('csvFileInput').addEventListener('change', (e) => {
@@ -1959,14 +1977,16 @@
           const parsed = parseCSV(reader.result);
           const wrap = document.getElementById('csvOutputWrap');
           const tbody = document.getElementById('csvOutputBody');
+          const csvStats = document.getElementById('csvStatsBar');
           if (!parsed.length) return;
           wrap.style.display = 'block';
-          const shown = parsed.slice(0, 100);
-          const customRows = shown.map((r, idx) => {
+
+          const allEvaluated = parsed.map((r, idx) => {
             const rid = !isMissingNum(r.room_id) ? Number(r.room_id) : (900000 + idx + 1);
             const p2 = predictRidge(D.models.phase2, r);
             const p3 = predictRidge(D.models.phase3, r);
-            const act = !isMissingNum(r.rental) ? Number(r.rental) : Math.round(p3);
+            const hasActual = !isMissingNum(r.rental);
+            const act = hasActual ? Number(r.rental) : Math.round(p3);
             const amenKeys = Object.keys(AMEN_TH).filter(k => Number(r[k]) === 1);
             const item = {
               room_id: rid,
@@ -1985,6 +2005,7 @@
               project_max_floors: !isMissingNum(r.project_max_floors) ? Number(r.project_max_floors) : null,
               reported_common_amenities: !isMissingNum(r.reported_common_amenities) ? Number(r.reported_common_amenities) : 0,
               rental: act,
+              hasActual,
               pred_phase2: p2,
               pred_phase3: p3,
               amenities: amenKeys,
@@ -1993,19 +2014,39 @@
             return item;
           });
 
+          const withActual = allEvaluated.filter(r => r.hasActual && r.rental > 0);
+          csvStats.style.display = 'flex';
+          if (withActual.length) {
+            const mae2 = withActual.reduce((s, r) => s + Math.abs(r.pred_phase2 - r.rental), 0) / withActual.length;
+            const mae3 = withActual.reduce((s, r) => s + Math.abs(r.pred_phase3 - r.rental), 0) / withActual.length;
+            const rmse3 = Math.sqrt(withActual.reduce((s, r) => s + (r.pred_phase3 - r.rental) ** 2, 0) / withActual.length);
+            const wins = withActual.filter(r => Math.abs(r.pred_phase3 - r.rental) <= Math.abs(r.pred_phase2 - r.rental)).length;
+            csvStats.innerHTML = `
+              <span>ไฟล์ ${file.name}: <strong>${allEvaluated.length} แถว</strong></span>
+              <span>MAE Phase 3: <strong class="em">${fmtTHB(mae3)} บ.</strong> (Phase 2: ${fmtTHB(mae2)} บ.)</span>
+              <span>RMSE Phase 3: <strong>${fmtTHB(rmse3)} บ.</strong></span>
+              <span>Phase 3 ใกล้กว่า: <strong class="em">${wins}/${withActual.length} ห้อง</strong></span>
+            `;
+          } else {
+            csvStats.innerHTML = `<span>โหลดไฟล์ ${file.name} สำเร็จ: <strong>${allEvaluated.length} แถว</strong> (ไม่มีคอลัมน์ค่าเช่าจริง rental)</span>`;
+          }
+
+          const customRows = allEvaluated.slice(0, 100);
           tbody.innerHTML = customRows.map(r => {
+            const e2 = Math.abs(r.pred_phase2 - r.rental);
             const e3 = Math.abs(r.pred_phase3 - r.rental);
             const pct3 = r.rental > 0 ? (e3 / r.rental * 100) : 0;
+            const tagCls = (!r.hasActual || e3 <= e2) ? 'tag-win' : 'tag-lose';
             return `
               <tr class="row-pick" data-rid="${r.room_id}">
                 <td><span class="code-tag">${r.room_id}</span></td>
                 <td><strong>${r.project_name}</strong></td>
                 <td>${r.project_district.replace(' Bangkok', '')}</td>
                 <td class="num">${r.size_sqm}</td>
-                <td class="num"><strong>${fmtTHB(r.rental)}</strong></td>
+                <td class="num"><strong>${r.hasActual ? fmtTHB(r.rental) : '—'}</strong></td>
                 <td class="num muted-p2">${fmtTHB(r.pred_phase2)}</td>
                 <td class="num"><strong>${fmtTHB(r.pred_phase3)}</strong></td>
-                <td class="num"><span class="tag-win">±${fmtTHB(e3)} บ. (${fmtDec(pct3)}%)</span></td>
+                <td class="num"><span class="${tagCls}">${r.hasActual ? `±${fmtTHB(e3)} บ. (${fmtDec(pct3)}%)` : 'ทำนายใหม่'}</span></td>
               </tr>
             `;
           }).join('');
@@ -2015,7 +2056,7 @@
               const rid = Number(tr.dataset.rid);
               currentNote = `ทดสอบจากไฟล์ ${file.name}: room_id=${rid}`;
               selectRoom(rid);
-              document.getElementById('spotlightBody').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              document.getElementById('sec-demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
           });
 
@@ -2167,26 +2208,34 @@
         return best;
       }
 
+      function clampOptNum(id, minVal, maxVal) {
+        const s = document.getElementById(id).value.trim();
+        if (s === '') return '';
+        const n = Number(s);
+        if (!Number.isFinite(n)) return '';
+        return Math.max(minVal, Math.min(maxVal, n));
+      }
+
       function runCustomPrediction() {
         const szRaw = Number(document.getElementById('inSize').value);
         const sz = Math.max(15, Math.min(400, Number.isFinite(szRaw) && szRaw > 0 ? szRaw : 35));
-        const puRaw = document.getElementById('inProjUnits').value.trim();
-        const puNum = puRaw === '' ? null : Number(puRaw);
-        const bedVal = document.getElementById('inBedrooms').value.trim();
+        const puVal = clampOptNum('inProjUnits', 10, 5000);
+        const bedVal = clampOptNum('inBedrooms', 0, 6);
+        const paRaw = clampOptNum('inProjAmenities', 0, 20);
         const isDup = document.getElementById('inDuplex').checked ? 1 : 0;
 
         const row = {
           log_size: Math.log(sz),
-          floor_no: document.getElementById('inFloor').value.trim(),
+          floor_no: clampOptNum('inFloor', 1, 100),
           bedrooms: bedVal,
           unit_type: inUnitType.value,
           is_duplex: isDup,
           n_reported_room_amenities: customAmenitiesSet.size,
-          log_project_units: puNum && puNum > 0 ? Math.log1p(puNum) : '',
-          project_age_2023: document.getElementById('inProjAge').value.trim(),
-          project_max_floors: document.getElementById('inProjFloors').value.trim(),
-          project_buildings: document.getElementById('inProjBuildings').value.trim(),
-          reported_common_amenities: document.getElementById('inProjAmenities').value.trim() || 0,
+          log_project_units: puVal !== '' ? Math.log1p(puVal) : '',
+          project_age_2023: clampOptNum('inProjAge', 0, 60),
+          project_max_floors: clampOptNum('inProjFloors', 1, 100),
+          project_buildings: clampOptNum('inProjBuildings', 1, 30),
+          reported_common_amenities: paRaw === '' ? 0 : paRaw,
           project_district: inDistrict.value,
         };
         for (const k of Object.keys(AMEN_TH)) {
@@ -2206,11 +2255,15 @@
         document.getElementById('spotTitle').textContent = 'ห้องจำลอง (ทดลองกรอกข้อมูลเอง)';
         document.getElementById('spotRoomId').textContent = 'Custom Input';
         document.getElementById('spotDistrict').textContent = `เขต ${inDistrict.value.replace(' Bangkok', '')}`;
+        const dataBadge = document.getElementById('spotDataBadge');
+        if (dataBadge) dataBadge.style.display = 'none';
         document.getElementById('presetNote').textContent = `เทียบกับห้องจริงสเปกใกล้สุดในข้อมูล Test (${bench.project_name} • ${bench.size_sqm} ตร.ม. • ค่าเช่าจริง ${fmtTHB(refRent)} บ.)`;
 
         document.getElementById('actualCmpTitle').textContent = `ราคาตลาดจริงอ้างอิง (${bench.project_name} • ${bench.size_sqm} ตร.ม.)`;
         document.getElementById('spotPerSqm').textContent = `${fmtTHB(refRent / bench.size_sqm)} บาท / ตร.ม.`;
         animateNumber(document.getElementById('spotActual'), refRent, v => fmtTHB(v), 240);
+
+        syncWinnerCards(saved >= 0);
 
         const banner = document.getElementById('spotBanner');
         const bannerText = document.getElementById('spotBannerText');
@@ -2218,12 +2271,12 @@
         if (saved >= 0) {
           banner.className = 'pred-banner good';
           bannerText.innerHTML = `เทียบราคาตลาดจริงในเขตนี้ (${fmtTHB(refRent)} บ.) — Phase 3 แม่นกว่า Phase 2 อยู่ <strong id="savedAnim">0</strong> บาท`;
-          bannerPct.textContent = `คลาดเคลื่อน ${fmtDec(pct3)}%`;
+          bannerPct.textContent = `P3 คลาดเคลื่อน ${fmtDec(pct3)}%`;
           animateNumber(document.getElementById('savedAnim'), saved, v => fmtTHB(v), 220);
         } else {
           banner.className = 'pred-banner neutral';
           bannerText.innerHTML = `เทียบห้องอ้างอิง (${fmtTHB(refRent)} บ.) — เคสนี้ Phase 2 ใกล้กว่า <strong id="savedAnim">0</strong> บาท`;
-          bannerPct.textContent = `ต่างกัน ${fmtTHB(Math.abs(p3 - p2))} บ.`;
+          bannerPct.textContent = `P2 พลาด ${fmtDec(pct2)}% • P3 ${fmtDec(pct3)}%`;
           animateNumber(document.getElementById('savedAnim'), -saved, v => fmtTHB(v), 220);
         }
 
@@ -2251,7 +2304,7 @@
         document.getElementById('tabModeCustom').setAttribute('aria-selected', String(isCustom));
 
         document.getElementById('testToolbar').style.display = isCustom ? 'none' : 'flex';
-        document.getElementById('btnResetCustom').style.display = isCustom ? 'inline-block' : 'none';
+        document.getElementById('btnResetCustom').style.display = isCustom ? 'inline-flex' : 'none';
         document.getElementById('spotReadOnlyView').style.display = isCustom ? 'none' : 'block';
         document.getElementById('spotCustomView').style.display = isCustom ? 'block' : 'none';
         document.getElementById('actualCmpCard').style.display = 'block';
